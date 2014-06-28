@@ -1,0 +1,79 @@
+# kino
+gs 'stat'
+'<center><B>Кинотеатр</B></center>'
+'<center><img src="img\centr\kino.jpg" ></center>'
+'Небольшой кинотеатр, стоимость билета 300 руб.'
+
+act 'Уйти':gt'torgcentr'
+if hour >= 8 and hour <= 20:
+     if money>=300:
+		 act 'Смотреть кино':
+		 cls
+		 set money-=300
+		 set minut+=60
+		 manna+=300
+		 gs'stat'
+		 set kinorand=rand(0,9)
+		     if kinorand=9:
+			 'В зале пусто, только рядом с вами сидит один парень.'
+			 act 'Досмотреть фильм':minut+=60&gt 'kino'
+			     act 'Совратить':
+				 cla
+				 *clr
+				 '<center><img src="img\centr\kino1.jpg" ></center>'
+				     if vnesh<15:
+					 'Вы оголяете грудь демонстрирую её парню, но он не обращает на вас внимания'
+					 act 'Уйти':gt 'kino'
+					 end
+				     if vnesh>=15:
+					 'Вы оголяете грудь демонстрирую её парню, он явно заинтересовался и смотрит на вас в ожидая продолжения'
+					     act 'Куни':
+						 cla
+						 *clr
+						 set guy+=1
+						 set kuni+=1
+						 set horny+=10
+						 '<center><img src="img\centr\kino2.jpg" ></center>'
+						 'Вы задираете ноги и просите его полизать, парень быстро опустился на колени и начал вылизывать вас.'
+						 act 'Уйти':set DOM+=1&gt'kino'
+						 act 'Минет':gt'kino','sex'
+						 end
+					 act 'Минет':gt'kino','sex'
+					 end
+				 end
+		     exit
+			 end
+		 set minut+=60
+		 gs'stat'
+		 'Вы посмотрели фильм'
+		 act 'Уйти':gt 'kino'
+		 end
+	 end
+else
+'Кинотеатр закрыт.'
+end
+
+if $ARGS[0] = 'sex':
+cla
+*clr
+set bj+=1
+'<center><img src="img\centr\kino3.jpg" ></center>'
+'Вы обхватили его возбужденный пенис губами и начали сосать одновременно играя рукой с его яйцами. Вскоре вы почувствовали что он вот вот кончит.'
+     act'Сосать':
+	 cla
+	 'Вы продолжили сосать и парень разрядился вам в рот наполняя его теплой вязкой жидкостью.'
+	 act 'Уйти':set cumlip+=1&gt'kino'
+	 end
+	 
+     act'Дать':
+	 cla
+	 *clr
+	 set sex+=1
+	 set horny+=50
+	 '<center><img src="img\centr\kino4.jpg" ></center>'
+	 'Вы встаете коленями на кресло, повернувшись к парню задом и призывно покачиваете задницей, он не заставил себя ждать и быстро вошел вам в вагину, через несколько секунд он застонал и кончил в вас, оставив вас неудовлетворенной.'
+	 act 'Уйти':set cumpussy+=1&gt'kino'
+	 end
+end
+--- kino ---------------------------------
+

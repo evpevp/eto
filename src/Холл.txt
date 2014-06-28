@@ -1,0 +1,29 @@
+# Холл
+*PL '<right><img src="casino\zdcasino.jpg" ></right>'
+*PL 'Вы вошли в холл гигантского здания казино. '
+*PL 'Вы можете пойти:'
+ACT 'Выйти из казино':
+	gt 'casino'
+END
+USEHTML = 1
+*clear
+
+clr
+gs'stat'
+set minut=minut + 5
+
+picrand=RAND(0,2)
+if picrand=0:'<right><img src="casino\hcasino1.jpg" ></right>'
+if picrand=1:'<right><img src="casino\hcasino2.jpg" ></right>'
+if picrand=2:'<right><img src="casino\hcasino3.jpg" ></right>'
+
+'К  <a href="exec:GT ''метрдотель''">метрдотелю</a>'
+'В зал <a href="exec:GT ''игравт''">игровых автоматов</a>'
+'В зал игр в <a href="exec:GT ''рулетка''">рулетку</a>'
+'В зал игр в <a href="exec:GT ''карты''">карты</a>'
+!'В <a href="exec:GT ''ресторан''">ресторан</a>'
+!'В <a href="exec:GT ''бар''">бар</a>'
+!'В <a href="exec:GT ''театр''">театр</a>'
+'К <a href="exec:GT ''гостиница''">гостинице</a>'
+--- Холл ---------------------------------
+

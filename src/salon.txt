@@ -1,0 +1,752 @@
+# salon
+if $ARGS[0]='start':
+gs'stat'
+$zavivka={
+set minut+=60
+set curly+=10
+set money-=1000
+if salonrand=0 and masha=0:gt 'salon','0'
+'Вам завили волосы.'
+gs'stat'
+gt'salon','start'
+}
+$pokraska={
+cla
+set money = money - 1000
+'Вы заплатили деньги и сели в кресло, к вам подошла девушка косметолог и спросила в какой цвет желаете перекрасится.'
+if hcol ! 0:
+	 act 'Черный цвет':
+		 cla
+		 set minut = minut + 60
+		 set hcol = 0
+		 if salonrand=0 and masha=0:gt 'salon','0'
+		 'Вам покрасили волосы.'
+		 gt'salon','start'
+		 end
+	 end
+if hcol ! 1:
+	 act 'Русый цвет':
+		 cla
+		 set minut = minut + 60
+		 set hcol = 1
+		 if salonrand=0 and masha=0:gt 'salon','0'
+		 'Вам покрасили волосы.'
+		 gt'salon','start'
+		 end
+	 end
+if hcol ! 2:
+	 act 'Рыжий цвет':
+		 cla
+		 set minut = minut + 60
+		 set hcol = 2
+		 if salonrand=0 and masha=0:gt 'salon','0'
+		 'Вам покрасили волосы.'
+		 gt'salon','start'
+		 end
+	 end
+if hcol ! 3:
+	 act 'Светлый цвет':
+		 cla
+		 set minut+=60
+		 set hcol = 3
+		 if salonrand=0 and masha=0:gt 'salon','0'
+		 'Вам покрасили волосы.'
+		 gt'salon','start'
+		 end
+	 end
+gs'stat'
+}
+$solyariy={
+set minut+=60
+set tan+=10
+set money-=1000
+if salonrand>6 and nastjaqw>2:gt 'etoexhib','pos1'
+if salonrand=0 and masha=0:gt 'salon','0'
+'Вы загарали в солярии.'
+gs'stat'
+gt'salon','start'
+}
+$resnici={
+set minut+=60
+set resnic = resnic + 1
+set money = money - 5000
+if salonrand=0 and masha=0:gt 'salon','0'
+'Вам удлиннили ресницы.'
+gs'stat'
+gt'salon','start'
+}
+$epilyaciya={
+set minut+=60
+set leghair = -20
+set lobok = -20
+set money = money - 5000
+if salonrand=0 and masha=0:gt 'salon','0'
+'Вам провели полную эпиляцию тела.'
+gs'stat'
+gt'salon','start'
+}
+$ozdormas={
+set minut+=60
+set salo-=2
+set vidageday+=3
+set money-=5000
+if salonrand=0:
+	 cla
+	 *clr
+	 '<center><img src="img\centr\mass.jpg" ></center>'
+	 'В процессе массажа парень увлекается и его маслянные пальцы начинают проскальзывать то в вашу киску то в анус.'
+	 set picrand=rand(25,28)
+	 act 'Возмутиться':gt'salon','start'
+	 act 'Наслаждаться':
+		 set guy+=1
+		 gt'sex','minet'
+		 end
+	 end
+gs'stat'
+gt'salon','start'
+}
+$tatyadd={
+set minut+=60
+cla
+if tatlip = 0:
+   	 act 'Посмотреть татуировку на губе №1':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatlip1.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatlip = 1
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 set vaf+=10
+			 gs'stat'
+			 'Вы ложитесь на кушетку, открываете рот и вам набивают татуировку на губе.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку на губе №2':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatlip2.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatlip = 2
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 set vaf+=10
+			 gs'stat'
+			 'Вы ложитесь на кушетку, открываете рот и вам набивают татуировку на губе.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку на губе №3':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatlip3.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatlip = 3
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 set vaf+=10
+			 'Вы ложитесь на кушетку, открываете рот и вам набивают татуировку на губе.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 end
+if tatplech = 0:
+   	 act 'Посмотреть татуировку на плече "цветы"':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatplech1.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatplech = 1
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, открываете плечи и, вам набивают татуировку.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку на плече "бабочка"':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatplech2.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatplech = 2
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, открываете плечи и, вам набивают татуировку.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку на плече "цветы №2"':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatplech3.jpg" ></center>'
+	     act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatplech = 3
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, открываете плечи, и вам набивают татуировку.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку на плече "Пиковая дама"':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatplech4.jpg" ></center>'
+	     act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatplech = 4
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, открываете плечи, и вам набивают татуировку.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 end
+if tatback = 0:
+   	 act 'Посмотреть татуировку "крылья" на спине №1':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatb1.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatback = 1
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, открываете спину, и вам набивают татуировку.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку "крылья" на спине №2':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatb2.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatback = 2
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, открываете спину, и вам набивают татуировку.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку "корсет" на спине':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatb3.jpg" ></center>'
+	     act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatback = 3
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, открываете спину, и вам набивают татуировку.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку "иероглифы" на спине':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatb4.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatback = 4
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, открываете спину, и вам набивают татуировку.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 end
+if tatupb = 0:
+	 act 'Посмотреть татуировку на пояснице №1':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatupb1.jpg" ></center>'
+		 'Татуировка на пояснице традиционно называется trump stamp, шлюхино клеймо, татуировка девушек не обремененных тяжестью поведения.'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatupb = 1
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку,  и вам набивают татуировку на пояснице.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку на пояснице №2':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatupb2.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatupb = 2
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, и вам набивают татуировку на пояснице.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку на пояснице №3':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatupb3.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatupb = 3
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, и вам набивают татуировку на пояснице.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+	     end
+	 act 'Посмотреть татуировку на пояснице №4':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatupb4.jpg" ></center>'
+		 'Татуировка на пояснице традиционно называется trump stamp, шлюхино клеймо, татуировка девушек не обремененных тяжестью поведения.'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatupb = 4
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, и вам набивают татуировку на пояснице.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 end
+if tatvag = 0:
+	 act 'Посмотреть татуировку в паху "Звезды"':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatvag.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatvag = 1
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, снимаете бельё и вам набивают татуировку в паху.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку в паху "Лизни меня"':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatvag2.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatvag = 2
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, снимаете бельё и вам набивают татуировку в паху.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку в паху "Black Owned"':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatvag3.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatvag = 3
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 Set vnesh = vnesh + 5
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, снимаете бельё и вам набивают татуировку в паху.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку в паху "Счастливчик"':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatvag4.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatvag = 4
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 Set vnesh = vnesh + 5
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, снимаете бельё и вам набивают татуировку в паху.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку в паху "Ангел греха"':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatvag5.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatvag = 5
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 Set vnesh = vnesh + 5
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, снимаете бельё и вам набивают татуировку в паху.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 end
+if tatleg = 0:
+	 act 'Посмотреть татуировку на лодыжке №1':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatleg1.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatleg = 1
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 Set vnesh = vnesh + 5
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, и вам набивают татуировку на лодыжке.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку на лодыжке №2':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatleg2.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatleg = 2
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 Set vnesh = vnesh + 5
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, и вам набивают татуировку на лодыжке.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку на лодыжке №3':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatleg3.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatleg = 3
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 Set vnesh = vnesh + 5
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, и вам набивают татуировку на лодыжке.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 act 'Посмотреть татуировку на лодыжке №4':
+		 cla
+		 *clr
+		 '<center><img src="picBody\tatleg4.jpg" ></center>'
+		 act 'Выйти':gt 'salon','start'
+		 act 'Сделать татуировку':
+			 cla
+			 Set tatleg = 4
+			 Set horny = horny + 5
+			 Set money = money - 8000
+			 Set vnesh = vnesh + 5
+			 minut+=60
+			 gs'stat'
+			 'Вы ложитесь на кушетку, и вам набивают татуировку на лодыжке.'
+			 act 'Выйти':gt 'salon','start'
+			 end
+		 end
+	 end
+gs'stat'
+}
+$uhodkosha={
+set minut+=60
+set skin = skin + 1
+set money = money - 15000
+if salonrand=0 and masha=0:gt 'salon','0'
+'Вам наложили маску на лицо, через некоторое время косметолог удалила ее.'
+gs'stat'
+gt'salon','start'
+}
+$delgub={
+set minut+=60
+set lip = lip - 1
+set money = money - 15000
+'Вам уменьшили губы.'
+gs'stat'
+gt'salon','start'
+}
+$addgub={
+set minut+=60
+set lip = lip + 1
+set money = money - 25000
+'Вам увеличили губы.'
+gs'stat'
+gt'salon','start'
+}
+$addglaza={
+set minut+=60
+set glaraz = glaraz + 1
+set money = money - 30000
+'Вам увеличили глаза.'
+gs'stat'
+gt'salon','start'
+}
+$addtitki={
+set minut+=60
+set silicone = silicone + 10
+set money = money - 150000
+'Вам вставили силикон в груди увеличив их размер на 10 см.'
+gs'stat'
+gt'salon','start'
+}
+$delshir={
+set minut+=60
+set fat=0
+set salo=0
+set money = money - 150000
+'Вам полностью отсосали жир из тела.'
+gs'stat'
+gt'salon','start'
+}
+$omoloshenie={
+set minut+=60
+set vidageday = vidageday + 50
+set money = money - 250000
+if salonrand=0 and masha=0:gt 'salon','0'
+'Вам провели процедуры омоложения, они не могут повернуть время в спять, они могут только приостановить старение на время.'
+gs'stat'
+gt'salon','start'
+}
+
+$sexloc = $CURLOC
+if week=1 and hour>=9 and hour<=10 and worksalon=1:gt'salon','beginwork'
+if week=3 and hour>=9 and hour<=10 and worksalon=1:gt'salon','beginwork'
+if week=5 and hour>=9 and hour<=10 and worksalon=1:gt'salon','beginwork'
+cla
+*clr
+set salonrand=rand(0,9)
+set minut+=5
+'<center><B><font color=maroon>Салон красоты</font></B></center>'
+'<center><img src="pic\salon.jpg" ></center>'
+'Подойти к <a href="exec:gt''salon'',''1''">администратору.</a>'
+if money >= 1000:'<a href="exec: dynamic $zavivka ">Завить волосы - 1тыр</a>'
+if money<1000:'Завить волосы - 1тыр'
+if money >= 1000:'<a href="exec: dynamic $pokraska ">Покрасить волосы - 1тыр</a>'
+if money<1000:'Окрашивание волос 1 тыр'
+if money >= 1000:'<a href="exec: dynamic $solyariy ">Солярий - 1тыр</a>'
+if money<1000:'Солярий - 1 тыр'
+if money >= 5000:'<a href="exec: dynamic $resnici ">Удлиннение ресниц - 5 тыр</a>'
+if money<5000:'Удлиннение ресниц - 5 тыр'
+if money >= 5000:'<a href="exec: dynamic $epilyaciya ">Полная эпиляция - 5 тыр</a>'
+if money<5000:'Полная эпиляция - 5 тыр'
+if money >= 5000:'<a href="exec: dynamic $ozdormas ">Оздоровительный массаж (разгоняет жир, омолаживает тело), 5000 руб</a>'
+if money<5000:'Оздоровительный массаж (разгоняет жир, омолаживает тело), 5000 руб'
+if money >= 8000:'<a href="exec: dynamic $tatyadd ">Татуирока или пирсинг - 8 тысячи рублей</a>'
+if money<8000:'Татуирока или пирсинг - 8 тысячи рублей'
+if money >= 15000:'<a href="exec: dynamic $uhodkosha ">Уход за кожей - 15 тыр</a>'
+if money<15000:'Уход за кожей - 15 тыр'
+if money >= 15000 and lip > 0:'<a href="exec: dynamic $delgub ">Уменьшение губ - 15 тыр</a>'
+if money<15000 or lip < 1:'Уменьшение губ - 15 тыр'
+if money >= 25000 and lip < 4:'<a href="exec: dynamic $addgub ">Увеличение губ - 25 тыр</a>'
+if money<25000 or lip >= 4:'Увеличение губ - 25 тыр'
+if money >= 30000:'<a href="exec: dynamic $addglaza ">Увеличение глаз - 30 тыр</a>'
+if money<30000:'Увеличение глаз - 30 тыр'
+if money >= 150000:'<a href="exec: dynamic $addtitki ">Увеличение груди - 150 тыр</a>'
+if money<150000:'Увеличение груди - 150 тыр'
+if money >= 150000:'<a href="exec: dynamic $delshir ">Отсос жира - 150 тыр</a>'
+if money<150000:'Отсос жира - 150 тыр'
+if money >= 250000:'<a href="exec: dynamic $omoloshenie ">Процедуры омоложения - 250 тыр</a>'
+if money<250000:'Процедуры омоложения - 250 тыр'
+clr
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+if hour < 8 or hour > 20:
+	 cls
+	 'Салон красоты закрывается и вас просят удалится.'
+	 act 'ВЫЙТИ':set minut = minut + 5&gt'torgcentr'
+	 exit
+	 end
+act 'ВЫЙТИ':set minut+=5&gt'torgcentr'
+end
+
+if $ARGS[0] = '0':
+cla
+*clr
+set cumfrot+=1
+'<center><img src="img\centr\pri1.jpg" ></center>'
+'Во время процедуры девушка умудряется испачкать вашу одежду какой то жидкостью, теперь на ней следы очень похожие на сперму. Вы начинаете вомущаться к вам подходит администратор и пытается вас успокоить, обящая что девушка будет наказана, а вам компенсируют расходы на хим чистку в рамере 5000руб.'
+act 'Согласиться':set money+=5000&gt'salon','start'
+if DOM>10:
+	 act 'Потребовать наказать сейчас':
+		 cla
+		 set orgasm+=1
+		 set DOM+=1
+		 'Администратор смотрит на вас не понимая что вы хотите
+		 "Что не понятно я хочу что-бы эту сучку сейчас наказали" начали возмущаться вы.
+		 "Как вы хотите что-бы её наказали?" спросил администратор
+		 "Трахни её здесь при мне" закричали вы.
+		 "Извините, но я не могу этого сделать" пролепетал парень'
+		 act '"Все ты можешь"':
+			 cla
+			 *clr
+			 '<center><img src="img\centr\pri2.jpg" ></center>'
+			 '"Все ты можешь" сказали вы и растегнув парню штаны достали его член, по сильно возбужденому фалосу было понятно что парню очень нравиться ваша идея с наказанием.'
+			 act '"Соси сучка"':
+				 cla
+				 *clr
+				 '<center><img src="img\centr\pri3.jpg" ></center>'
+				 'C этими словами вы притянули голову девушки к члену и она послушно обхватила его губами.
+				 "Активнее, глубже" подгоняли вы девушку'
+				 act'"Поставь её раком"':
+					 cla
+					 *clr
+					 '<center><img src="img\centr\pri4.jpg" ></center>'
+					 'Парень послушно поставил её раком, и вставил свой фалос в её вагину, девушка тихонько взвигнула, а парень войдя в роль трахал её яросно заталкивая член как можно глубже в неё. Вы взяли руку девушки и положили на свой лобок, она послушно принялась массировать ваш клитор'
+					 act '"Посади её сверху"':
+						 cla
+						 *clr
+						 '<center><img src="img\centr\pri5.jpg" ></center>'
+						 'Парень сел на кресло, девушка быстро заскочила сверху и начала скакать, вы взяли ей ягодицы и при каждом её скачке с силой опускали её на член, девушка вскрикивала, а вы продолжали насаживать её на его фалос.'
+						 act'"Ложись на пол"':
+							 cla
+							 *clr
+							 '<center><img src="img\centr\pri6.jpg" ></center>'
+							 'Девушка легла на пол, а перень пристроился с боку, вы же сели на лицо девушке она не дала вам шанса скомандовать и как только ваша киска оказалась в зоне досигаемости её языка начала вылизывать вас стараясь не пропустить ни миллиметра вашей киски, как снаружи так и внутри, на сколько хватало её язычка. Вскоре приятные волны накрыли вас и вы кончили сидя на её лице'
+							 act'"Заканчивай"':
+								 cla
+								 *clr
+								 '<center><img src="img\centr\pri7.jpg" ></center>'
+								 'Парень встал, поднял девушку на колени и разрядился, заливая её рот, лицо и грудь горячей спермой
+								 "Вот так надо наказывать сучек" с этими словами вы взяли визитку девушки "Так ты у нас Маша, я тебе может позвоню, у тебя хороший язычок" с этими словами вы вышли оставив девушку на полу всю в сперме.'
+								 set telmasha=1
+								 set masha+=1
+								 act 'Уйти':gt'salon','start'
+								 end
+							 end
+						 end
+					 end
+				 end
+			 end
+		 end
+	 end
+end
+
+if $ARGS[0] = '1':
+set minut+=5
+cla
+if worksalon=0:
+	 'Вы спрашиваете возьмут ли вас на работу.'
+	 if masash<10:
+		 'Вы же ничего не умете, приходите когда научитесь'
+		 act 'Отойти':gt'salon','start'
+		 end
+	 if masash>=10:
+		 '"Хорошо нам нужны массажистки. Работать будешь понедельник, среда, пятница с 9 до 10 часов, и выходи на смену, работать будешь до 19 часов. Не придешь, тебе этот день не зачтется в зарплату. Зарплата перечисляется 25-го числа, за каждую отработанную смену - 800 рублей."'
+		 '"Трудовую надо сдать в отдел кадров. Вам все понятно, будете работать?"'
+		 if work=0:
+			 act 'Отойти':gt'salon','start'
+			 act 'Устроится на работу':
+				 cla
+				 set worksalon = 1
+				 set work=1
+				 'Вы отнесли трудовую в отдел кадров."'
+				 act 'Отойти':gt'salon','start'
+				 end
+			 end
+		 act 'Отойти':gt'salon','start'
+		 end
+	 end
+if worksalon=1:
+	 act'Уволиться':gt'salon','discharge'
+	 act 'Отойти':gt'salon','start'
+	 end
+end
+
+if $ARGS[0] = 'beginwork':
+cla
+*clr
+'<center><B><font color=maroon>Салон красоты</font></B></center>'
+'<center><img src="pic\salon.jpg" ></center>'
+'Вы пришли на смену в салон красоты.'
+act'Начать работу':
+	 set smena+=1
+	 gt'worksalon','start'
+	 end
+act'Уволиться':gt'salon','discharge'
+end
+
+if $ARGS[0] = 'discharge':
+cla
+set minut+=10
+set worksalon=0
+set work=0
+set pay = smena * 800
+set money = money + pay
+set smena = 0
+'Администратор посмотрел на вас: "Вот ваш расчет <<pay>> рублей и трудовая книжка. До свидания."'
+act 'Уйти':gt'salon','start'
+end
+--- salon ---------------------------------
+

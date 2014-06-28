@@ -1,0 +1,239 @@
+# Prostitute
+if $ARGS[0]='start':
+$metka = $ARGS[0]
+$loc = $CURLOC
+$metkaSex = $ARGS[0]
+$locSex = $CURLOC
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Проститутка</font></B></center>'
+'<center><img src="pic\park2.jpg" ></center>'
+clr
+gs'stat'
+gs'time'
+if hour >= 16 and hour <= 23:
+	 if whoreQW = 2:
+		 'Проститутки смотрят на вас с любопытством.'
+		 end
+	 if whoreQW = 1:
+		 'Проститутки смотрят на вас с интересом.'
+		 act 'Поговорить':
+			 cla
+			 set whoreQW = 2
+			 'Вы подошли к проститутке и спросили у нее как тут вообще дела делаются. Она начала объяснять. "Мы все свободные, не работаем ни на кого, но из за этого много проблем. Стелла со свими подружками бывает бьют нас и обирают, иногда приезжают мелкие бандиты и отнимают у нас деньги. Если хочешь тут работать, то придется платить и Стелле и бандюкам. Ты конечно крутая, можешь попробовать осадить Стеллу и ее подружек, но с бандитами не советую связываться. И еще, на тебя не клюнут клиенты, если ты небудешь одета как шлюха, можешь купить соответствующую одежду в сексшопе."'
+			 act 'Отойти':gt'prostitute','start'
+			 end
+		 end
+	 if whoreQW = 0:
+		 'Эй, ты не из наших, валила бы с нашей точки, а то зубов не соберешь.'
+		 act 'Да пошла ты!':
+			 cla
+			 set minut = minut + 15
+			 set $nameV = 'Обдолбанная проститутка'
+			 !Статы
+			 set strenV = 20
+			 set speedV = 30
+			 set agilV = 30
+			 set reactV = 30
+			 set vitalV = 50
+			 set intelV = 10
+			 set willV = 10
+			 !Навыки
+			 set magikV = 10
+			 set boxingV = 10
+			 set shootV = 10
+			 !Параметры
+			 set healthV = vitalV*10 + strenV*5
+			 set mannaV = intelV*10 + magikV*10
+			 set willpowerV = willV*10
+			 set BonusAtakV = 0
+			 set BonusDefV = 0
+			 !программа действий
+			 set program = 0
+			 set prostitutFight = 1
+			 if spellavtoklon = 1:set klon = 3
+			 if spellbefshild = 1:set defence = 500
+			 gt'fight','start'
+			 end
+		 act 'А как стать одной из ваших?':
+			 cla
+			 'А как стать одной из ваших? Поинтересовались вы. Проститутка нагло усмехнулась, сплюнула. Для этого надо платить Стелле.'
+			 act 'Отойти':gt'prostitute','start'
+			 act 'Я согласна':
+				 cla
+				 whoreQW = 2
+				 'Вы согласились. Проститутка вам сказала, что вам нужно купить соответствующую одежду в секс шопе. Тогда клиенты сразу будут понимать что ты проститутка.'
+				 act 'Отойти':gt'prostitute','start'
+				 end
+			 end
+		 end
+	 if whoreQW > 1 and hook = 1 and son > 0:
+		 act 'Стоять на панели 15 мин':
+			 cla
+			 set minut = minut + 10
+			 set prosrand = RAND (0,(vnesh+hour)*2)
+			 if prosrand < 20:
+				 'Никто вами не заинтересовался.'
+				 act 'Уйти':gt'prostitute','start'
+				 end
+			 if prosrand >= 20:
+				 'К вам подъехала машина.'
+				 set proseventrand = RAND (0,100)
+				 if proseventrand <= 5:
+					 'К вам подъехал черный джип, открылось окно и оттуда высунулась здоровая наглая морда. "Эй шлюха, пора дань платить. Давай сюда штукарь и вали дальше работать."'
+					 if money >= 1000:
+						 act 'Отдать деньги':
+							 cla
+							 set money = money - 1000
+							 'Вы отдали деньги здоровяку в джипе. Он положил их в карман и уехал.'
+							 act 'Отойти':gt'prostitute','start'
+							 end
+						 end
+					 if money<1000:
+						 act 'Я еще не заработала столько':
+							 cla
+							 money = 0
+							 'Вы начали объяснять здоровяку, что вы еще не заработали он схватил вас за руку и швырнул в джип, там он у вас обчистил карманны и заявил что он научит вас, как надо работать.'
+							 act 'Отрабатывать':
+								 set $nameV = 'бандит'
+								 set $boy = 'Бандит'
+								 set dick = RAND (18,21)
+								 gt'blowPR','start'
+								 end
+							 end
+						 end
+					 act 'Да пошел ты!':
+						 cla
+						 set minut = minut + 15
+						 set $nameV = 'Бандит'
+						 !Статы
+						 set strenV = 200
+						 set speedV = 30
+						 set agilV = 20
+						 set reactV = 20
+						 set vitalV = 150
+						 set intelV = 10
+						 set willV = 10
+						 !Навыки
+						 set magikV = 10
+						 set boxingV = 10
+						 set shootV = 10
+						 !Параметры
+						 set healthV = vitalV*10 + strenV*5
+						 set mannaV = intelV*10 + magikV*10
+						 set willpowerV = willV*10
+						 set BonusAtakV = 0
+						 set BonusDefV = 0
+						 !программа действий
+						 set program = 0
+						 set prostitutFight = 2
+						 if spellavtoklon = 1:set klon = 3
+						 if spellbefshild = 1:set defence = 500
+						 gt'fight','start'
+						 end
+					 end
+				 if proseventrand > 5 and proseventrand <= 50:
+				 klient_needs=0
+				 prosti = 0
+				 KlientMON=RAND(1,10)
+					 'Клиент хочет минет и спрашивает сколько это будет стоить.'
+				 end
+				 if proseventrand > 50 and proseventrand <= 75:
+				 klient_needs=1
+				 prosti = 0
+				 KlientMON=RAND(3,25)
+					 'Клиент хочет секса и спрашивает сколько это будет стоить.'
+				 end
+				 if proseventrand > 75 and proseventrand <= 95:
+				 klient_needs=2
+				 prosti = 0
+				 KlientMON=RAND(5,40)
+					 'Клиент хочет анал и спрашивает сколько это будет стоить.'
+				 end 
+				 if proseventrand > 5 and proseventrand <= 95:
+				 klienVNPR=RAND(0,30)
+				 
+				 act 'Уйти':gt'prostitute','start'
+					 if ProsMoney>0:
+						 act '<<ProsMoney*100>> рублей':
+						 cls
+						 dynamic $universalklient
+						 end
+					 end
+					 
+					 act 'Назначить цену':
+					 cls
+					 gs'stat'
+					 ProsMoney=input("Назначте цену в сотнях")
+					     if ProsMoney<1:
+					     'Клиент посмотрел на вас удивленно и пробормотал "Ебанутая какая то." После чего тронул машину и уехал.'
+					     act 'Уйти':gt'prostitute','start'
+					     else
+					     dynamic $universalklient
+					     end
+					 end
+					     
+					     
+				 end
+				 if proseventrand > 95:
+					 'К вам подошла проститутка. "Слыш, шалава, если не хочешь проблем, надо заплатить Стелле. Давай сюда пятихатник и вали дальше работать."'
+					 if money >= 500:
+						 act 'Отдать деньги':
+							 cla
+							 set money = money - 500
+							 'Вы отдали деньги проститутке, она развернулась и ушла.'
+							 act 'Отойти':gt'prostitute','start'
+							 end
+						 end
+					 if money<500:
+						 act 'Я еще не заработала столько':
+							 cla
+							 set money = 0
+							 'Вы начали жаловатся что еще не заработали столько денег. Проститутка обыскала вас забрав все ценное и ушла.'
+							 act 'Отойти':gt'prostitute','start'
+							 end
+						 end
+					 act 'Да пошла ты!':
+						 cla
+						 set minut = minut + 15
+						 set $nameV = 'Проститутка'
+						 !Статы
+						 set strenV = 50
+						 set speedV = 50
+						 set agilV = 40
+						 set reactV = 30
+						 set vitalV = 60
+						 set intelV = 10
+						 set willV = 10
+						 !Навыки
+						 set magikV = 10
+						 set boxingV = 10
+						 set shootV = 10
+						 !Параметры
+						 set healthV = vitalV*10 + strenV*5
+						 set mannaV = intelV*10 + magikV*10
+						 set willpowerV = willV*10
+						 set BonusAtakV = 0
+						 set BonusDefV = 0
+						 !программа действий
+						 set program = 0
+						 set prostitutFight = 3
+						 if spellavtoklon = 1:set klon = 3
+						 if spellbefshild = 1:set defence = 500
+						 gt'fight','start'
+						 end
+					 end
+				 end
+			 end
+		 end
+	 end
+act 'УЙТИ':
+	 cla
+	 set minut = minut + 5
+	 set prosta = 0
+	 gt'park','start'
+	 end	
+end
+--- Prostitute ---------------------------------
+

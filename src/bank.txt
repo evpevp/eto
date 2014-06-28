@@ -1,0 +1,65 @@
+# bank
+if $ARGS[0]='start':
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Банк</font></B></center>'
+'<center><img src="pic\bank.jpg" ></center>'
+clr
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+if karta > 0:'На счету в банке <<karta>> рублей'
+
+     if BankPapper=1 and dayBankPapper=day:
+         act 'Отдать документы':
+		 cls
+		 set minut = minut + 15
+		 BankPapper=2
+		 gs'stat'
+		 'Вы зашли в офис и отдали документы менеджеру.'
+		 act 'Уйти':minut+=5&gt'down'
+		 end
+     
+     end
+     
+     if money > 0:
+         act 'Положить деньги на счет':
+		 cla
+		 set minut = minut + 5
+		 kartaIN = input ("Сколько денег вы хотите положить на счет?")
+		     if kartaIN <= 0 or kartaIN > money:
+		     'Не корректная операция.'
+		     else
+		     set karta = karta + kartaIN
+		     set money = money - kartaIN
+		     'Вы положили на счет <<kartaIN>> рублей, теперь на вашем счету <<karta>> рублей.'
+		     end
+		     
+		 act 'Отойти':gt'bank','start'
+		 end
+     
+     end
+     
+     if karta > 0:
+         act 'Снять деньги со счета':
+		 cla
+		 set minut = minut + 5
+		 kartaOUT = input ("Сколько денег вы хотите снять со счета?")
+		     if kartaOUT <= 0 or kartaOUT > karta:
+		     'Не корректная операция.'
+		     else
+		     set karta = karta - kartaOUT
+		     set money = money + kartaOUT
+		     'Вы сняли со счета <<kartaOUT>> рублей, теперь на вашем счету <<karta>> рублей.'
+		     end
+		     
+		 act 'Отойти':gt'bank','start'
+		 end
+     end
+
+act 'Выйти':gt'down'
+end
+--- bank ---------------------------------
+

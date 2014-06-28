@@ -1,0 +1,179 @@
+# Рынок
+'<center><B>РЫНОК</B></center>'
+'<center><img src="pic\rinok2.jpg" ></center>'
+Set час = час + 1
+Set horny = horny + 1
+if car = 0:Set money = money - 20&'Вы добирались на маршрутке и заплатили за проезд 20 рублей.'
+if car > 0 and benzin > 0:Set benzin = benzin - 1&'Вы доехали на своем <<$marka>>.'
+if car > 0 and benzin <= 0:Set money = money - 20&'У вас кончился бензин и вам пришлось ехать на маршрутке, заплатив за проезд 20 рублей.'
+'Шумный рынок, вы можете покупать на рынке одежду или купить место за 30000 руб и получать доход от торговой точки, но для покупки и доставки товара естественно необходимо иметь машину. Можно торговать самостоятельно или нанять продавщицу.'
+clr
+gs 'stat'
+act 'Покупать':gt 'РынокП','выбор'
+act 'Идти домой':gt 'street'
+if rinwork > 0 and час < 9:
+     act 'Работать продавщицей':
+     cla
+     *clr
+     Set час = 17
+     Set fat = fat + 5
+     Set vnesh = vnesh - 1
+     Set monrand = RAND (500,2000)
+     Set money = money + monrand
+     clr
+     gs 'stat'
+     
+     'Вы целый день продавали вещи на рынке и заработали <<monrand>> рублей'
+     Set rinrand = RAND (1,100)
+         if rinrand < 70 and palevorin = 0 and rinhoz = 0:
+         act 'Идти домой':gt 'street'
+         end
+         
+         if rinrand >= 70 and palevorin = 0 and rinhoz = 0:
+         'К вам подошел хозяин палатки и начал приставать к вам, обещая выписать премиальные'
+             act 'Отказаться':
+             cla
+             Set money = money - 2000
+             'Хозяин накладывает на вас штраф в 2000 рублей'
+             act 'Идти домой':gt 'street'
+             end
+         act 'Строить глазки':gt 'РынокХоз','начало'
+         end
+         
+         if rinrand < 60 and palevorin = 0 and rinhoz = 1:
+         act 'Идти домой':gt 'street'
+         end
+         if rinrand >= 60 and palevorin = 0 and rinhoz = 1:
+         'К вам подошел хозяин палатки и начал приставать к вам, обещая выписать премиальные'
+             act 'Отказаться':
+             cla
+             Set money = money - 2000
+             'Хозяин накладывает на вас штраф в 2000 рублей'
+             act 'Идти домой':gt 'street'
+             end
+         act 'Строить глазки':gt 'РынокХоз','начало'
+         end
+         
+         if rinrand < 60 and palevorin = 1:
+         'На рынке идет слух среди продавщиц что вас трахает хозяин лотка'
+         act 'Идти домой':gt 'street'
+         end
+         
+         if rinrand >= 60 and palevorin = 1:
+         'К вам подошел хозяин палатки и начал приставать к вам, обещая выписать премиальные'
+             act 'Отказаться':
+             cla
+             Set money = money - 2000
+             'Хозяин накладывает на вас штраф в 2000 рублей'
+             act 'Идти домой':gt 'street'
+             end
+         act 'Строить глазки':gt 'РынокХоз','начало'
+         end
+         
+         if rinrand < 40 and palevorin = 2:
+         'На рынке идет слух среди продавщиц что вас трахает хозяин лотка с дружками'
+         Set slutrand = RAND (1,100)
+             if slutrand >=70:
+             'После работы к вам подошел армянин и стал склонять вас к минету.'
+             act 'Согласится':gt 'РынокХоз','опустеха2'
+             end
+         act 'Идти домой':gt 'street'
+         end
+         
+         if rinrand >= 40 and rinrand < 70 and palevorin = 2:
+         'К вам подошел хозяин палатки и начал приставать к вам, обещая выписать премиальные'
+             act 'Отказаться':
+             cla
+             Set money = money - 2000
+             'Хозяин накладывает на вас штраф в 2000 рублей'
+             act 'Идти домой':gt 'street'
+             end
+         act 'Строить глазки':gt 'РынокХоз','начало'
+         end
+         
+         if rinrand >= 70 and palevorin = 2:
+         'К вам подошел хозяин палатки c уже знакомыми вам парнями и они начали склонять вас к оральному сексу, обещая выписать премиальные'
+             act 'Отказаться':
+             cla
+             Set money = money - 2000
+             'Хозяин накладывает на вас штраф в 2000 рублей'
+             act 'Идти домой':gt 'street'
+             end
+         act 'Строить глазки':gt 'РынокХоз','опустеха'
+         end
+     end
+     
+     act 'Уволиться':
+     cla
+     Set work = 0
+     Set rinwork = 0
+     'Вы увольняетесь.'
+     act 'Идти домой':gt 'street'
+     end
+
+end
+
+if busRinok = 0 and money >= 30000 and car > 0:
+     act 'Купить место на рынке на месяц 30000 руб':
+     cla
+     Set busRinok = 30 
+     Set money = money - 30000
+     'Вы купили место на рынке за 30000 рублей. Вам нужен товар'
+     act 'Идти домой':gt 'street'
+     end
+end
+!с 7 до 16, 9 часов
+if busRinok > 0 and tovarR > 0 and rinhour ! число:
+     act 'Торговать самостоятельно':
+     cla
+     Set fat = fat - 2
+     Set rinhour = число
+     Set torghour = 16 - rinhour
+     Set torgrand = RAND (1,50)
+     if tovarR >= torgrand:Set tovarR = tovarR - torgrand
+     if tovarR < torgrand:Set torgrand = tovarR&Set tovarR = 0
+     Set torgmoney = torgrand*200
+     Set money = money + torgmoney
+     'Вы заработали за день <<torgmoney>> рублей, распродав <<torgrand>> штук товара, у вас осталось <<tovarR>> единиц товара.'
+     Set час = 17
+     Set torgmoney = 0
+     clr
+     gs 'stat'
+     act 'Идти домой':gt 'street'
+     end
+     
+     if rinokTorg = 0 and rinhour ! число:
+         act 'Нанять продавщицу':
+         cla
+         
+         Set rinokTorg = 1 
+         'Вы наняли продавщицу 1000 рублей в день'
+         act 'Идти домой':gt 'street'
+         end
+     end
+     if rinokTorg = 1 and rinhour ! число and tovarR > 0:
+         act 'Выдать товар продавщице.':
+         cla
+         Set rinokTorgW = 1
+         Set rinhour = число
+         Set torghour = 16 - rinhour
+         Set torgrand = RAND (1,50)
+         if tovarR >= torgrand:Set tovarR = tovarR - torgrand
+         if tovarR < torgrand:Set torgrand = tovarR&Set tovarR = 0
+         Set torgmoney = torgrand*200 
+         'Вы выдали товар продавщице, теперь она может торговать самостоятельно.'
+         act 'Идти домой':gt 'street'
+         end
+     end
+end
+
+if rinokTorg = 1 and rinhour ! число:
+     act 'Уволить продавщицу':
+     cla
+     Set rinokTorg = 0
+     'Вы наняли уволили продавщицу'
+     act 'Идти домой':gt 'street'
+     end
+end 
+--- Рынок ---------------------------------
+

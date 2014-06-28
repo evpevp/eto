@@ -1,0 +1,53 @@
+# dachain
+'<center><B><font color=maroon>Дача</font></B></center>'
+'<center><img src="etogame\dachain.jpg" ></center>'
+'Ваша любимая дача.'
+clr
+gs'stat'
+gs'time'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+
+if hour >= 6 and hour <= 20 and etoexhib=11:'Рабочие копашатся в огороде, хм... может как-нибудь <a href="exec:GT ''etoexhib'',''pos10''">мотивировать</a> их, чтобы работали шустрее.'
+if hour >= 6 and hour <= 20 and etoexhib=12:'Выйти в <a href="exec:GT ''etoexhib'',''pos11''">огород в нижнем белье и халатике.</a>'
+if hour >= 6 and hour <= 20 and etoexhib=13 and temp!day:'Интересно, как там в <a href="exec:GT ''etoexhib'',''pos12''">огороде</a>'
+
+
+if hour < 23:
+	act 'Полежать на диване':
+		 cla
+		 minut+=60
+		 !!!изменить
+		 son+=10
+		 'Я расслабляюсь лежа на диване.'
+		act 'Потянуться':gt'dachain'
+	end 
+end
+
+if hour =>23:
+	 act 'Спать в кровати':
+		 cla
+		 *clr
+		 '<center><img src="pics\son.jpg" ></center>'
+		 if analplugIN = 1:set analplugIN = 0&'Перед сном вы вынули анальную пробку.'
+		 if vibratorIN=1:set vibratorIN=0&'Перед сном вы вынули вибратор.'
+		 if mop > 1:set mop = 0&set vidageday = vidageday - 1&'Косметика размазалась по лицу, вы подумали, что вредно для внешности спать с косметикой, кожа стареет быстрее от этого.'
+		 set tanga = 1
+		 set health = health + 5
+		 set hapri = 0
+		 InSleep=1
+		 gs'stat'
+		 'Вы выспались'
+			 act 'Встать':
+			 cla
+			 InSleep=0
+			 minut+=480
+			 son=30
+			 gt'dachain'
+			 end
+	 end	 
+end
+act 'Выйти наружу':minut+=15&gt'dachamy'
+--- dachain ---------------------------------
+

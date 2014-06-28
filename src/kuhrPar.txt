@@ -1,0 +1,216 @@
+# kuhrPar
+ACT 'Выйти из комнаты':
+	gt'korrPar'
+END
+$metkaM = $ARGS[0]
+$locM = $CURLOC
+$metka = $ARGS[0]
+$loc = $CURLOC
+'<center><B><font color=maroon>Кухня</font></B></center>'
+'<center><img src="qwest\alter\<<$loc>>.jpg" ></center>'
+clr
+set minut = minut + 1
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+'На кухне рядом с плитой находится мойка. Большой холодильник в углу и кухонный стол со стульями находится у стены.'
+
+gs'family'
+
+
+ act 'Есть':
+ cla
+ *clr
+ gs'stat'
+ frost=0
+ '<center><img src="pics\food.jpg" ></center>'
+ set minut = minut + 30
+ set health = health + 10
+ set manna = manna + 20
+	 if energy >= 30:
+	  set fat = fat + 5
+	 'Вы больше не можете есть.'
+	 end
+	 if energy >= 20 and energy < 30:
+	 set fat = fat + 3
+	 set energy = energy + 10
+	 'Вы через силу затолкали в себя еду.'
+	 end
+	 if energy < 20:
+	 set energy = energy +20
+	 !set fat = fat + 1
+	 'Вы с удовольствием съели приготовленную еду.'
+	 end
+	 if water >= 20:
+	 'Чай в вас больше не лезет.'
+	 end
+	 if water < 20:
+	 'Вы с удовольствием выпили кружку чая.'
+	 set water = water +20
+	 end
+ gs'stat'
+ act 'Встать из за стола':gt $locM, $metkaM
+ end
+ 
+  act 'Перекусить':
+ cla
+ *clr
+ gs'stat'
+ frost=0
+ '<center><img src="pics\food.jpg" ></center>'
+ set minut = minut + 15
+ set health = health + 10
+ set manna = manna + 20
+	 if energy >= 30:
+	  set fat = fat + 3
+	 'Вы больше не можете есть.'
+	 end
+	 if energy >= 20 and energy < 30:
+	 set fat = fat + 1
+	 set energy = energy + 5
+	 'Вы через силу затолкали в себя еду.'
+	 end
+	 if energy < 20:
+	 set energy = energy +10
+	 !set fat = fat + 1
+	 'Вы с удовольствием съели приготовленную еду.'
+	 end
+	 if water >= 20:
+	 'Чай в вас больше не лезет.'
+	 end
+	 if water < 20:
+	 'Вы с удовольствием выпили кружку чая.'
+	 set water = water +20
+	 end
+ gs'stat'
+ act 'Встать из за стола':gt $locM, $metkaM
+ end
+ 
+ 
+ act 'Пить':
+ cls
+ 	 if water >= 20:
+	 'Чай в вас больше не лезет.'
+	 end
+	 if water < 20:
+	 'Вы с удовольствием выпили кружку чая.'
+	 set water = water +20
+	 end
+ gs'stat'
+ act 'Встать из за стола':gt $locM, $metkaM
+ end
+ 
+ 
+ if pranik>0:
+'Печенья хватит еще на <<pranik>> раз.'
+     act 'Выпить чаю с печеньем (5 мин)':
+     cla
+     *clr
+     minut+=5
+     pranik-=1
+     set health = health + 30
+     set manna = manna + 100
+     energy += 20
+     water += 20
+     fat+=50
+     frost=0
+     gs'stat'
+     '<center><img src="pics\food.jpg" ></center>'
+     'Вы попили чаю с печеньем, очень сладко и вредно для фигуры, но так приятно.'
+     act 'Встать из за стола':gt $curloc
+     end
+end
+
+if edaD > 0:
+     act 'Есть диетическую еду (30 мин)':
+     cla
+     *clr
+     frost=0
+     '<center><img src="pics\food.jpg" ></center>'
+     set minut = minut + 30
+     set health = health + 10
+     set manna = manna + 20
+     set edaD = edaD - 1
+         if energy >= 30:
+         'Вы больше не можете есть.'
+         end
+         if energy >= 20 and energy < 30:
+         set energy = energy + 10
+         'Вы через силу затолкали в себя еду.'
+         end
+         if energy < 20:
+         set energy = energy +20
+         'Вы с удовольствием съели приготовленную еду.'
+         end
+         if water >= 20:
+         'Чай в вас больше не лезет.'
+         end
+         if water < 20:
+         'Вы с удовольствием выпили кружку чая.'
+         set water = water +20
+         end
+     act 'Встать из за стола':gt $curloc
+     end
+end
+
+if fatdel > 0:
+     act 'Употребить жиросжигатели':
+     cla
+     *clr
+     set fatdel = fatdel - 1
+     set fat = fat - 25
+     if fat<0:fat=0
+     'Вы выпили жиросжигающую капсулу. Эти капсулы действуют постепенно и результаты будут видны не сразу.'
+     act 'Встать из за стола':gt $curloc
+     end
+end
+
+if lekarstvo>0:
+'У вас <<lekarstvo>> таблеток.'
+     if sick>0 and lekarday!day:
+         act 'Выпить таблетку':
+		 cla
+		 *clr
+		 set minut = minut + 5
+		 lekarday=day
+		 lekarstvo-=1
+		 sick-=sick*20/100
+		 set lekrand = RAND (0,8)
+		 if lekrand = 0:'<center><img src="inBed\lekr1.jpg" ></center>'
+		 if lekrand = 1:'<center><img src="inBed\lekr2.jpg" ></center>'
+		 if lekrand = 2:'<center><img src="inBed\lekr3.jpg" ></center>'
+		 if lekrand = 3:'<center><img src="inBed\lekr4.jpg" ></center>'
+		 if lekrand = 4:'<center><img src="inBed\lekr5.jpg" ></center>'
+		 if lekrand = 5:'<center><img src="inBed\lekr6.jpg" ></center>'
+		 if lekrand = 6:'<center><img src="inBed\lekr7.jpg" ></center>'
+		 if lekrand = 7:'<center><img src="inBed\lekr8.jpg" ></center>'
+		 if lekrand = 8:'<center><img src="inBed\lekr9.jpg" ></center>'
+		 'Вы выпили таблетку'
+		 act 'Отойти':gt $curloc
+		 end
+     end
+end
+
+if vitamin>0:
+'У вас <<vitamin>> витаминок.'
+     if vitaminday!day:
+         act 'Выпить витаминку':
+		 cla
+		 *clr
+		 set minut = minut + 5
+		 vitaminday=day
+		 vitamin-=1
+		 frost=0
+		 if KandidozOnce=1:Kandidoz-=2
+		 if GerpesOnce=1:Gerpes-=2
+		 if SifacOnce=1 and Sifilis>=10:Sifilis-=RAND(0,1)
+		 set skinvan = skinvan + 1
+         if skinvan = 20:set skinvan = 0&set skin = skin + 1
+		 'Вы выпили витаминку'
+		 act 'Отойти':gt $curloc
+		 end
+     end
+end
+--- kuhrPar ---------------------------------
+

@@ -1,0 +1,55 @@
+# oral
+if $ARGS[0]='start':
+frost=0
+'Вы немного поласкали пальцами <<dick>> сантиметровый член, потом обхватили его губами и начали сосать.'
+     if harakBoy = 0:
+     '<<$nameV>> закрыл глаза от удовольствия и наслаждается лаской ваших губ.'
+     end
+     if harakBoy = 1:
+     '<<$nameV>> смотрит вам в лицо пока ваши губы скользят по его напряженному члену.'
+     end
+     if harakBoy = 2:
+     if mop > 1:set mop = 0
+     set hapri = 0
+     set throat = throat + 1
+     '<<$nameV>> взял вас за волосы и стал трахать вас в рот, от ударов члена в горло у вас потекли слезы из глаз.'
+     end
+     set horny = horny + throat + SUB + VAF - DOM
+     
+     if horny >= 100:
+     set VAF = VAF + 1
+     set orgasm = orgasm + 1
+     set horny = 20
+     set manna = manna + 15
+     set willpower = willpower + 15
+     set lipkoef = lipkoef + 1
+         if lipkoef > 50:
+         set lipkoef = 0
+         set lip = lip + 1
+         end
+     'Неожиданно для вас отсасывая член вы начали кончать сами. Между ног полыхал пожар и волны удовольствия охватывали тело, вы стонали но не выпускали член изо рта продолжая его отсасывать.'
+     end
+'Наконец <<$nameV>> застонал и вы поняли, что сейчас он начнет кончать.'
+end
+
+if $ARGS[0]='0':
+
+     set horny = horny + throat + SUB + VAF - DOM
+     
+     if horny >= 100:
+     set VAF = VAF + 1
+     set orgasm = orgasm + 1
+     set horny = 20
+     set manna = manna + 15
+     set willpower = willpower + 15
+     set lipkoef = lipkoef + 1
+         if lipkoef > 50:
+         set lipkoef = 0
+         set lip = lip + 1
+         end
+     'Неожиданно для вас отсасывая член вы начали кончать сами. Между ног полыхал пожар и волны удовольствия охватывали тело, вы стонали но не выпускали член изо рта продолжая его отсасывать.'
+     end
+
+end
+--- oral ---------------------------------
+

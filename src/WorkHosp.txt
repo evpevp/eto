@@ -1,0 +1,189 @@
+# WorkHosp
+if $ARGS[0]='start':
+$sexloc = $CURLOC
+gs'stat'
+set jobhosprand=rand(0,9)
+
+'<center><B><font color=maroon>Поликлиника</font></B></center>'
+'<center><img src="img\spaln\hospital.jpg" ></center>'
+'В поликлинике кипит работа, пациенты сидят в очередях, врачи ведут прием, медсестры носятся из кабинета в кабинет.'
+
+act'Работать в процедурной':
+set minut+=60
+if jobhosprand=0:gt 'WorkHosp','2'
+'Вы поработали в процедурной.'
+cla
+act 'Отойти':gt'WorkHosp','start'
+end
+
+act'Помогать врачу на приеме':
+set minut+=60
+if jobhosprand=0:gt 'WorkHosp','3'
+'Вы помогали врачу на приеме.'
+cla
+act 'Отойти':gt'WorkHosp','start'
+end
+
+act'Отдохнуть в сестринской':
+set minut+=30
+'Вы отдыхаете.'
+cla
+act 'Мастурбировать 15 мин':
+	 set minut+=15
+	 set mastrrand=rand(0,2)
+	 if mastrrand=0:
+		 gt 'WorkHosp','1'
+	 else:
+		 set picrand=11
+		 cla
+		 *clr
+		 set mastr += 1
+		 '<center><img src="img\mastr\mastr<<picrand>>.jpg" ></center>'
+		 'Вы матрубируете.'
+		 set horny = 0
+		 set orgasm+=1
+		 'Постепенно притное тепло и пульсация нарастают в низу живота, потом ощущения обрушиваются на вас и все ваше тело охватывают горячие волны оргазма'
+		 end
+	 act 'Выйти':gt'WorkHosp','start'
+	 end
+act 'Отойти':gt'WorkHosp','start'
+end
+
+act'Есть в кафетерии':
+	 set minut = minut + 30
+	 set health = health + 10
+	 set manna = manna + 5
+	 set willpower = willpower + 5
+	 if energy >= 30:
+		  set fat = fat + 5
+		 'Вы больше не можете есть.'
+		 end
+	 if energy >= 20 and energy < 30:
+		 set fat = fat + 3
+		 set energy = energy + 10
+		 'Вы через силу затолкали в себя еду.'
+		 end
+	 if energy < 20:
+		 set energy = energy +20
+		 set fat = fat + 1
+		 'Вы с удовольствием съели еду.'
+		 end
+	 if water >= 20:
+		 'Чай в вас больше не лезет.'
+		 end
+	 if water < 20:
+		 'Вы с удовольствием выпили кружку чая.'
+		 set water = water +20
+		 end
+	 end
+
+act'Болтать с Катей':
+set minut+=30
+kat = kat + 1
+if kat > 60 and military = 0:gt 'WorkHosp','milit'
+'Вы поболтали с Катей.'
+cla
+if kat>50:
+	 act 'Предложить уединица':gt 'WorkHosp','0'
+	 end
+act 'Отойти':gt'WorkHosp','start'
+end
+
+if hour >= 16:
+cls
+'<center><B><font color=maroon>Поликлиника</font></B></center>'
+'<center><img src="img\spaln\hospital.jpg" ></center>'
+'Ваша смена закончилась.'
+act 'Идти домой':gt'street'
+end
+end
+
+if $ARGS[0] = 'milit':
+military = 1
+'"Слушай, мне тут предложили подзаработать в выходные, но у меня планы. В общем дело такое рядом с городом часто устраивают военные игры, ну и по правилам нужно что бы там присутствовали медики. Да не пугайся ты там с тобой будет врач, так что тебе максимум что придется делать это пластыри наклеивать. Короче если надумаешь в субботу автобус у поликлиники, он ждет с 6 до 9 часов. Да чуть не забыла за два дня заплатят 5 тысяч."'
+cla
+act 'Отойти':gt'WorkHosp','start'
+end
+
+if $ARGS[0] = '0':
+cla
+*clr
+set katprorand=rand(0,2)
+if katprorand=0:
+	 set girl+=1
+	 set lesbian+=1
+	 set picrand=11
+	 xgt'lezbsex','var'
+	 end
+if katprorand=1:
+	 '<center><img src="img\spaln\hospsex7.jpg" ></center>'
+	 'Только вы с Кэт начали ласкать друг друга как в процедурную вошел пациент. Вы отпрянули от неё пытаясь сделать вид что ничего не происходило, Кэт же наоборот ничуть не стесняясь так и лежал на кушетке с широко раздвинутыми ногами, гордо демонстрируя свою влажную от вашего языка киски, и призывно смотрела на парня, взглядом приглашая его присоединица.'
+	 act 'Выйти':gt'WorkHosp','start'
+	 act 'Развлечся':
+		 set girl+=1
+		 set guy+=1
+		 set lesbian+=1
+		 set picrand=12
+		 gt'podrsex','var'
+		 end
+	 end
+if katprorand=2:
+	 '<center><img src="img\spaln\hospsex8.jpg" ></center>'
+	 'Когда ваши игры были уже в самом разгаре в процедурную вошли двое врачей, но вы были уже настолько возбуждены что не обращая на них никакого внимания продолжали, а когда мужчины начали ласкать вас, вы лишь поддатливо шире радвинули ноги, приглашая их в свою вагину.'
+	 act 'Развлекаться':
+		 set gang+=1
+		 set picrand=11
+		 xgt'sexdvanadva','var'
+		 end
+	 end
+end
+
+if $ARGS[0] = '1':
+cla
+*clr
+set mastrrand=rand(0,1)
+if mastrrand=0:
+	 '<center><img src="img\spaln\hospsex9.jpg" ></center>'
+	 'Пока вы самозабвено мастурбируете, пытаясь довести себя до оргазма, в комнату входит врач, вы так увлечены собой что замечаете его лишь когда его рука начинает притягивать вашу голову к стоящему члену.'
+	 if horny<50:act 'Вырваться и убежать':gt'WorkHosp','start'
+	 act 'Развлечся':
+		 set guy+=1
+		 set picrand=12
+		 gt'sex','minet'
+		 end
+	 end
+if mastrrand=1:
+	 '<center><img src="img\spaln\hospsex10.jpg" ></center>'
+	 'Пока вы самозабвено мастурбируете, пытаясь довести себя до оргазма, в комнату входят два врача, вы так увлечены собой что замечаете их лишь когда они стоят перед вами с членами наголо и мастурбируют.'
+	 if horny<50:act 'Убежать':gt'WorkHosp','start'
+	 set picrand=rand(12,13)
+	 act 'Развлечся':set guy+=2&xgt'sexdvoe','var'
+	 end
+end
+
+if $ARGS[0] = '2':
+cla
+*clr
+set picrand=rand(13,15)
+'<center><img src="img\spaln\hospsex11.jpg" ></center>'
+'К вам заходит пациент и с порога спуская штаны демонстрирует свой вялый член и просит вас помочь ему так как видите ли у него не стоит. Умом вы понимаете, что это все лишь глупая уловка что бы трахнуть вас, но все таки вам его жалко. А вдруг у него действительно не стоит, а вам удастся его поднять, а что если ему просто не везет с девушками и если и сегодня не повезет, он из окна выпрыгнет.'
+act 'Выгнать его':gt'WorkHosp','start'
+act 'Поднять':set guy+=1&gt'sex','minet'
+end
+
+if $ARGS[0] = '3':
+cla
+*clr
+'<center><img src="img\spaln\hospsex12.jpg" ></center>'
+'К вам входит симпатичная пациентка, пока врач пытается её осмотреть, она то и дело прикасается к его брюкам в районе члена, врач поглядывает на вас с вопросом в глазах.'
+act 'Сделать ей замечание':gt'WorkHosp','start'
+act 'Развлечся':
+	 set guy+=1
+	 set girl+=1
+	 set lesbian+=1
+	 set picrand=13
+	 gt'podrsex','var'
+	 end
+end
+--- WorkHosp ---------------------------------
+

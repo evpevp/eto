@@ -1,0 +1,148 @@
+# bass
+if $ARGS[0]='start':
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Бассейн</font></B></center>'
+'<center><img src="pic\bass.jpg" ></center>'
+clr
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+'Вход в бассейн стоит 100 рублей, необходимо иметь купальник.'
+
+     act 'ВЫЙТИ':set minut = minut + 5&gt'down'
+     
+     if db >= 1 and bikini > 0 and Goraday!day:act 'Искать Жору':Goraday=day&gt 'klofdomhouse','ev42' 
+
+     if money >= 100 and bikini > 0:
+         act 'Заплатить 100 руб за 1 час в бассейне':
+		 cla
+		 set minut = minut + 5
+		 set money = money - 100
+		 gt'bass','a'
+		 end
+     
+     end
+
+end
+
+if $ARGS[0]='a':
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Бассейн</font></B></center>'
+if magik < 4:'<center><img src="pic\bass.jpg" ></center>'
+if magik >= 4 and kisameQW = 0:
+'<center><img src="pic\bass1.jpg" ></center>'
+'В бассейне плавает здоровенный атлет, он плавает с сумашедшей скоростью и явно чувствует себя как рыба в воде, он доплывает до края бассейна и одним движением выпрыгивает прямо перед вами. Глядя на вас он хищно улыбается показывая вам ряд белых зубов.'
+     act 'Смотреть на плавца':
+     cla
+     *clr
+     set kisameQW = 1
+     set minut = minut + 60
+     set sweat = -3
+     set manna = manna + 5
+     set willpower = willpower + 5
+     if stren < 30:set stren = stren + 1
+     '<center><img src="picQW\kisame.jpg" ></center>'
+     'Атлет накинул на себя полотенце и подошел к вам. Он улыбнулся и сказал "Привет сладенькая! Меня зовут Кисаме, для тебя просто Киса!"'
+         act 'Привет! Я Света.':
+         cla
+         '(Вы) - Привет! Я Света.'
+         '(Плавец) - Светик, может поплаваем вместе?'
+         'Кисаме не дожидаясь ответа хватает вас за талию и мощным прыжком запрыгивает на середину бассейна.'
+         act 'Далее.':gt'kisameQW','start'
+         end
+         
+         act 'Отвали Киса!':
+         cla
+         '(Вы) - Отвали Киса!'
+         '(Плавец) - Как грубо!'
+         'Вы не успели и глазом моргнуть как атлет схватил вас за талию и подняв вас над головой легко зашвырнул вас на середину бассейна.'
+         'Когда вы отплевываясь всплыли над водой вы увидили как к вам под водой на бешеной скорости приближается Кисаме.'
+         act 'Далее.':gt'kisameQW','start'
+         end
+     end
+end
+if kisameQW = 1 and KisameDead < 1:
+'<center><img src="picQW\kisameV.jpg" ></center>'
+'Видя вас акулоподобный Кисаме улыбается "Привет детка. Хочешь я наполню твой горячий ротик своим акульим семенем?"'
+     act 'Атаковать (Кисаме маг10)':
+     cla
+     set horny = horny + 10
+     set $nameV = 'Кисаме'
+	 !Статы
+	 set strenV = 300
+	 set speedV = 100
+	 set agilV = 100
+	 set reactV = 100
+	 set vitalV = 200
+	 set intelV = 100
+   	 set willV = 50
+	 !Навыки
+	 set magikV = 10
+	 set boxingV = 100
+	 set shootV = 100
+	 !Параметры
+	 set healthV = vitalV*10 + strenV*5
+	 set mannaV = intelV*magikV + magikV*100 + vitalV*10
+	 set willpowerV = willV*10
+	 set BonusAtakV = 0
+	 set BonusDefV = 0
+	 !программа действий
+   	 set program = 5
+   	 !!!!!!!!!!!!!!!!!!!!
+   	 !!!!!!!!!!!!!!!!!!!!
+	 set KisaFight = 1
+	 set klonV = 5
+	 set defenceV = 800
+	 if spellavtoklon = 1:set klon = 3
+	 gt'fight','start'
+     end
+     
+     act 'Сделать ему минет под водой':
+     cla
+     *clr
+     set minut = minut + 60
+     set horny = horny + 100
+     set sweat = -3
+     set manna = manna + 5
+     set willpower = willpower + 5
+     if stren < 40:set stren = stren + 1
+     if KisameSex = 0:set KisameSex = 1&Set guy = guy + 1
+     set bj = bj + 1
+     set swallow = swallow + 1
+     set SUB = SUB + 1
+     '<center><img src="picQW\kisameBJ.jpg" ></center>'
+     'Вы потупили глазки, Кисаме еще шире улыбнулся и затащил вас в воду. Его сильные руки прижали ваше лицо к его паху и вы обхватили его член губами, совсем быстро Кисаме кончил вам в рот.'
+     act 'Выйти из воды':gt'bass','start'
+     end
+end
+
+
+     act 'Купаться 1 час':
+     cla
+     *clr
+     set cumpussy = 0
+     set cumbelly = 0
+     set cumass = 0
+     set cumanus =0
+     set cumlip = 0
+     set cumface = 0
+     set cumfrot = 0
+     set minut = minut + 60
+     set sweat = -3
+     set manna = manna + 5
+     set willpower = willpower + 5
+     if stren < 40:set stren = stren + 1
+     '<center><img src="pics\swim.jpg" ></center>'
+     'Вы искупнулись в бассейне, вода освежает и бодрит.'
+     act 'Выйти из воды':gt'bass','start'
+     end
+
+act 'ВЫЙТИ':gt'bass','start'
+end
+--- bass ---------------------------------
+

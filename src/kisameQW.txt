@@ -1,0 +1,101 @@
+# kisameQW
+if $ARGS[0]='start':
+cla
+set horny = horny + 20
+clr
+gs'stat'
+'<center><img src="picQW\kisame1.jpg" ></center>'
+'Вы плаваете в бассейне, под водой кружит Кисаме постоянно дотрагиваясь до вашего тела. Он срывает с вас купальник и толкает вас ко дну бассейна.'
+'Кисаме погружается к вам и раздвигает ваши ноги.'
+     act 'Пытаться его оттолкнуть':
+     cla
+     *clr
+     set horny = horny + 60
+     set sweat = -3
+     set manna = manna + 5
+     set willpower = willpower + 5
+     clr
+	 gs'stat'
+     '<center><img src="picQW\kisame2.jpg" ></center>'
+     'Кисаме не смотря на ваши попытки сопротивления раздвигает ваши ноги впивается губами в вашу куску, его язык проникает вам в вагину и ласкает вас словно. Вы чувствуете себя на верху блаженства.'
+         act 'Подчиниться':
+         cla
+         *clr
+		 set horny = horny + 60
+		 set sweat = -3
+		 set manna = manna + 5
+		 set willpower = willpower + 5
+		 set guy = guy + 1
+		 set sex = sex + 1
+		 set vagina = vagina + 1
+		 if KisameSex = 0:set KisameSex = 1&Set guy = guy + 1
+		 clr
+		 gs'stat'
+		 '<center><img src="picQW\kisame3.jpg" ></center>'
+		 'Кисаме играет с вами как с игрушкой, он подплывает под вас и насаживает вашу киску на свой член. Вы одновременно на грани оргазма и обморока от удушья. Вы слышите голос Кисаме, ты можешь дышать под водой. Он жестко трахает вас в киску и вы не выдерживаете и вдыхаете в себя воду. Неожиданно вместо воды в ваши легкие попадает совершенно нормальный воздух.'
+		 'Вздохнув вас тут же охватывает оргазм, вы изгибаетесь в конвульсиях от удовольствия. Кисаме тоже кончает в вас.'
+		 act 'Далее':gt'kisameQW','after'
+         end
+         
+         act 'Атаковать (Кисаме маг10)':
+         cla
+         *clr
+         '<center><img src="picQW\kisameV.jpg" ></center>'
+		 set horny = horny + 60
+		 set $nameV = 'Кисаме'
+		 !Статы
+		 set strenV = 300
+		 set speedV = 100
+		 set agilV = 100
+		 set reactV = 100
+		 set vitalV = 200
+		 set intelV = 100
+		 set willV = 50
+		 !Навыки
+		 set magikV = 10
+		 set boxingV = 100
+		 set shootV = 100
+		 !Параметры
+		 set healthV = vitalV*10 + strenV*5
+		 set mannaV = intelV*magikV + magikV*100 + vitalV*10
+		 set willpowerV = willV*10
+		 set BonusAtakV = 0
+		 set BonusDefV = 0
+		 !программа действий
+		 set program = 5
+		 !!!!!!!!!!!!!!!!!!!!
+		 set kisamePic = 1
+		 !!!!!!!!!!!!!!!!!!!!
+		 set KisaFight = 1
+		 set klonV = 5
+		 !set defenceV = 10000
+		 if spellavtoklon = 1:set klon = 3
+	     if spellbefshild = 1:set defence = 500
+		 gt'fight','start'
+		 'Вы ударили ногой по лицу Кисаме. Он показал зубы и его внешность стала изменяться, через мнгновение он уже был синего цвета с жабрами на лице и акульими зубами. Он прошипел с улыбкой на лице "Хочешь поиграть детка? Давай поиграем!"'
+		 act 'Драться':gt'fight','start'
+         end
+     end
+end
+
+if $ARGS[0]='after':
+cla
+set horny = horny + 20
+clr
+gs'stat'
+'<center><img src="picQW\kisameV.jpg" ></center>'
+'Кисаме трансформировался молниеносно в сенее акулоподобное существо. Он улыбнулся и сказал "Спасибо детка." С этими словами он шлепнул вас по заднице и пошел в мужскую раздевалку.'
+act 'Найти купальник и уйти в раздевалку':gt'bass','start'
+end
+
+
+
+
+
+
+
+
+
+
+--- kisameQW ---------------------------------
+

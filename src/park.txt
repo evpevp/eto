@@ -1,0 +1,620 @@
+# park
+if $ARGS[0]='start':
+cla
+*clr
+gs'parkivent'
+gs'parkdin'
+$torchki={
+cls
+gs'stat'
+gs'time'
+SNarkPriton=1
+'Торчки посмотрели на вас тупым отрешенным взглядом. Но один из них сказал. "Слыш, если дурь нужна, иди на хату, тут не продаем."'
+act 'Отойти от них':gt'park','start'
+}
+$sexloc = $CURLOC
+set minut = minut + 30
+'<center><B><font color=maroon>Парк</font></B></center>'
+'<center><img src="pic\park.jpg" ></center>'
+clr
+gs'stat'
+gs'time'
+'Большой городской парк оборудованный лавочками около дорожек. Хотя большинство фонарей не работают и ночью тут может быть опасно.'
+if SNarkPriton=0:'Возле одной из лавок валяются <a href="exec:dynamic $torchki">торчки</a>.'
+	 if car > 0 and cardrive = 5:
+	 set cardrive = 5
+	 'Около парка стоит <a href="exec:GS ''carF'',''start''">ваш <<$car>></a>.'
+	 end
+
+	 if tanga = 0 and ski = 1 and hour > 6 and hour <= 20 or tanga = 0 and glamur = 1 and hour > 6 and hour <= 20:
+	 set nurand = RAND (0,100)
+		 if nurand >= 80:
+		 set manna = manna - 5
+		 set SUB = SUB + 1
+		 set horny = horny + SUB
+		 set nudity = nudity+1
+		 'Мужчина проходящий мимо вас присвистнул "Эй девченка, трусы-то где потеряла?"'
+		 'Вы покраснели от стыда и поспешили удалится.'
+		 end
+	 end
+	 	 
+     act 'ВЫЙТИ ИЗ ПАРКА':
+     cla
+     set minut = minut + 30
+     gt'street'
+     end
+     
+     if hour>=10 and hour<=22:
+		 act 'Посидеть в кафе в парке':
+		 cla
+		 *clr
+		 set minut=minut+30
+		 gt 'ПаркКафе','food'
+		 end
+     end
+     
+     act 'Гулять по парку 1 час':
+		 cla
+		 set minut+=60
+		 set parkrand = RAND (0,20)
+			 if hour>7 and hour<21:
+				 if parkrand<10 and parkrand>0:
+				 dynamic $parkrandivdin
+				 exit
+				 end
+				 !if parkrand>14:
+				 !dynamic $parkrandivdin
+				 !exit
+				 !end
+			 end
+		 set manna = manna + 10
+		 set willpower = willpower + 10
+		 gs'stat'
+		 'Вы неспеша прогуливаетесь по парку. Дыша свежим воздухом, размышляя о превратностях судьбы.'
+		 act 'Завершить прогулку':gt'park','start'
+     end
+     
+     if pusher = 1 and hour >= 6 and hour <= 21:
+     'Вы видите торговца дурью трущегося у входа в парк.'
+         if money >= 2000:
+			 act 'Купить бледную леди (2000 руб 1 доза)':
+			 cla
+			 set minut = minut + 10
+			 palelady = input ("Сколько доз вы хотите купить?")
+			 
+				 if palelady*2000 > money or palelady <= 0:
+				 'Не корректная операция'
+				 end 
+				 
+				 if palelady*2000 <= money:
+				 set money = money - palelady*2000
+				 set dur = dur + palelady
+				 'Вы быстро расчитались и спрятали сверток переданный вам торговцем в карман. Потом вы сможете нюхнуть у себя дома в спальне.'
+				 end
+			 act 'Уйти':gt'park','start'
+			 end
+         else
+         'У вас не хватает денег даже на одну дозу.'
+         end
+     end
+     
+     if sport > 0 and parkrunday ! day:
+         act 'Пробежка по парку 1 час':
+		 cla
+		 *clr
+		 set parkrunday = day
+		 set minut = minut + 30
+		 set manna = manna - 10
+		 set willpower = willpower - 10
+		 set beg = beg + 1
+		 set fat = fat - 8
+		 set speed = speed + 1
+		 set sweat = sweat + 3
+		 '<center><img src="pic\parkbeg.jpg" ></center>'
+		 'Вы сделали несколько кругов вокруг парка, запыхались вспотели и устали.'
+		     if hour >= 20:
+			 set parkrand = RAND (0,10)
+				 if parkrand >= 8:
+				 'Из тени дерева вышел парень, он подошел к вам и процедив сквозь зубы "Шалава!", потащил вас в кусты.'
+					 act 'Драться':
+					 cla
+					 set $nameV = 'Насильник'
+					 !Статы
+					 set strenV = 100
+					 set speedV = 50
+					 set agilV = 40
+					 set reactV = 40
+					 set vitalV = 50
+					 set intelV = 10
+					 set willV = 10
+					 !Навыки
+					 set magikV = 100
+					 set boxingV = 50
+					 set shootV = 100
+					 !Параметры
+					 set healthV = vitalV*10 + strenV*5
+					 set mannaV = intelV*10 + magikV*10
+					 set willpowerV = willV*10
+					 set BonusAtakV = 0
+					 set BonusDefV = 0
+					 !программа действий
+					 set program = 1
+					 set RapistFight = 1
+					 if spellavtoklon = 1:set klon = 3
+	                 if spellbefshild = 1:set defence = 500
+					 gt'fight','start'
+					 end
+				 exit
+				 end
+             end
+		 act 'Завершить пробежку':gt'park','start'
+		 end
+     
+     end
+     
+     act 'Идти к автомобильной дороге возле парка':gt'park','whore'
+     
+     act 'Идти к аттракционам':gt'park','luna'
+
+end
+
+if $ARGS[0]='luna':
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Аттракционы</font></B></center>'
+'<center><img src="pic\luna.jpg" ></center>'
+clr
+gs'stat'
+gs'time'
+
+
+
+'Аттракционы занимают достаточно большую часть парка и днем тут всегда суета из отдыхающих, влюбленных парочек и мамаш с детьми.'
+if vladimirQW=0 and hour >= 9 and hour <= 20 and week>5 and vnesh>10:'<a href="exec:GT ''qwloc''">Около ограды стоит крепкий мужчина и разглядывает вас</a>.'
+
+
+     if hour >= 9 and hour <= 20:
+         act 'Подрабатывать раздачей флаеров 50 руб в час':
+         cla
+         *clr
+         '<center><img src="pic\flaer.jpg" ></center>'
+         'Вы целый час бегали по парку и раздавали флаеры посетителям с глупой улыбкой на лице. После этого вы получили 50 рублей.'
+		 set minut = minut + 60
+		 set money = money + 50
+		 set manna = manna - 5
+		 act 'Отойти':gt'park','luna'
+         end
+     end
+     
+     if hour >= 9 and hour <= 20 and money >= 50:
+         act 'Съесть шаурму 50 руб':
+         cla
+         *clr
+         '<center><img src="pic\luna1.jpg" ></center>'
+         set minut = minut + 30
+		 set health = health + 10
+		 set money = money - 50
+		 set manna = manna + 5
+		 set willpower = willpower + 5
+			 if energy >= 30:
+			  set fat = fat + 7
+			 'Вы больше не можете есть.'
+			 end
+			 if energy >= 20 and energy < 30:
+			 set fat = fat + 5
+			 set energy = energy + 10
+			 'Вы через силу затолкали в себя шаурму.'
+			 end
+			 if energy < 20:
+			 set energy = energy +20
+			 set fat = fat + 3
+			 'Вы с удовольствием съели шаурму.'
+			 end
+         act 'Отойти':gt'park','luna'
+         end
+     end
+     
+     if hour >= 9 and hour <= 20 and money >= 50:
+         act 'Попить лимонад 50 руб':
+         cla
+         *clr
+         '<center><img src="pic\luna1.jpg" ></center>'
+         set minut = minut + 30
+		 set health = health + 10
+		 set money = money - 50
+		 set manna = manna + 5
+		 set willpower = willpower + 5
+			 if water >= 20:
+			 set fat = fat + 3
+			 'Лимонад в вас больше не лезет.'
+			 end
+			 if water < 20:
+			 set fat = fat + 2
+			 'Вы с удовольствием выпили банку лимонада.'
+			 set water = water +20
+			 end
+         act 'Отойти':gt'park','luna'
+         end
+     end
+     
+     if hour >= 9 and hour <= 20 and money >= 100:
+         act 'Стрелять в тире 100 руб':
+         cla
+         *clr
+         '<center><img src="pic\tir.jpg" ></center>'
+         set minut = minut + 30
+         set money = money - 100
+         'Вы заплатили 100 рублей за десять пулек. Если вам удасться попасть все 10 раз, то вы выиграете плюшевого мишку.'
+             act 'Стрелять':
+             cla
+             set tirkoef = agil + shoot
+             set tirmin = tirkoef*20/100
+             set tirand = RAND (tirkoef - tirmin,tirkoef + tirmin)
+                 if tirand >= 80:
+                 set mishka = mishka + 1
+                 set manna = manna + 5
+                 'Вы точно положили все 10 пуль в цели и выиграли плюшевого мишку'
+                 end
+                 if tirand < 80 and tirand >= 70:
+                 'Эх, вы промазали всего лишь один раз.'
+                 end
+                 if tirand < 70 and tirand >= 60:
+                 'Вы 8мь раз попали в цель и 2 раза промазали.'
+                 end 
+                 if tirand < 60 and tirand >= 50:
+                 'Вы 7мь раз попали в цель и 3 раза промазали.'
+                 end 
+                 if tirand < 50 and tirand >= 40:
+                 'Вы 6ть раз попали в цель и 4 раза промазали.'
+                 end 
+                 if tirand < 40 and tirand >= 30:
+                 'Вы 5ть раз попали в цель и 5ть раз промазали.'
+                 end
+                 if tirand < 30 and tirand >= 25:
+                 'Вы 4 раза попали в цель и 6ть раз промазали.'
+                 end
+                 if tirand < 25 and tirand >= 20:
+                 'Вы 3 раза попали в цель и 7мь раз промазали.'
+                 end
+                 if tirand < 20 and tirand >= 15:
+                 'Вы 2а раза попали в цель и 8мь раз промазали.'
+                 end
+                 if tirand < 15 and tirand >= 10:
+                 'Вы 1 раз попали в цель и 9ть раз промазали.'
+                 end
+                  if tirand < 10:
+                 'Вы не разу не попали в цель.'
+                 end
+             set shoot = shoot + 1
+             act 'Отойти':gt'park','luna'
+             end
+         end
+     end
+     
+     if hour >= 9 and hour <= 20 and money >= 20:
+         act 'Ударить по силомеру 20 руб':
+         cla
+         *clr
+         '<center><img src="pic\silomer.jpg" ></center>'
+         'Вы заплатили 20 рублей за удар по силомеру.'
+             act 'Ударить':
+             cla
+			 set minut = minut + 30
+			 set money = money - 20
+			 set stKo = stren*20/100
+			 set damage = RAND(stren-stKo,stren+stKo)
+			 if stren < 30:set stren = stren + 1
+			 if stren >= 30:set stren = stren + RAND (0,1)
+			 'Вы, что есть силы ударили по силомеру и на экране зажглась цифра <<damage>>'
+			 if damage > maxdamage:set maxdamage = damage&'Хмм, новый рекорд.'
+			 act 'Отойти':gt'park','luna'
+			 end
+         end
+     end
+     
+     if hour >= 9 and hour <= 20 and money >= 50:
+         act 'Кататься на карусели 50 руб':
+         cla
+         *clr
+         '<center><img src="pic\karusel.jpg" ></center>'
+         'Вы заплатили 50 рублей и сели в карусель.'
+		 set minut = minut + 30
+		 set money = money - 50
+		 if will < 30:set will = will + 1
+		 if will >= 30:set will = will + RAND (0,1)
+		 set willpower = willpower + 10
+		 set manna = manna + 10
+		 'Вы отлично прокатились, аж дух захватило.'
+		 act 'Отойти':gt'park','luna'
+         end
+     end
+     
+     
+     if hour >= 9 and hour <= 20:
+         act 'Однорукий бандит':gt'park','avtomat'
+     end
+   
+act 'Уйти':gt'park','start'
+end
+
+if $ARGS[0]='avtomat':
+cla
+*clr
+clr
+gs'stat'
+gs'time'
+'<center><img src="pic\avtomat.jpg" ></center>'
+'Правила игры очень простые, кидаешь монетку 5 рублей и дергаешь рычаг. Джекпот 1000.'
+if money >= 5 and hour <= 20:
+	 act 'Кинуть 5 рублей и дернуть рычаг':gt'park','avtomat2'
+	 end
+act 'Отойти от автомата':gt'park','luna'
+end
+
+if $ARGS[0]='avtomat2':
+cla
+*clr
+clr
+gs'stat'
+gs'time'
+set minut = minut + 5
+set money = money - 5
+set avtrand = RAND (0,100)
+if avtrand = 100:
+     set money = money + 1000
+     'Джекпот!!! Вы выиграли 1 тысячу рублей.'
+     end
+if avtrand < 100 and avtrand >= 95:
+     set money = money + 100
+     'Вы выиграли 100 рублей.'
+     end
+if avtrand < 95 and avtrand >= 85:
+     set money = money + 10
+     'Вы выиграли 10 рублей.'
+     end
+if avtrand < 85 and avtrand >= 75:
+     set money = money + 5
+     'Вы выиграли 5 рублей.'
+     end
+if avtrand < 75:
+     'Вы ничего не выиграли.'
+     end
+act 'Далее':gt'park','avtomat'
+end
+
+if $ARGS[0]='whore':
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Автомобильная дорога возле парка</font></B></center>'
+'<center><img src="pic\park1.jpg" ></center>'
+clr
+gs'stat'
+gs'time'
+if hour >= 16 and hour <= 23:
+	 'По обочине дороги гуляют <a href="exec:GT ''prostitute'',''start''">проститутки</a>, иногда к ним подъезжают машины и забирают их.'
+	 else
+	 'Автомобили проезжают по дороге мимо парка и тут не видно ничего интересного.'
+	 end 
+act 'Идти в парк':gt'park','start'
+end
+
+if $ARGS[0]='prost':
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Проститутка</font></B></center>'
+'<center><img src="pic\park2.jpg" ></center>'
+clr
+gs'stat'
+gs'time'
+if whoreQW = 2:
+	 'Проститутки смотрят на вас с любопытством.'
+	 end
+if whoreQW = 1:
+	 'Проститутки смотрят на вас с интересом.'
+	 act 'Поговорить':
+		 cla
+		 set whoreQW = 2
+		 'Вы подошли к проститутке и спросили у нее как тут вообще дела делаются. Она начала объяснять. "Мы все свободные, не работаем ни на кого, но из за этого много проблем. Стелла со свими подружками бывает бьют нас и обирают, иногда приезжают мелкие бандиты и отнимают у нас деньги. Если хочешь тут работать, то придется платить и Стелле и бандюкам. Ты конечно крутая, можешь попробовать осадить Стеллу и ее подружек, но с бандитами не советую связываться. И еще, на тебя не клюнут клиенты, если ты небудешь одета как шлюха, можешь купить соответствующую одежду в сексшопе."'
+		 act 'Отойти':gt'park','prost'
+		 end
+	 end
+if whoreQW = 0:
+	'Эй, ты не из наших, валила бы с нашей точки, а то зубов не соберешь.'
+	act 'Да пошла ты!':
+		 cla
+		 set minut = minut + 15
+		 set $nameV = 'Обдолбанная проститутка'
+		 !Статы
+		 set strenV = 20
+		 set speedV = 30
+		 set agilV = 30
+		 set reactV = 30
+		 set vitalV = 50
+		 set intelV = 10
+		 set willV = 10
+		 !Навыки
+		 set magikV = 10
+		 set boxingV = 10
+		 set shootV = 10
+		 !Параметры
+		 set healthV = vitalV*10 + strenV*5
+		 set mannaV = intelV*10 + magikV*10
+		 set willpowerV = willV*10
+		 set BonusAtakV = 0
+		 set BonusDefV = 0
+		 !программа действий
+		 set program = 0
+		 set prostitutFight = 1
+		 if spellavtoklon = 1:set klon = 3
+		 if spellbefshild = 1:set defence = 500
+		 gt'fight','start'
+		 end
+	 end
+if whoreQW > 1 and hook = 1: 
+	 act 'Искать клиента 15 мин':
+		 cla
+		 *clr
+		 set minut = minut + 15
+		 set whrand = RAND (0,100)
+		 if whrand <= 5:
+			 'К вам подъехал черный джип, открылось окно и оттуда высунулась здоровая наглая морда. "Эй шлюха, пора дань платить. Давай сюда штукарь и вали дальше работать."'
+			 if money >= 1000:
+				 act 'Отдать деньги':
+					 cla
+					 set money = money - 1000
+					 'Вы отдали деньги здоровяку в джипе. Он положил их в карман и уехал.'
+					 act 'Отойти':gt'park','prost'
+					 end
+				 end
+			 act 'Да пошел ты!':
+				 cla
+				 set minut = minut + 15
+				 set $nameV = 'Бандит'
+				 !Статы
+				 set strenV = 200
+				 set speedV = 30
+				 set agilV = 20
+				 set reactV = 20
+				 set vitalV = 150
+				 set intelV = 10
+				 set willV = 10
+				 !Навыки
+				 set magikV = 10
+				 set boxingV = 10
+				 set shootV = 10
+				 !Параметры
+				 set healthV = vitalV*10 + strenV*5
+				 set mannaV = intelV*10 + magikV*10
+				 set willpowerV = willV*10
+				 set BonusAtakV = 0
+				 set BonusDefV = 0
+				 !программа действий
+				 set program = 0
+				 set prostitutFight = 2
+				 if spellavtoklon = 1:set klon = 3
+				 if spellbefshild = 1:set defence = 500
+				 gt'fight','start'
+				 end
+			 end 
+		 if whrand > 5 and whrand <= 60:
+			 'К вам подъехала машина и мужчина сидящий за рулем спросил сколько будет стоить отсос. Вы назвали стандартную таксу в 500 рублей. Он согласился и открыл пасажирскую дверь для вас.'
+			 '<center><img src="picV\car.jpg" ></center>'
+			 set minut = minut + 15
+			 set bj = bj + 1
+			 set guy = guy + 1
+			 set money = money + 500
+			 set throat = throat + 1
+			 if prezik > 0:
+				 'Вы достали презерватив и сунули его в свой рот, потом наклонились над ширинкой клиента и одели ему презерватив на член своим ртом.'
+				 end
+			 'Вы обхватили губами член клиента и начали его обсасывать, ласкать язычком и стараться взять его как можно глубже.'
+			 if prezik = 0:
+				 set swallow = swallow + 1
+				 set cumlip = cumlip + 1
+				 'Клиент начал кончать вам в рот, вы продолжали отсасывать и глотать его горячую, терпкую сперму.'
+				 set gerprand = RAND (0,100)
+				 if gerprand > 96:
+					 if VeneraOnce = 0:set VeneraOnce = 1
+					 set Venera = Venera + 1
+					 end
+				 end
+			 if prezik > 0:
+				 set prezik = prezik - 1
+				 'Клиент кончил в презерватив.'
+				 end
+			 'После того как клиент кончил от тут же вас высадил из машины.'
+			 act 'Идти к панели':gt'park','prost'
+			 end
+		 if whrand > 60 and whrand <= 90:
+			 set minut = minut + 15
+			 'Вы прохаживались по тротуару демонстрируя свои прелести совершенно напрасно, никто вами не заинтересовался.'
+			 act 'Идти к панели':gt'park','prost'
+			 end
+		 if whrand > 90:
+			 'К вам подошла проститутка. "Слыш, шалава, если не хочешь проблем, надо заплатить Стелле. Давай сюда пятихатник и вали дальше работать."'
+			 if money >= 500:
+				 act 'Отдать деньги':
+					 cla
+					 set money = money - 500
+					 'Вы отдали деньги проститутке, она развернулась и ушла.'
+					 act 'Отойти':gt'park','prost'
+					 end
+				 end
+			 act 'Да пошла ты!':
+				 cla
+				 set minut = minut + 15
+				 set $nameV = 'Проститутка'
+				 !Статы
+				 set strenV = 50
+				 set speedV = 50
+				 set agilV = 40
+				 set reactV = 30
+				 set vitalV = 60
+				 set intelV = 10
+				 set willV = 10
+				 !Навыки
+				 set magikV = 10
+				 set boxingV = 10
+				 set shootV = 10
+				 !Параметры
+				 set healthV = vitalV*10 + strenV*5
+				 set mannaV = intelV*10 + magikV*10
+				 set willpowerV = willV*10
+				 set BonusAtakV = 0
+				 set BonusDefV = 0
+				 !программа действий
+				 set program = 0
+				 set prostitutFight = 3
+				 if spellavtoklon = 1:set klon = 3
+				 if spellbefshild = 1:set defence = 500
+				 gt'fight','start'
+				 end
+			 end 
+		 end
+	 end
+act 'Отойти':gt'park','start'
+end
+
+if $ARGS[0]='rape1':
+cla
+*clr
+'<center><img src="img\spaln\rape.jpg"></center>'
+'Вас ударили по голове, очнулись вы уже в кустах без трусов, а насильник буравил своим фалосом вашу вагину.'
+set rape+=1
+set sex+=1
+set SUB+=3
+set money=0
+act 'Сопротивляться':
+	 cla
+	 'Вы попытались оттолкнуть насильника, но он лишь крепче прижал вас к себе, и продолжил трахать, пока вы плакали и пытались вырваться он наконец кончил в вас и оттолкнув ушел, прихватив все ваши деньги.'
+	 set cumpussy+=1
+	 act 'Уйти':gt'park','start'
+	 end
+act 'Попытаться раслабиться и получить удовольствие':
+	 cla
+	 *clr
+	 '<center><img src="img\spaln\rapean.jpg"></center>'
+	 'Заметив что вы даже не пытаетесь сопротивляться, насильник поставил вас раком и вставил свой член вам в зад. Вы закричали от боли, но он зажал вам рот и продолжил насиловать ваш анус.'
+	 set anal+=1
+	 set SUB+=5
+	 act 'Далее':
+		 cla
+		 *clr
+		 set bj+=1
+		 set cumlip+=1
+		 set cumface+=1
+		 set SUB+=5
+		 '<center><img src="img\spaln\cum.jpg"></center>'
+		 'Он поставил вас на колени и начал трахать в рот пока не кончил, "Глотай шлюха" прошипел он, опасаясь последствий вы проглотили сперму. Усмехнувшись он вытерает член о ваше лицо и уходит, прихватив все ваши деньги.'
+		 act 'Уйти':gt'park','start'
+		 end
+	 end
+end
+
+
+
+--- park ---------------------------------
+

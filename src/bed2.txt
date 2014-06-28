@@ -1,0 +1,118 @@
+# bed2
+if $ARGS[0]='dosip':
+	dosip = 1
+else
+	dosip = 0
+end
+
+set nude=1
+set odedosna=numdress
+set numdress=0
+'<center><img src="pics\son.jpg" ></center>'
+if analplugIN = 1:set analplugIN = 0&'Перед сном вы вынули анальную пробку.'
+if vibratorIN=1:set vibratorIN=0&'Перед сном вы вынули вибратор.'
+if mop > 1:set mop = 0&set vidageday = vidageday - 1&'Косметика размазалась по лицу, вы подумали, что вредно для внешности спать с косметикой, кожа стареет быстрее от этого.'
+set health = health + 5
+set hapri = 0
+InSleep=1
+
+set slep = RAND (0,10)
+if StoryLine=0:slep =0
+if slep = 0:set $slep = 'ничего не снится'
+if slep = 1:set $slep = 'снятся какие то не понятные образы из прошлого'
+if slep = 2:set $slep = 'снится луна глядящая на мир своим единственным кровавым глазом'
+if slep = 3:set $slep = 'снится что вы опять мужчина'
+if slep = 4:set $slep = 'ничего не снится'
+if slep = 5:set $slep = 'ничего не снится'
+if slep = 6:set $slep = 'ничего не снится'
+if slep = 7:set $slep = 'ничего не снится'
+if slep = 8:set $slep = 'ничего не снится'
+if slep = 9:set $slep = 'ничего не снится'
+if slep = 10:set $slep = 'ничего не снится'
+'Вы спите и вам <<$slep>>.'
+:loopson
+
+set minut = minut + 1
+set stime = stime + 1
+if stime = 60:set stime = 0&set son = son + 3
+clr
+gs'stat'
+if hour = timer and minut = timerM:
+'Звенит будильник'
+set manna = manna - 10
+if daystart<10 and StoryLine=0:'Первой мыслью было как вы проснулись "Черт подери. Это не сон, я действительно теперь баба."'
+if daystart>=10 and daystart<30 and StoryLine=0:'Спросонья вы немного удивленно попялились на свое женское тело.'
+     act 'Встать с кровати и одется (15 минут)':
+     cla
+     set numdress=odedosna
+     set InSleep=0
+     set minut+=15
+     set tanga = 1
+     set nude=0
+     gt'bed','fin'
+     end
+     
+     act 'Встать с кровати':
+     cla
+     InSleep=0
+     gt'bed','fin'
+     end
+     
+     
+     act 'Постараться уснуть':gt'bed2','dosip'
+     
+elseif son > 23 and dosip = 0:
+
+set manna = manna - 10
+'Вы выспались'
+if daystart<10 and StoryLine=0:'Первой мыслью было как вы проснулись "Черт подери. Это не сон, я действительно теперь баба."'
+if daystart>=10 and daystart<30 and StoryLine=0:'С просоня вы немного удивленно попялились на свое женское тело.'
+     act 'Встать с кровати и одется (15 минут)':
+     cla
+     set numdress=odedosna
+     set InSleep=0
+     set minut+=15
+     set tanga = 1
+     set nude=0
+     gt'bed','fin'
+     end
+     
+     act 'Встать с кровати':
+     cla
+     InSleep=0
+     gt'bed','fin'
+     end
+     
+     act 'Постараться уснуть':gt'bed2','dosip'
+     
+elseif son > 47 and dosip = 1:
+
+set manna = manna - 10
+set dosip = 0
+set son = son - 24
+'Вы выспались'
+
+     act 'Встать с кровати и одется (15 минут)':
+     cla
+     set numdress=odedosna
+     set InSleep=0
+     set minut+=15
+     set tanga = 1
+     set nude=0
+     gt'bed','fin'
+     end
+     
+     act 'Встать с кровати':
+     cla
+     InSleep=0
+     gt'bed','fin'
+     end
+     
+     
+     act 'Постараться уснуть':gt'bed2','dosip'
+else
+jump 'loopson'
+end
+
+--- bed2 ---------------------------------
+

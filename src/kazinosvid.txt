@@ -1,0 +1,158 @@
+# kazinosvid
+set minut+=60
+set kisvrand=0
+set manna+=10
+gs 'stat'
+'<center><B>Кинотеатр</B></center>'
+'<center><img src="img\kazinosvid\0.jpg" ></center>'
+'Вы и <<$telsob>> сели за столик и начали играть.'
+act 'Играть':
+	 if $telsob = 'Алла':
+		 set alla+=1
+		 if alla>=20:
+			 set kisvrand=RAND(0,10)
+			 if kisvrand>0 and kisvrand<3:gt 'kazinosvid','1'
+			 if kisvrand>2 and kisvrand<5:gt 'kazinosvid','2'
+			 if kisvrand=0 or kisvrand>4:gt 'kazinosvid','3'
+			 end
+		 if alla<20:gt'kazinosvid','3'
+		 end
+	 if $telsob = 'Маша':
+		 set masha+=1
+		 if masha>=20:
+			 set kisvrand=RAND(0,10)
+			 if kisvrand>0 and kisvrand<3:gt 'kazinosvid','1'
+			 if kisvrand>2 and kisvrand<5:gt 'kazinosvid','2'
+			 if kisvrand=0 or kisvrand>4:gt 'kazinosvid','3'
+			 end
+		 if masha<20:gt'kazinosvid','3'
+		 end
+	 if $telsob = 'Катя':
+		 set kat+=1
+		 if kat>=20:
+			 set kisvrand=RAND(0,10)
+			 if kisvrand>0 and kisvrand<3:gt 'kazinosvid','1'
+			 if kisvrand>2 and kisvrand<5:gt 'kazinosvid','2'
+			 if kisvrand=0 or kisvrand>4:gt 'kazinosvid','3'
+			 end
+		 if kat<20:gt'kazinosvid','3'
+		 end
+	 end
+
+if $ARGS[0] = '1':
+cla
+*clr
+'<center><img src="img\kazinosvid\0.jpg" ></center>'
+'Пока вы играли к вам подсели двое парней и предложили сыграть два на два у них в номере.
+<<$telsob>> сказала что она не против и вопросительно посмотрела на вас.'
+act 'Отказаться':gt 'kazinosvid','3'
+act 'Согласиться':
+	 cla
+	 *clr
+	 set pikrand=RAND(14,15)
+	 '<center><img src="img\kazinosvid\<<picrand>>.jpg" ></center>'
+	 set randkazinv=RAND(0,1)
+	 set randkazinvsum=RAND(100,10000)
+	 if randkazinv=1:
+		 set money+=randkazinvsum
+		 'Вы выиграли и ваша доля <<randkazinvsum>> руб. Вы и <<$telsob>> собрались уходить, но парни начали упрашивать вас остаться "Да ладно вам девченки, куда торопитесь может посидим, выпьем, познакомимся поближе. Ну оставаетесь утешьте проигравших" сказал один растегнув ширинку и достав член, явно давая понять какого утешения он ждет.'
+		 set telsobnastr=RAND(0,10)
+		 if telsobnastr<4:
+			 '"Нет, нам пора, утешьте себя сами." сказала <<$telsob>> и взяв вас за руку вывела обратно в зал'
+			 act 'Закончить':gt 'kazinosvid','3'
+			 end
+		 if telsobnastr>3:
+			 '"Я не против утешить проигравших" сказала <<$telsob>> похотливо улыбаясь и смотря на парня у которого из открытой ширинки уже торчал член.'
+			 act 'Забрать <<$telsob>> и уйти.':gt 'kazinosvid','3'
+			 act 'Утешить проигравших':
+				 set kazsexdva=1
+				 set guy+=2
+				 set gang+=1
+				 xgt'sexdvanadva','var'
+				 end
+			 end
+		 end
+	 if randkazinv=0:
+		 'Вы проиграли и ваша доля проигрыша <<randkazinvsum>> руб.'
+		 if money<randkazinvsum:
+			 'У вас нет денег чтобы расплатиться и у <<$telsob>> тоже не осталось денег что бы заплатить, вариантов нет придется раздвинуть ноги.'
+			 act 'Платить натурой':
+				 set kazsexdva=1
+				 set guy+=2
+				 set gang+=1
+				 xgt'sexdvanadva','var'
+				 end
+			 end
+		 if money>=randkazinvsum:
+			 'У вас достаточно денег чтобы расплатиться и у <<$telsob>> тоже хватает денег что бы заплатить, но парни явно намекают что платить не обязательно деньгами, они с радостья примут и другую форму оплаты.'
+			 if telsobnastr<4:
+				 set money-=randkazinvsum
+				 '"Нет, нам пора, вот ваши деньги." сказала <<$telsob>> и взяв вас за руку вывела обратно в зал'
+				 act 'Закончить':gt 'kazinosvid','3'
+				 end
+			 if telsobnastr>3:
+				 '"Я не против воспользоваться альтернативной формой оплаты" сказала <<$telsob>> похотливо улыбаясь.'
+				 act 'Отдать деньги, забрать <<$telsob>> и уйти.':
+					 set money-=randkazinvsum
+					 gt 'kazinosvid','3'
+					 end
+				 act 'Воспользоваться альтернативной формой оплаты':
+					 set kazsexdva=1
+					 set guy+=2
+					 set gang+=1
+					 xgt'sexdvanadva','var'
+					 end
+				 end
+			 end
+		 end
+	 end
+end
+
+
+if $ARGS[0] = '2':
+cla
+*clr
+'<center><img src="img\kazinosvid\0.jpg" ></center>'
+'Пока вы играли к вам подсел парень и предложил сыграть с ним у него в номере.
+<<$telsob>> сказала что она не против и вопросительно посмотрела на вас.'
+act 'Отказаться':gt 'kazinosvid','3'
+act 'Согласиться':
+	 cla
+	 *clr
+	 '<center><img src="img\kazinosvid\3.jpg" ></center>'
+	 'Придя в номер вы расположись на кровати и начали играть, через несколько минут парень предложил сыграть на раздевание. <<$telsob>> хихикнула "А тебе потом не стыдно будет, а то ведь пока не разу не выиграл", парень ухмыльнулся "Мне стыдиться нечего."'
+	 act 'Отказаться, забрать <<$telsob>> и уйти':gt 'kazinosvid','3'
+	 act 'Согласиться':
+		 cla
+		 *clr
+		 '<center><img src="img\kazinosvid\4.jpg" ></center>'
+		 'Через несколько минут вы и <<$telsob>> уже снимали с себя трусики. "Так не чесно, ты спецально сначала поддался, чтобы мы согласились" сказала <<$telsob>>, демонстративно надувая губы.
+		 "Хорошо девчонки последняя игра, вы вдвоем против меня, можете даже картами меняться, выиграете делаю что скажите, проиграете развлечемся по полной." сказал парень.
+		 "Играем" тут же выпалила <<$telsob>>'
+		 act 'Играть':
+			 cla
+			 *clr
+			 '<center><img src="img\kazinosvid\5.jpg" ></center>'
+			 'Через минуту он уже стоял со спущеными штанами "Ну что девчонки, карточный долг - святое, налетайте" сказал он указывая на свой фалос'
+			 act 'Начинать':
+				 set guy+=1
+				 set pikrand=23
+				 set kazsexdva=1
+				 gt'podrsex','var'
+				 end
+			 end
+		 end
+	 end
+end
+
+
+if $ARGS[0] = '3':
+cla
+set horny = 0
+set minut+=90
+gs 'stat'
+'Вскоре <<$telsob>> сказала что ей нужно бежать и ушла'
+act 'Уйти':gt 'nord'
+end
+--- kazinosvid ---------------------------------
+

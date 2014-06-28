@@ -1,0 +1,44 @@
+# razrKik
+
+if razradKik = 0:
+     if amatReit >= 5:
+     set razradKik = 1
+     set amatReit = 0
+     set kikmoney = 200
+     'Вам присвоили 3й любительский разряд по кикбоксингу.'
+     end
+end
+if razradKik = 1:
+     if amatReit >= 10:
+     set razradKik = 2
+     set amatReit = 0
+     set kikmoney = 500
+     'Вам присвоили 2й любительский разряд по кикбоксингу.'
+     end
+end
+if razradKik = 2:
+     if amatReit >= 15:
+     set razradKik = 3
+     set amatReit = 0
+     set kikmoney = 1500
+     'Вам присвоили 1й любительский разряд по кикбоксингу.'
+     end
+end
+if razradKik = 3:
+     if amatReit >= 20:
+     set razradKik = 4
+     set amatReit = 0
+     set kikmoney = 3500
+     'Вам присвоили звание Кандидата в Мастера Спорта по кикбоксингу.'
+     end
+end
+if razradKik = 4:
+     if amatReit >= 25:
+     set razradKik = 5
+     set amatReit = 0
+     set kikmoney = 7500
+     'Вам присвоили звание Мастера Спорта по кикбоксингу.'
+     end
+end
+--- razrKik ---------------------------------
+

@@ -1,0 +1,35 @@
+# qwBarPolet
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+minut+=5
+gs'stat'
+'<center><B><font color=maroon>Бар "Полет"</font></B></center>'
+if hour>=10:
+'<center><img src="qwest\kim\bar.jpg" ></center>'
+'В баре сидят несколько посетителей. Бармен с лицом покрытом шрамами скучая разливает пиво по кружкам.'
+
+
+else
+'Бар закрыт и на входе написано "Часы работы с 10 до 24х часов."'
+end
+act 'Уйти':gt'nord'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--- qwBarPolet ---------------------------------
+

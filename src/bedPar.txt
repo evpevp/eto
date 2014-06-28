@@ -1,0 +1,75 @@
+# bedPar
+gs'stat'
+
+if nude = 0:'<center><img src="pics\bed.jpg" ></center>'
+if nude = 1:'<center><img src="pics\son.jpg" ></center>'
+'Вы лежите на кровати. Будильник заведен на <<timer>> часов, <<timerM>> минут.'
+
+     act 'Завести будильник':gt'budilnik','start'
+     
+     !if son < 10:
+		 act 'Раздется и лечь спать':
+		 SAVEGAME 'altavtosave.sav'
+		 cls
+		 '<center><img src="pics\son.jpg" ></center>'
+		 if analplugIN = 1:set analplugIN = 0&'Перед сном вы вынули анальную пробку.'
+		 if vibratorIN=1:set vibratorIN=0&'Перед сном вы вынули вибратор.'
+		 if mop > 1:set mop = 0&set vidageday = vidageday - 1&'Косметика размазалась по лицу, вы подумали, что вредно для внешности спать с косметикой, кожа стареет быстрее от этого.'
+		 set health = health + 5
+		 set hapri = 0
+		 InSleep=1
+		 'Вы спите и вам ничего не снится.'
+		 :loopson
+		 set minut = minut + 1
+		 set stime = stime + 1
+		 if stime = 60:set stime = 0&set son = son + 3
+		 clr
+		 gs'stat'
+			 if hour = timer and minut = timerM:
+			 'Звенит будильник'
+			 set manna = manna - 10
+				 act 'Встать с кровати и одется (15 минут)':
+				 cla
+				 !set numdress=odedosna
+				 set InSleep=0
+				 set minut+=15
+				 set tanga = 1
+				 !set nude=0
+				 gt $locM, $metkaM
+				 end
+			 exit
+			 end
+			 if son > 23 and dosip = 0:
+			 'Вы проснулись от того, что выспались'
+			 	 act 'Встать с кровати и одется (15 минут)':
+				 cla
+				 !set numdress=odedosna
+				 set InSleep=0
+				 set minut+=15
+				 set tanga = 1
+				 !set nude=0
+				 gt $locM, $metkaM
+				 end
+			 exit
+			 end
+		 jump 'loopson'
+		 end
+     !end
+
+
+	 act 'Встать с кровати':
+	 cla
+	 gt $locM, $metkaM
+	 end
+
+
+
+
+
+
+
+
+
+
+--- bedPar ---------------------------------
+

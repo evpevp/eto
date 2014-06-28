@@ -1,0 +1,9 @@
+# volley
+gs'stat'
+'<center><img src="qwest\alter\gdksport.jpg" ></center>'
+'Команды вышли на поле и начали играть.'
+if volleysostav=1:'Вы сидите на скамейке запасных смотря как ваша команда играет.'
+act 'Уйти':gt'gdksport'
+act 'Зайти в тренерскую':gt'Voltrener'
+--- volley ---------------------------------
+

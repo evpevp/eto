@@ -1,0 +1,236 @@
+# road
+$polustanok={
+cls
+gs'stat'
+'Обыкновенная железнодорожная платформа.'
+act 'Выйти':minut+=10&nroad=5&gt'road'
+if money>=150:
+     act 'Купить билет до городка (150 руб)':
+     cls
+     money-=150
+     minut+=15
+     gs'stat'
+     '<center><img src="pic\electri.jpg" ></center>'
+     'Вы заплатили за билет и сели в электричку идущую в Городок.'
+     'Через 15 минут электричка остановилась на полустанке.'
+     
+         act 'Ехать дальше':
+         cls
+         minut+=15
+         gs'stat'
+         '<center><img src="pic\electri.jpg" ></center>'
+         'Через 15 минут электричка остановилась на полустанке.'
+          
+             act 'Ехать дальше':
+			 cls
+			 minut+=15
+			 gs'stat'
+			  '<center><img src="pic\electri.jpg" ></center>'
+			 'Через 15 минут электричка остановилась в Городке.'
+				 act 'Выйти':minut+=20&nroad=20&gt'vokzalG'
+			 end
+			 
+			 act 'Выйти':minut+=15&nroad=15&gt'road'
+         end
+         
+         act 'Выйти':minut+=10&nroad=10&gt'road'
+     end
+end
+if money>=50:
+     act 'Купить билет до Центра (50 руб)':
+     cls
+     money-=50
+     minut+=15
+     gs'stat'
+     '<center><img src="pic\electri.jpg" ></center>'
+     'Вы заплатили за билет и сели в электричку идущую в Городок.'
+     'Через 15 минут электричка остановилась в Центре.'
+	 act 'Выйти':minut+=5&nroad=0&gt'Vokzal'
+     end
+end
+}
+
+$polustanok2={
+cls
+gs'stat'
+'Обыкновенная железнодорожная платформа.'
+act 'Выйти':minut+=10&nroad=10&gt'road'
+if money>=100:
+     act 'Купить билет до городка (100 руб)':
+     cls
+     money-=100
+     minut+=15
+     gs'stat'
+     '<center><img src="pic\electri.jpg" ></center>'
+     'Вы заплатили за билет и сели в электричку идущую в Городок.'
+     'Через 15 минут электричка остановилась на полустанке.'
+     
+         act 'Ехать дальше':
+         cls
+         minut+=15
+         gs'stat'
+         '<center><img src="pic\electri.jpg" ></center>'
+         'Через 15 минут электричка остановилась в Городке.'
+			act 'Выйти':minut+=20&nroad=20&gt'vokzalG'
+         end
+         
+         act 'Выйти':minut+=10&nroad=15&gt'road'
+     end
+end
+if money>=100:
+     act 'Купить билет до Центра (100 руб)':
+     cls
+     money-=100
+     minut+=15
+     gs'stat'
+     '<center><img src="pic\electri.jpg" ></center>'
+     'Вы заплатили за билет и сели в электричку идущую в Городок.'
+         act 'Ехать дальше':
+         cls
+         minut+=15
+         gs'stat'
+         '<center><img src="pic\electri.jpg" ></center>'
+         'Через 15 минут электричка остановилась в Центре.'
+	      act 'Выйти':minut+=5&nroad=0&gt'Vokzal'
+			
+         end
+     act 'Выйти':minut+=20&nroad=5&gt'road'
+     end
+end
+}
+$polustanok3={
+cls
+gs'stat'
+'Обыкновенная железнодорожная платформа.'
+act 'Выйти':minut+=15&nroad=15&gt'road'
+if money>=50:
+     act 'Купить билет до городка (50 руб)':
+     cls
+     money-=100
+     minut+=15
+     gs'stat'
+     '<center><img src="pic\electri.jpg" ></center>'
+     'Вы заплатили за билет и сели в электричку идущую в Городок.'
+     'Через 15 минут электричка остановилась в Городке.'
+		 act 'Выйти':minut+=20&nroad=20&gt'vokzalG'
+     end
+end
+if money>=150:
+     act 'Купить билет до Центра (150 руб)':
+     cls
+     money-=150
+     minut+=15
+     gs'stat'
+     '<center><img src="pic\electri.jpg" ></center>'
+     'Вы заплатили за билет и сели в электричку идущую в Городок.'
+		 act 'Ехать дальше':
+		 cls
+		 minut+=15
+		 gs'stat'
+		  '<center><img src="pic\electri.jpg" ></center>'
+		 'Через 15 минут электричка остановилась на полустанке.' 
+			 act 'Ехать дальше':
+			 cls
+			 minut+=15
+			 gs'stat'
+			  '<center><img src="pic\electri.jpg" ></center>'
+			 'Через 15 минут электричка остановилась в Центре.'
+			  
+			 act 'Выйти':minut+=5&nroad=0&gt'Vokzal'
+			 end
+			 
+			 act 'Выйти':minut+=5&nroad=5&gt'road'
+		 end
+     act 'Выйти':minut+=20&nroad=10&gt'road'
+     end
+end
+}
+$metka = $ARGS[0]
+$loc = $CURLOC
+'<center><H4>Северное шоссе</H4></center>'
+'<center><img src="pic\road.jpg" ></center>'
+'<center><<nroad>> километр</center>'
+'Шоссе по которому проносятся автомобили на огромной скорости, с гулом проносятся фуры обдавая ветром.'
+clr
+gs'stat'
+gs'time'
+if car > 0 and cardrive = 19 and ncarroad=nroad:
+'На обочине стоит <a href="exec:GS ''carF'',''start''">ваш <<$car>></a>.'
+end
+
+if nroad=0:act 'Идти в город':minut+=60&gt'nord'
+
+if nroad=16:act 'Идти на объект':minut+=60&gt'obekt'
+
+if nroad=20:act 'Идти в городок':minut+=60&gt'gorodok'
+
+if nroad<20:act 'Идти на север':minut+=60&nroad+=1&gt $curloc
+
+if nroad>0:act 'Идти на юг':minut+=60&nroad-=1&gt $curloc
+
+
+if nroad=0:
+'Окраина города на которой собрались унылые полуразвалившиеся домишки среди кряжестых деревьев.'
+end
+if nroad=1:
+'Не подалеку от города виднеются <a href="exec:minut+=15&GT ''locmansion''">особняки</a>.'
+end
+if nroad=2:
+''
+end
+if nroad=3:
+'Не подалеку от трассы видно <a href="exec:minut+=15&GT ''graveyard''">кладбище</a>.'
+end
+if nroad=4:
+''
+end
+if nroad=5:
+'Не подалеку от трассы находится  <a href="exec:dynamic $polustanok">железнодорожный полустанок</a> рядом с которыми находится <a href="exec:minut+=15&GT ''dachi''">дачный кооператив</a>.'
+end
+if nroad=6:
+''
+end
+if nroad=7:
+''
+end
+if nroad=8:
+''
+end
+if nroad=9:
+''
+end
+if nroad=10:
+'Не подалеку от трассы находится <a href="exec:dynamic $polustanok2">железнодорожный полустанок</a>.'
+end
+if nroad=11:
+''
+end
+if nroad=12:
+''
+end
+if nroad=13:
+''
+end
+if nroad=14:
+'Около дороги находится <a href="exec:minut+=15&GT ''motel''">мотель</a>'
+end
+if nroad=15:
+'Не подалеку от трассы находится <a href="exec:dynamic $polustanok3">железнодорожный полустанок</a>.'
+end
+if nroad=16:
+'Не подалеку от трассы виднеется заброшенная стройка.'
+end
+if nroad=17:
+''
+end
+if nroad=18:
+''
+end
+if nroad=19:
+''
+end
+if nroad=20:
+'Трасса упирается в старинный провинциальный городишко.'
+end
+--- road ---------------------------------
+

@@ -1,0 +1,47 @@
+# gskver
+$metka = $ARGS[0]
+$loc = $CURLOC
+cls
+gs 'stat'
+gs 'time'
+'<center><img src="gevent\skver.jpg" ></center>'
+'Маленький сквер, в котором часто отдыхают люди, гуляют парочки, играют детишки.'
+*nl
+if hour >8 and hour < 19:'Здесь находится небольшой <a href="exec:minut+=5&GT ''gskino''">кинотеатр</a> '
+
+if GvstreBoy=1:'Вы видите, что в сквере прогуливается <a href="exec:numnpc=SkverBoy&GT ''Gnpc''"><<$nameBoyfrend[SkverBoy]>></a>.'
+if kotovLoveQW>0 and hour>=18 and hour<20 and week<6 or week>=6 and kotovLoveQW>0 and hour>=9 and hour<20:
+'Вы видите как в парке на лавочке сидит <a href="exec:minut+=3&GT ''kotovEv''">Витек Котов</a> с друганами и пивом.'
+end
+
+
+
+     act 'Погулять 15 минут':
+	 cla
+	 *clr
+	 set minut = minut + 15
+	 place=1
+	 Frend_num=0
+	 gt'placer'
+     end
+
+	 if hour >= 8 and hour <22:
+		 act 'Подрабатывать раздачей флаеров 10 руб в час':
+		 cla
+		 *clr
+		 '<center><img src="pic\flaer.jpg" ></center>'
+		 'Вы целый час раздавали флаеры посетителям сквера. После этого вы получили 10 рублей.'
+		 set minut = minut + 60
+		 set money = money + 10
+		 set manna = manna - 5
+		 gs'stat'
+		 act 'Отойти':gt'gskver'
+		 end
+	 end
+act 'Выйти из сквера':minut+=5&gt 'gorodok'
+
+
+
+
+--- gskver ---------------------------------
+

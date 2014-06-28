@@ -1,0 +1,34 @@
+# Terminal
+set minut = minut + 5
+'<center><B><font color=maroon>Складской терминал</font></B></center>'
+'<center><img src="pic\terminal.jpg" ></center>'
+clr
+gs'stat'
+!fcolor=rgb(0,0,0)
+!bcolor=rgb(255,255,255)
+!LCOLOR = rgb(106,90,205)
+'Множество складских зданий к которым подъезжают фуры для загрузки и разгрузки.'
+
+
+     act 'Уйти':
+     cla
+     set minut = minut + 5
+     gt'nord'
+     end
+     
+     if TerminalPapper=1 and DayTerminalPapper=day:
+         act 'Отнести документы':
+		 cls
+		 set minut = minut + 15
+		 TerminalPapper=2
+		 fcolor=rgb(0,0,0)
+         bcolor=rgb(255,255,255)
+         LCOLOR = rgb(106,90,205)
+		 gs'stat'
+		 'Вы зашли в офис и отдали документы менеджеру.'
+		 act 'Уйти':minut+=5&gt'nord'
+		 end
+     
+     end
+--- Terminal ---------------------------------
+

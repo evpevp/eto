@@ -1,0 +1,169 @@
+# kikbox
+if $ARGS[0]='start':
+cla
+if health <= 0:
+'<B><font color=red>Вы проиграли техническим нокаутом</font></B>'
+xgt'enderKik','loss'
+exit
+end 
+
+if healthV <= 0:
+'<B><font color=green><<$nameV>> проиграла техническим нокаутом</font></B>'
+xgt'enderKik','win'
+exit
+end 
+
+gs'befKik'
+'<B>========================(РАУНД <<round>>)===========================</B>'
+if minround = 1:'<B>время боя 0:30</B>'
+if minround = 2:'<B>время боя 1:00</B>'
+if minround = 3:'<B>время боя 1:30</B>'
+if minround = 4:'<B>время боя 2:00</B>'
+if minround = 5:'<B>время боя 2:30</B>'
+'<B><<$nameV>></B> жизнь <B><font color=red><<healthV>></font></B>, Выносливость <B><font color=green><<staminaV>></font></B>'
+'Ваша жизнь <B><font color=red><<health>></font></B>, Выносливость <B><font color=green><<stamina>></font></B>'
+'<B>==========================================================</B>'
+'Ваши очки <<pointKik>>, очки соперника <<pointKikV>>'
+'<B>==========================================================</B>'
+gs'initKik'
+
+     if hod = 0:
+     !игрок атакует
+     '<font color=green>Вы можете атаковать</font>'
+		 act 'Нанести быстрый Джеб':
+		 cla
+		 set damage = RAND (stren/12,stren/8)
+		     if damage <= 0:set damage = 1
+		 set koefatak = (speed + reakt + jab)*2
+		 set koefpop = koefatak*20/100 
+		 set popad = RAND (koefatak - koefpop,koefatak + koefpop)
+		 '<font color=green>Вы наносите быстрый джеб с шагом вперед.</font>'
+		 gs'Kikatak','player'
+		 xgt'kikbox','sta'
+		 end
+		 
+		 act 'Нанести силовой удар':
+		 cla
+		 set damkoef = stren*20/100
+		 set damage = RAND (stren - damkoef,stren + damkoef)
+		     if damage <= 0:set damage = 1
+		 set koefatak = (speed + reakt + punch)
+		 set koefpop = koefatak*20/100 
+		 set popad = RAND (koefatak - koefpop,koefatak + koefpop)
+		 '<font color=green>Вы наносите мощный удар рукой.</font>'
+		 gs'Kikatak','player'
+		 xgt'kikbox','sta'
+		 end
+		 
+		 act 'Нанести удар ногой':
+		 cla
+		 set damkoef = stren*20/100
+		 set damage = RAND ((stren - damkoef)*3,(stren + damkoef)*3)
+		     if damage <= 0:set damage = 1
+		 set koefatak = (speed + reakt + kik)/2
+		 set koefpop = koefatak*20/100 
+		 set popad = RAND (koefatak - koefpop,koefatak + koefpop)
+		 '<font color=green>Вы наносите мощный пинок ногой.</font>'
+		 gs'Kikatak','player'
+		 xgt'kikbox','sta'
+		 end
+
+     end
+     
+     if hod = 1:
+     !противник атакует
+     '<font color=red><<$nameV>> атакует</font>'
+     set tiprand = RAND (0,2)
+         if tiprand = 0:
+         set damage = RAND (strenV/12,strenV/8)
+		     if damage <= 0:set damage = 1
+		 set koefatak = (speedV + reaktV + JabV)*2
+		 set koefpop = koefatak*20/100 
+		 set popad = RAND (koefatak - koefpop,koefatak + koefpop)
+		 '<font color=red><<$nameV>> наносит быстрый джеб с шагом вперед.</font>'
+		 gs'Kikatak','enemy'
+		 xgt'kikbox','sta'
+         end
+         
+         if tiprand = 1:
+		 set damkoef = strenV*20/100
+		 set damage = RAND (strenV - damkoef,strenV + damkoef)
+		     if damage <= 0:set damage = 1
+		 set koefatak = (speedV + reaktV + punchV)
+		 set koefpop = koefatak*20/100 
+		 set popad = RAND (koefatak - koefpop,koefatak + koefpop)
+		 '<font color=red><<$nameV>> наносит силовой удар рукой.</font>'
+		 gs'Kikatak','enemy'
+		 xgt'kikbox','sta'
+         end
+         
+         if tiprand = 2:
+		 set damkoef = strenV*20/100
+		 set damage = RAND ((strenV - damkoef)*3,(strenV + damkoef)*3)
+		     if damage <= 0:set damage = 1
+		 set koefatak = (speedV + reaktV + kikV)/2
+		 set koefpop = koefatak*20/100 
+		 set popad = RAND (koefatak - koefpop,koefatak + koefpop)
+		 '<font color=red><<$nameV>> наносит мощный удар ногой.</font>'
+		 gs'Kikatak','enemy'
+		 xgt'kikbox','sta'
+         end
+     end
+end
+
+
+if $ARGS[0]='sta':
+cla
+set ionce = 0
+'<B>==========================================================</B>'
+if minround = 1:'<B>время боя 1:00</B>'
+if minround = 2:'<B>время боя 1:30</B>'
+if minround = 3:'<B>время боя 2:00</B>'
+if minround = 4:'<B>время боя 2:30</B>'
+if minround = 5:'<B>время боя 3:00</B>'
+'<B>==========================================================</B>'
+'<B><<$nameV>></B> жизнь <B><font color=red><<healthV>></font></B>, Выносливость <B><font color=green><<staminaV>></font></B>'
+'Ваша жизнь <B><font color=red><<health>></font></B>, Выносливость <B><font color=green><<stamina>></font></B>'
+'<B>==========================================================</B>'
+act 'Дальше':gt'kikbox','start'
+     if minround = 5:
+     cla
+     set minround = 0
+     set round = round + 1
+     'Прозвенел гонг обозначающий конец раунда'
+         if round <= formula: 
+			 act 'Отдыхать в углу':
+			 cla
+			 'Вы отдохнули в своем углу.'
+			 act 'В ринг':gt'kikbox','start'
+			 end
+         end
+         
+         if round > formula and sparing = 0: 
+			 act 'Выйти на середину для объявления победителя':
+			 cla
+			     if pointKik > pointKikV:
+			     'Вы победили.'
+			     act 'Уйти с ринга':gt'enderKik','win'
+			     end 
+			     if pointKik < pointKikV:
+			     'Вы проиграли.'
+			     act 'Уйти с ринга':gt'enderKik','loss'
+			     end 
+			     if pointKik = pointKikV:
+			     'Ничья.'
+			     act 'Уйти с ринга':gt'enderKik','draw'
+			     end 
+			 end
+         end
+         
+         if round > formula and sparing = 1: 
+			 act 'Уйти с ринга':gt'fit','start'
+         end
+     
+     end
+end
+
+
+--- kikbox ---------------------------------
+

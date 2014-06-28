@@ -1,0 +1,17 @@
+# казвар
+*PL '<right><img src="casino\stolcw.jpg" ></right>'
+*P 'Вы стоите у стола игры в Casino War'
+ACT 'Подойти к крупье':
+	gt 'крупье2'
+END
+ACT 'Сесть за стол':
+	gt 'игркарт2'
+END
+ACT 'Отойти от стола':
+	gt 'карты'
+END
+clr
+gs'stat'
+set minut=minut + 10
+--- казвар ---------------------------------
+

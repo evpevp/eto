@@ -1,0 +1,11 @@
+# метрдотель
+*PL '<right><img src="casino\metrd.jpg" ></right>'
+*P 'Вам что-то нужно от меня?'
+ACT 'Отойти':
+	gt 'холл'
+END
+clr
+gs'stat'
+set minut=minut + 5
+--- метрдотель ---------------------------------
+

@@ -1,0 +1,128 @@
+# family
+
+
+
+''
+''
+if StoryLine>0:
+if $loc='bedrPar':
+sisterHere=0
+	 if hour<7:
+	 sisterHere=1
+	 'Ваша сестра Аня спит в кровати.'
+	 end
+	 
+     if week<6:
+         if hour=7:
+         sisterHere=2
+         'Ваша сестра <a href="exec:GT ''sister''">Аня</a> собирается на работу.'
+         end
+     end
+     if week>=6:
+         if hour>=7 and hour<10:
+         sisterHere=1
+         'Ваша сестра Аня спит в кровати.'
+         end
+         if hour=10:
+         sisterHere=2
+         'Ваша сестра <a href="exec:GT ''sister''">Аня</a> собирается на прогулку.'
+         end
+         
+     end
+     if hour>=18:
+     sisterHere=2
+     'Ваша сестра <a href="exec:GT ''sister''">Аня</a> сидит на кровати и читает книгу.'
+     end
+end
+if $loc='bedrPar2':
+     if hour<6 or hour>=21:
+     'На кровати спит мама и отчим.'
+     end
+     if week<6:
+     end
+     if week>=6:
+     end
+end
+if $loc='sitrPar':
+     if hour<7 or hour>=21:
+     'На диване спит ваш младший брат Колька.'
+     end
+     if week<6:
+         if hour>=16 and hour<21:
+         'На диване сидит <a href="exec:GT ''father''">отчим</a> и смотрит телевизор.'
+         end
+         if hour>=18 and hour<20:
+         'За столом сидит ваш младший брат <a href="exec:GT ''brother''">Колька</a> и учит уроки.'
+         end
+         if hour=20:
+         'На диване сидит ваш младший брат <a href="exec:GT ''brother''">Колька</a> и смотрит телевизор.'
+         end
+     end
+     if week>=6:
+         if hour>=7 and hour<21:
+         'На диване сидит <a href="exec:GT ''father''">отчим</a> и смотрит телевизор.'
+         end
+         if hour>=18 and hour<=20:
+         'На диване сидит ваш младший брат <a href="exec:GT ''brother''">Колька</a> и смотрит телевизор.'
+         end
+     end
+end
+if $loc='kuhrPar':
+     if week<6:
+         if hour>=16 and hour<21:
+         'Возле плиты стоит <a href="exec:GT ''mother''">мама</a> и что то готовит.'
+         end
+     end
+     if week>=6:
+         if hour>=7 and hour<21:
+         'Возле плиты стоит <a href="exec:GT ''mother''">мама</a> и что то готовит.'
+         end
+     end
+end
+if $loc='korrPar':
+     if week<6:
+     end
+     if week>=6:
+     end
+end
+
+if $loc='vokzalG':
+     if week<6:
+     end
+     if week>=6:
+     end
+end
+
+if $loc='gdk':
+     if week<6:
+         if hour>=16 and hour<18:
+		 'Ваша сестра <a href="exec:GT ''sister''">Аня</a> сидит в компании девченок и парней и пьет пиво.'
+		 end
+     end
+     if week>=6:
+         if hour>=11 and hour<18:
+		 'Ваша сестра <a href="exec:GT ''sister''">Аня</a> сидит в компании девченок и парней и пьет пиво.'
+		 end
+     end
+     
+end
+
+if $loc='gschool':
+     if week<6:
+         if hour>=15 and hour<=17:
+         'На футбольном поле возле школы ваш <a href="exec:GT ''brother''">брат</a> гоняет в футбол.'
+         end
+     end
+     if week>=6:
+         if hour>=7 and hour<=17:
+         'На футбольном поле возле школы ваш <a href="exec:GT ''brother''">брат</a> гоняет в футбол.'
+         end
+     end
+end
+end
+
+
+
+
+--- family ---------------------------------
+

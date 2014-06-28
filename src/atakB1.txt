@@ -1,0 +1,123 @@
+# atakB1
+if $ARGS[0]='atak':
+cla
+!расчет попадания уворота
+set poSp = speedV*20/100
+set uvAg = agil*20/100
+set poBox = reactV*20/100
+set uvBox = react*20/100
+set popad = RAND (reactV-poBox,reactV+poBox) + RAND (speedV-poSp,speedV+poSp) + bonusShV
+set uvorot = RAND (react-uvBox,react+uvBox) + RAND (agil-uvAg,agil+uvAg)
+set uvorKoef = uvorot*50/100
+set popKoef = popad*50/100
+     if popad > uvorot:
+         if popad >= uvorot+uvorKoef:
+         !крит, очень точное попадание
+         '<B><font color=green>КРИТИЧЕСКОЕ ПОПАДАНИЕ</font></B>'
+         gs'atakB1','uronKrit'
+         end
+         
+         if popad < uvorot+uvorKoef:
+         !нормальное попадание
+         !атаковал противник
+         '<B><font color=green>ПОПАДАНИЕ</font></B>'
+         gs'atakB1','uron'
+         end
+     end
+     
+     if popad <= uvorot:
+     '<B><font color=red>ПРОМАХ</font></B>'
+     end
+end
+
+
+if $ARGS[0]='uronKrit':
+cla
+set damDef = defenceV/100
+set damKoef = damDef*20/100 
+set damage = RAND(damDef+damKoef,damDef+damKoef*2)
+gs'atakB1','damage'
+end
+
+if $ARGS[0]='uron':
+cla
+set damDef = defenceV/100
+set damKoef = damDef*20/100 
+set damage = RAND(damDef-damKoef,damDef+damKoef)
+gs'atakB1','damage'
+end
+
+if $ARGS[0]='damage':
+cla   
+     if defence <= 0 and klon <= 0 and unmaterial <= 0 and barier <= 0:
+     if dospeh > 0:set damage = damage - dospehDefV&set dospehEn = dospehEn - 1
+     if damage < 0:set damage = 0
+     Set health = health - damage
+     !Set manna = manna - damageM
+         if eleShV > 0:
+         set stun = RAND (eleShV,eleShV*3)
+         '<B><font color=red>Защита противника парализовала вас на <<stun>> раундов</font></B>'
+         end
+     '<B><font color=red>Защита противника нанесла вам урон <<damage>> единиц</font></B>'
+     !'<B><font color=red>Вашей манне нанесен урон <<damageM>> единиц</font></B>'
+         if zerkalo > 0:
+         set zerkalo = zerkalo - 1
+         set defenceV = defenceV - damage
+         '<B><font color=green>Вы отразили урон от защиты противника и защита противника получила <<damage>> единиц урона</font></B>'
+         end
+     !xgt'fight','sta'
+     end
+     
+     if defence > 0 and klon <= 0 and unmaterial <= 0:
+     !set damSum = damage + damageM
+     !Set defence = defence - damSum
+     Set defence = defence - damage
+     '<B><font color=red>Вашей защите нанесен урон <<damage>> единиц от защиты противника</font></B>'
+     !xgt'fight','sta'
+     end
+     
+     if klon > 0 and unmaterial <= 0:
+     set klon = klon - 1
+     '<B><font color=red>Уничтожен ваш клон</font></B>'
+     !xgt'fight','sta'
+     end
+     
+     if unmaterial > 0:
+     set unmaterial = unmaterial - 1
+     '<B><font color=green>Удар защиты противника прошел сквозь вас. ВЫ НЕ МАТЕРИАЛЬНЫ</font></B>'
+     !xgt'fight','sta'
+     end
+     
+     if barier > 0:
+     !барьер именитета для урона
+         if barier >= damage:
+         '<B><font color=green>Вы легко выдержали удар защиты противника</font></B>'
+         !xgt'fight','sta'
+         end
+         if barier < damage:
+         !Set manna = manna - damageM
+         !Set health = health - damage
+         Set health = health - damage
+             if eleShV > 0:
+			 set stun = RAND (eleShV,eleShV*3)
+			 '<B><font color=red>Защита противника парализовала вас на <<stun>> раундов</font></B>'
+			 end
+         '<B><font color=red>Вам нанесен урон <<damage>> единиц от защиты противника</font></B>'
+         !'<B><font color=red>Вашей манне нанесен урон <<damageM>> единиц</font></B>'
+             if zerkalo > 0:
+             set zerkalo = zerkalo - 1
+             set defenceV = defenceV - damage
+             '<B><font color=green>Вы отразили урон и защита противника получила <<damage>> единиц урона</font></B>'
+             end
+         end
+     !xgt'fight','sta'
+     end
+
+end
+
+
+
+
+
+--- atakB1 ---------------------------------
+

@@ -1,0 +1,10 @@
+# Menu.Info
+*NL 'Модуль для работы с меню'
+*NL 'Версия: 1.0'
+*NL 'Автор: Olegus t.Gl. (c) 2011'
+*NL 'Сайт: http://olegus.ifiction.ru'
+*NL 'e-mail: olegus.tgl@gmail.com'
+*NL 'icq: 145 540 276'
+*NL 'Тема на форуме: http://forum.ifiction.ru/viewtopic.php?id=1527'
+--- Menu.Info ---------------------------------
+

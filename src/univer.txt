@@ -1,0 +1,274 @@
+# univer
+if $ARGS[0]='start':
+$sexloc = $CURLOC
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Университет</font></B></center>'
+'<center><img src="pic\univer.jpg" ></center>'
+clr
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+if student = 0 and abiturient = 0:'Подготовительные курсы стоимость 15 тысяч'
+'Экзамены на зачисление в университет проходят в августе.'
+'Все лекции начинаются с 8 часов, опоздавших на лекции не пускают.'
+if student > 0:'Вы учитесь в <<semestr>> семестре <<kurs>> курса'
+if abiturient = 1:'Вы абитуриент.'
+     act 'ВЫЙТИ':
+     cla
+     set minut = minut + 5
+     gt'down'
+     end
+     
+     if student = 0 and abiturient = 0 and money >= 15000 and month < 9 and diplom = 0 and age>=17:
+     ''
+         act 'Оплатить подготовительные курсы 15 тыр':
+		 cla
+		 set minut = minut + 5
+		 set money = money - 15000
+		 set abiturient = 1
+		 'Вы оплатили 15 тысяч за подготовительные курсы. Начало занятий в 21час, по будним дням'
+		 act 'Отойти':gt'univer','start'
+		 end
+     
+     end
+     
+     if abiturient >= 1 and month < 9 and hour < 21 and week < 6:
+         act 'Заниматься на подготовительных курсах':
+		 cla
+		 *clr
+		 set minut = minut + 60
+		 set abiturient = abiturient + 1
+		 set intel = intel + 1
+		 '<center><img src="pic\Classroom.jpg" ></center>'
+		 'Вы занимались на подготовительных курсах в течении часа.'
+		 act 'Выйти из класса':gt'univer','start'
+		 end
+     end
+     
+     if month = 8 and student = 0 and diplom = 0 and age>=17:
+     'Вы можете попытаться сдать вступительный экзамен.'
+         act 'Сдавать вступительный экзамен':
+		 cla
+		 *clr
+		 set minut = minut + 60
+		 '<center><img src="pic\Classroom.jpg" ></center>'
+		 'Вы сдавали вступительный экзамен в университет.'
+		     if intel + abiturient >= 100:
+		     set student = 1
+		     set kurs = 1
+		     set semestr = 1
+		     set abiturient = 0
+		     'Вы успешно сдали вступительные экзамены и можете приступить к обучению с сентября.'
+		     else
+		     'Вы завалили вступительные экзамены.'
+		     end
+		 act 'Выйти из класса':gt'univer','start'
+		 end
+     end
+     
+     if week < 6 and student > 0 and month > 8 and month < 12:
+     ! 1й семестр
+         act 'Идти к деканату':
+         cla
+         if semestr = 2 and examen = 0:set examen = 2
+         gt'univer','dekanat'
+         end
+     end
+     if week < 6 and student > 0 and month > 1 and month < 5:
+     ! 2й семестр
+         act 'Идти к деканату':
+         cla
+         if semestr = 1 and examen = 0:set examen = 2
+         gt'univer','dekanat'
+         end
+     end
+     if week < 6 and student > 0 and month = 12 and examen = 0 and semestr = 1:
+     ! 1й семестр экзамены
+     act 'Идти на экзамены':gt'univer','examen'
+     end
+     if week < 6 and student > 0 and month = 5 and examen = 0 and semestr = 2:
+     ! 2й семестр экзамены
+     act 'Идти на экзамены':gt'univer','examen'
+     end
+
+end
+
+
+if $ARGS[0]='dekanat':
+$sexloc = $CURLOC
+cla
+*clr
+
+if examen = 1:
+set examen = 0
+     if semestr = 2:
+     set semestr = 1
+     set kurs = kurs + 1
+     end
+     if semestr = 1:
+     set semestr = 2
+     end
+end
+
+if kurs = 2:
+set diplom = 1
+set student = 0
+set kurs = 0
+set semestr = 0
+set abiturient = 0
+set stipuha = 0
+'ВАМ ВРУЧИЛИ ДИПЛОМ.'
+end
+
+if examen = 2:
+set student = 0
+set kurs = 0
+set semestr = 0
+set abiturient = 0
+set stipuha = 0
+set lektor = 0
+'ВАС ОТЧИСЛИЛИ ИЗ УНИВЕРСИТЕТА.'
+end
+
+set minut = minut + 5
+'<center><B><font color=maroon>Деканат</font></B></center>'
+'<center><img src="pic\dekanat.jpg" ></center>'
+clr
+gs'stat'
+'Вы учитесь в <<semestr>> семестре <<kurs>> курса'
+'До начала сессии необходимо сдать <<kurs>> курсовую работу. Большее количество приветствуется и поощряется во время сессии.'
+if kursovikD > 0:'Вы сдали <<kursovikD>> курсовых работ.'
+
+
+act 'Уйти от деканата':gt'univer','start'
+     if hour < 8 and student > 0:
+         act 'На лекции':
+         cla
+         *clr
+         set minut = minut + 360
+         set hour = 14
+         set minut = 0
+         set lektor = lektor + 1
+         set intel = intel + 1
+         '<center><img src="pic\Classroom1.jpg" ></center>'
+         'Вы сидели на лекциях и записывали за преподавателем конспект.'
+         set zanrand=rand(0,9)
+		 if zanrand=0:
+			 set minut+=60
+			 'Во время занятий преподователь начинает вас спрашивать, но вы ничего толком сказать не можете, и он говорит что-бы вы остались после занятий.'
+			 'Занятия закончились, но вам придется остаться.'
+			 act'Остаться в аудитории':
+				 cla
+				 *clr
+				 zanpicrand=rand(1,3)
+				 '<center><img src="img\oldtown\zan<<zanpicrand>>.jpg"></center>'
+				 'После занятий преподователь битый час объясняет вам предмет.'
+				 act'Уйти':gt'univer','dekanat'
+				 act'Соблазнить':
+					 cla
+					 *clr
+					 if zanpicrand=1:set picrand=44
+					 if zanpicrand=2:set picrand=45
+					 if zanpicrand=3:set picrand=46
+					 '<center><img src="img\oldtown\zan1<<zanpicrand>>.jpg"></center>'
+					 'Вы хватаете его за член, он рефлекторно отстраняется, но затем расслабляется и позволяет вам продолжить.'
+					 act'Минет':gt'sex','minet'
+					 end
+				 end
+			 end
+		 if zanrand=1:
+			 set minut+=60
+			 'Во время занятий преподователь начинает вас спрашивать, но вы ничего толком сказать не можете, и он говорит что-бы вы остались после занятий.'
+			 'Занятия закончились, но вам придется остаться.'
+			 act'Остаться в аудитории':
+				 cla
+				 *clr
+				 zanpicrand=rand(4,6)
+				 '<center><img src="img\oldtown\zan<<zanpicrand>>.jpg"></center>'
+				 'После занятий преподователь битый час объясняет вам еще одной девушке важность своего предмета.'
+				 act'Уйти':gt'univer','dekanat'
+				 act'Соблазнить':
+					 cla
+					 *clr
+					 if zanpicrand=4:set picrand=20
+					 if zanpicrand=5:set picrand=21
+					 if zanpicrand=6:set picrand=22
+					 '<center><img src="img\oldtown\zan1<<zanpicrand>>.jpg"></center>'
+					 'Вы опускаетесь на колени и хватаете его за член, вторая девушка смотрит на вас круглыми глазами, но затем тоже начинает приставать к преподователю, тот сначала немного сопротивляется, но затем полностью отдается в ваши руку.'
+					 act'Минет':gt'podrsex','var'
+					 end
+				 end
+			 end
+         act 'Выйти из аудитории':gt'univer','dekanat'
+         end
+     end
+     
+     if kursovik >= 100:
+         act 'Сдать курсовую работу':
+         cla
+         *clr
+         set intel = intel + 1
+         set kursovik = 0
+         set kursovikD = kursovikD + 1
+         '<center><img src="pic\Classroom1.jpg" ></center>'
+         'Вы сдали курсовую работу.'
+         act 'Выйти из аудитории':gt'univer','dekanat'
+         end
+     end
+
+end
+
+if $ARGS[0]='examen':
+cla
+*clr
+set minut = minut + 60
+'<center><B><font color=maroon>Экзамен</font></B></center>'
+'<center><img src="pic\examen.jpg" ></center>'
+clr
+gs'stat'
+     if lektor > 55 and kursovikD >= kurs:
+     set examen = 1
+     set kursovikD = 0
+     set stipuha = 1
+     set lektor = 0
+     !1200
+     'Вы хорошо посещали занятия и у вас нет задолженностей по курсовым работам, поэтому экзамен вам поставили автоматом.'
+     
+     jump 'exitexamem'
+     end
+     if ((intel>=80) or (lektor > 40 and lektor <= 55)) and kursovikD >= kurs:
+     set examen = 1
+     set kursovikD = 0
+     set stipuha = 0
+     'Вы ответили на все вопросы в билете и у вас нет задолженностей по курсовым работам, поэтому экзамен вам зачли.'
+     set lektor = 0
+     act 'Выйти из аудитории':gt'univer','dekanat'
+	 exit
+	 end
+     if (intel>=100) and kursovikD >= kurs + 10:
+     set examen = 1
+     set kursovikD = 0
+     set stipuha = 1
+     'Вы проявили огромное рвение и самостоятельность в учебе, поэтому экзамен вам поставили автоматом.'
+     set lektor = 0
+     jump 'exitexamem'
+	 !exit
+	 end
+     if (intel<70 and lektor <= 40) or kursovikD < kurs:
+     set examen = 2
+     set stipuha = 0
+     'Вы не сдали экзамен.'
+     end
+     if examen = 0:
+     set examen = 2
+     set stipuha = 0
+     'Вы не сдали экзамен.'
+     end
+:exitexamem
+act 'Выйти из аудитории':gt'univer','dekanat'
+end
+--- univer ---------------------------------
+

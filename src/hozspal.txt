@@ -1,0 +1,60 @@
+# hozspal
+if $ARGS[0]='start':
+$sexloc = $CURLOC
+$metkaM = $ARGS[0]
+$locM = $CURLOC
+'<center><B>Спальня</B></center>'
+'<center><img src="img\centr\hozspaln.jpg" ></center>'
+set minut+=5
+gs 'stat'
+act 'В коридор':gt'house'
+if week <6 and hour>8 and hour<20 and tanwork=1:
+	 act 'Убираться':
+		 set minut+=60
+		 gs'stat'
+		 set housespalrand=rand(0,4)
+		 if nikslut=1 and hour>17 and hour<20 and housespalrand=0 and niksexday ! day:
+			 cla
+			 *clr
+			 set niksexday = day
+			 set money+=2000
+			 set SUB+=1
+			 set guy+=1
+			 set picrand=23
+			 '<center><img src="img\centr\niks1.jpg" ></center>'
+			 'Николай и еще один мужчина что то обсуждают, увидев вас Николай подзывает вас к себе и достав член вставляет его вам в рот, вы покорно начинаете сосать. Второй мужчина тоже присоединяется.'
+			 act'Секс':xgt'sexdvoe','var'
+			 end
+		 if hour<14 and housespalrand=0 and houserab=1:
+			 cla
+			 *clr
+			 set SUB+=3
+			 '<center><img src="img\centr\gosps1.jpg" ></center>'
+			 'Хозяйка приказывает вам раздеться и лечь на кровать, вы послушно выполняете, она достает дилдо и вставляет вам в киску, через несколько минут вас накрывает оргазм. Она смотрит как вы извиваетесь на кровати кончая.
+			 "Ну что кошка проголодалась, пошли покормлю тебя." говорит она одевая на вас ошейник'
+			     act'Идти с ней':
+				 cla
+				 *clr
+				 '<center><img src="img\centr\gosps2.jpg" ></center>'
+				 'Вы сползаете с кровати на корачки и хозяйка ведет вас на кухню. Вы неуклюже передвигаетесь на корачках стараясь не отставать, что бы не злить её.'
+				 act 'На кухню':
+					 cla
+					 *clr
+					 '<center><img src="img\centr\gosps3.jpg" ></center>'
+					 'Она наливает в тарелку молоко и ставит на пол, вы внерешительности замираете над тарелкой, тогда она с силой опускает вашу голову в тарелку, буквально вбивая вас в неё лицом.
+					 "Ах ты свинья смотри весь пол изгадила, быстро вылизывай что-бы блестел." закричала она.'
+					 act'Вылизывать':
+						 cla
+						 *clr
+						 '<center><img src="img\centr\gosps4.jpg" ></center>'
+						 'Вы покорно начинаете слизывать молоко с пола, а она придавливает вас лицом к полу, говоря что бы вы лучше слизывали. Когда вы вылизываете весь пол от молока, она уходит оставляя вас голой на полу.'
+						 act 'В коридор':gt'house'
+						 end
+					 end
+				 end
+			 end
+		 end
+	 end
+end
+--- hozspal ---------------------------------
+

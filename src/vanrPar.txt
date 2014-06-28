@@ -1,0 +1,157 @@
+# vanrPar
+ACT 'Выйти из комнаты':
+	gt'korrPar'
+END
+$metkaM = $ARGS[0]
+$locM = $CURLOC
+$metka = $ARGS[0]
+$loc = $CURLOC
+'<center><B><font color=maroon>Ванна</font></B></center>'
+'<center><img src="qwest\alter\<<$loc>>.jpg" ></center>'
+clr
+set minut = minut + 1
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+'Ванная тесная и очень простенькая.'
+if stanok>0:'Вашего бритвенного станка хватит еще на <<stanok>> раз.'
+
+act 'Мыться под душем 15 мин':
+cls
+dynamic $showerdin
+minut+=15
+set horny = horny + 1
+set hapri = 0
+set mop = 1
+set sweat = -3
+if frost>0:frost=0
+gs'stat'
+'<center><img src="pics\dush.jpg" ></center>'
+'Вы залезли в душ и начали намыливать свое тело мочалкой. После смыли мыло и помыли волосы шампунем. Смыв шампунь вы стали совершенно чистой.'
+act 'Выйти из ванны':gt $locM, $metkaM
+end
+
+act 'Мыться в ванной 1 час':
+cls
+dynamic $showerdin
+minut+=60
+set sweat = -3
+set horny = horny + 3
+set hapri = 0
+set mop = 1
+set manna = manna + 10
+if frost>0:frost=0
+set skinvan = skinvan + 1
+if skinvan = 20:set skinvan = 0&set skin = skin + 1
+gs'stat'
+'<center><img src="pics\wash4.jpg" ></center>'
+'Включив воду, вы залезли в ванную и легли в теплую воду. Понаслаждавшись приятным теплом вы намылили свое тело мочалкой и волосы шампунем. Затем вы все смыли водой.'
+act 'Выйти из ванны':gt $locM, $metkaM
+	 if horny >= 90:
+		 act 'Направить воду на киску':
+		 cla
+		 *clr
+		 set horny = 0
+		 set minut = minut + 30
+		 set mastr = mastr + 1
+		 set orgasm = orgasm + 1
+		 set manna = manna + 15
+		 set willpower = willpower + 15
+		 '<center><img src="pics\wash7.jpg" ></center>'
+		 'Вы направили кран с водой на киску и тугая струя теплой воды начали ласкать вас. Вскоре вы почувствовали как теплая волна охватывает весь ваш организм и вы начали содрогаться в оргазме.'
+		 act 'Выйти из ванной и одеться':gt $locM, $metkaM
+		 end
+	 end
+	 if horny >= 40 and horny < 90:
+		 act 'Направить воду на киску':
+		 cla
+		 *clr
+		 set horny = horny + 5
+		 set minut = minut + 30
+		 set manna = manna + 10
+		 set willpower = willpower + 10
+		 '<center><img src="pics\wash7.jpg" ></center>'
+		 'Вы направили кран с водой на киску и тугая струя теплой воды начали ласкать вас. Сначала было очень даже не плохо, но потом возбуждение спало и стало даже как то не приятно. Поэтому вы прекратили мастурбировать.'
+		 act 'Выйти из ванной и одеться':gt $locM, $metkaM
+		 end
+	 end
+
+	 if horny>=50:
+	 	 act 'Маструбировать':
+		 gt'selfplay'
+		 end
+	 end
+end
+
+ if tampon > 0 and mesec > 0 and isprok = 0:
+	 act 'Поменять тампон':
+	 cla
+	 *clr
+	 set tampon = tampon - 1
+	 set isprok = 1
+	 set minut = minut + 5
+	 set manna = manna - 5
+	 gs'stat'
+	 '<center><img src="pics\wash3.jpg" ></center>'
+	 'Вы поменяли тампон.'
+	 act 'Закончить':gt $curloc
+	 end
+end
+
+ if mop ! 1:
+     act 'Смыть косметику':
+	 cla
+	 set mop = 1
+	 set minut = minut + 15
+	 gs'stat'
+	 '<center><img src="pic\facesp.jpg" ></center>'
+	 'Вы смыли косметику.'
+	 act 'Закончить':gt $curloc
+	 end
+ end
+ 
+ if cumfrot>0:
+     act 'Оттирать сперму с одежды':
+	 cla
+	 set cumfrot = 0
+	 set minut = minut + 15
+	 gs'stat'
+	 '<center><img src="pic\frotsp.jpg" ></center>'
+	 'Вы замыли пятна спермы на своей одежде.'
+	 act 'Закончить':gt $curloc
+	 end
+ end
+ 
+ 
+ if leghair > 0 and stanok > 0:
+	 act 'Брить ноги 15 мин':
+		 cla
+		 *clr
+		 set minut = minut + 15
+		 set leghair = -5
+		 set horny = horny + 5
+		 set stanok = stanok - 1
+		 '<center><img src="pics\shave.jpg" ></center>'
+        'Вы намылили свои ноги и взяли бритву. Ловкими движениями вы сбрили волосы на ногах и смыли пенку для бритья.'
+		 !'Вы намылили ноги и сбрили волосы с них.'
+		 act 'Отложить станок':gt $curloc
+		 end
+	 end
+if lobok > 0 and stanok > 0:
+	 act 'Брить лобок 15 мин':
+		 cla
+		 *clr
+		 set minut = minut + 15
+		 set lobok = -5
+		 set horny = horny + 5
+		 set stanok = stanok - 1
+		 '<center><img src="pics\shave3.jpg" ></center>'
+         'Вы намылили лобок и взяв бритву ловкими движениями начали брить лобок и сбривать волоски вокуруг киски. Наконец с бритьем было покончено и вы смыли пенку с киски.'
+		 !'Вы намылили лобок, после чего сбрили с него все волосы.'
+		 act 'Отложить станок':gt $curloc
+		 end
+	 end
+
+--- vanrPar ---------------------------------
+

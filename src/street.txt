@@ -1,0 +1,467 @@
+# street
+$metka = $ARGS[0]
+$loc = $CURLOC
+gs'dinam'
+'<center><B>Спальный район</B></center>'
+'<center><img src="pic\street.jpg" ></center>'
+if opusk>0 and housr>0:'На стене вашего дома, рядом с дверью в ваш подъезд красуется большая надпись краской <B>"Светка из 69й квартиры опущенная хуесоска"</B>'
+clr
+gs'stat'
+gs'time'
+set palMir=0
+set bordysh=0
+set housrA=0
+set palMir=0
+set obdysh=0
+set tanhouse1=0
+set obMir=0
+set obLoker=0
+set houseob=0
+set borMir=0
+set borLoker=0
+$onobjsel = 'onobjsel'
+
+if gopdeath=1 and vsehsdaladay!day:
+	 set over=6
+	 gt'gameover'
+	 exit
+	 end
+if shantpopala>0:
+	 cla
+	 *clr
+	 set hour+=8
+	 set cumbelly+=1
+	 set cumpussy+=1
+	 set cumass+=1
+	 set cumlip+=1
+	 set cumface+=1
+	 set cumfrot+=1
+	 set cumanus+=1
+	 set fingal+=1
+	 set guy+=2
+	 set rape+=1
+	 set sex+=1
+	 set bj+=1
+	 set anal+=1
+	 set shantpopala-=1
+	 '<center><img src="img\centr\rape.jpg" ></center>'
+	 'На улице около вас резко тормозит черный джип, из него выскакивают двое амбалов и затаскивают вас в машину.
+	 "Твоя работа тварь?" кричит один тыча вам в нос фотографии которые вы вчера отправили в надежде получить прибыль.
+	 "Нет, я ничего не понимаю" пытались вы оправдаться
+	 "Не ври сука тебя вычислили" с этими словами он бъет вас рукоядкой по голове и вы отрубаетесь
+	 Очнулись вы уже где то за городом, связанная и обсолютно голая, все тело было покрыто спермой а анус с вагиной ужастно болели.
+	 Амбалы сидели недолеко и курили, "О наконец очнулась, ну что еще кружок, сейчас затрепыхается, будет веселее." сказал один из них.
+	 Они встали и подошли к вам, через минуту вы пожалели что очнулись, эти уроды имели вас как им хотелось, вы пытались сопративляться но скотч не позволял вам двигаться, вскоре вы опять потеряли сознание.
+	 "Ну что поняла, сука" очнулись вы от голоса одного из них и тут же получили удар ботинком в живот. Амбалы сели в машину и уехали. До дороги было метров сто и вы связанная, извеваясь как змея поползли в сторону дороги. Когда вы доползли то снова отключились, очнулись вы в какой то машине, которая и довезла вас до дома.'
+	 act 'Уйти':gt $curloc
+	 exit
+	 end
+
+if workDolgDay<=0 and workDolg>0:
+cls
+gs'stat'
+gs'time'
+'<center><img src="sauna\bug.jpg" ></center>'
+workDisk=0
+'Около подъезда к вам подошли два бугая у которых вы заметили пистолеты. Они равнодушно посмотрели на вас. "Пора долги отдавать."'
+     if money>=workDolg:
+     money-=workDolg
+     workDolg=0
+     'Вы отдали деньги бугаям, они их пересчитали и удалились.'
+     act 'Уйти':gt $curloc
+     exit
+     else
+         if money+stolmoney+karta>=workDolg:
+         money+=stolmoney+karta
+         stolmoney=0
+         karta=0
+         money-=workDolg
+         workDolg=0
+         'При себе такой суммы у вас не оказалось и бугаи пошли с вами на квартиру. Там вы расплатились с ними и они ушли.'
+         act 'Уйти':gt 'korr'
+         exit
+         else
+         'Денег на покрытие долга у вас нет. Здоровяки оттащили вас в ашу квартиру и стали обыскивать.'
+         money+=stolmoney+karta
+         stolmoney=0
+         karta=0
+         workDolg-=money
+         money=0
+         'Бугаи все забрали что у вас было и сказали. Короче, с тебя еще долг <<workDolg>>. Долг вырастает еще на 10 штук, и раз ты не можешь расплатится, то мы тебе поможем. Бугаи потащили вас в машину и забросили на заднее сиденье. Машина тронулась и вы поехали куда то.'
+         workDolg+=10000
+             act 'Выйти из машины':
+             cls
+             minut+=30
+             gs'stat'
+             'Вы приехали в сауну. Бандиты вас оттащили в какую то комнату и начали объяснять. "Ты будешь жить здесь и работать, до тех пор пока не расплатишся с долгами. Все понятно? Попробуешь бузить или сбежать, все, мы тебе пулю в башку всадим и в лесу закопаем, усекла?"'
+             'Вы испуганно кивнули, поняв что они не шутят.'
+             act 'Оглядется':gt'saunaroom'
+             end
+         end
+     end
+exit
+end
+
+if workDiskAtkPlayer=1:
+'<center><img src="sauna\car.jpg" ></center>'
+workDisk=1
+workDiskAtkPlayer=0
+'Вас хватают и забрасывают на заднее сиденье машины. Справа и слева от вас сидят два амбала.  На переднем сидении - менеджер порно студии. 
+-Где конверт – спросил он.'
+     if konvert=0:
+     workDolg=200000
+     workDolgDay=7
+     'Украли.
+-ЧТО!!! Да как такое могло произойти!!! Ты понимаешь, в какие бабки ты попала?!!  Срок тебе даю до следующей пятницы. В мой кабинет приносишь 200 тысяч. Если нет – пиняй на себя.
+'
+     else
+     konvert=0
+     money+=5000
+     'Вы отдали конверт. Он предупредил вас, что подобные задержки в будущем могут быть вредны для ваших деловых отношений.'
+     end
+act 'Уйти':gt $curloc
+exit
+end
+
+if vladimirday=day and vladimirQW=30 and hour >= 16 and week=6:'<a href="exec:GT ''qwmeet2''">Перед вашим подъездом стоит ауди и около него флегматично стоит дожидаясь вас водитель Слава</a>.'
+if vladimirday=day and vladimirQW=40 and hour >= 16 and week=6:'<a href="exec:GT ''qwmeet3''">Перед вашим подъездом стоит ауди и около него флегматично стоит дожидаясь вас водитель Слава</a>.'
+
+
+set housrA = 0
+
+if car > 0 and cardrive = 1:
+set cardrive = 1
+'На парковке стоит <a href="exec:GS ''carF'',''start''">ваш <<$car>></a>.'
+end
+
+if hour>=8 and hour<=22:'В киоске продают <a href="exec:dynamic $kiosksig">сигареты</a>'
+
+if housr = 1:
+     act '<b>ИДТИ ДОМОЙ</b>':
+     gorand=RAND(0,100)
+         if loh>0 and gopdolg>0 and hour>=20 and gorand>=80:
+         gt'gopnew','start'
+         exit
+         end
+         if opusk>0 and hour>=20 and gorand>=80 and gopopusday!day:
+         gt'gopnew','start'
+         exit
+         end
+     gt'korr'
+     end
+end
+
+
+     act 'Ждать':
+     cla
+     waiting = input ("Сколько минут ждать? (Не больше 120 минут)")
+         if waiting <= 0 or waiting > 120:
+         set minut = minut + 15
+         end
+         if waiting > 0 and waiting <= 120:
+         set minut = minut + waiting
+         end
+     act 'Посмотреть на часы':gt curloc
+     end
+     
+act 'Ехать на такси':
+	 cla
+	 *clr
+	 '<center><img src="pic\taxi1.jpg" ></center>'
+	 'Вы поймали проезжавшую мимо таксишку.
+	 Стоимость проезда 250 руб.'
+   	 set minut+=5
+	 if $loc!'street':
+		 act 'Ехать в спальный район':
+			 set $loc='street'
+			 dynamic $taxi
+			 end
+		 end
+	 if $loc!'down':
+		 act 'Ехать в центр':
+			 set $loc='down'
+			 dynamic $taxi
+			 end
+		 end
+	 if $loc!'Nord':
+		 act 'Ехать в северный район':
+			 set $loc='Nord'
+			 dynamic $taxi
+			 end
+		 end
+	 act 'Отказаться':gt'<<$loc>>'
+	 end
+
+if tanga = 0 and ski = 1 and hour > 6 and hour <= 20 or tanga = 0 and glamur = 1 and hour > 6 and hour <= 20:
+set nurand = RAND (0,100)
+     if nurand >= 90:
+     set manna = manna - 5
+     set SUB = SUB + 1
+     set horny = horny + SUB
+     'Вы услышали нарочито громкий шопот бабушек на скамейке "Вот шлюха! Ходит в короткой юбке и без трусов, мандищей то светит!"'
+     'Вы покраснели от стыда после едкого замечания старушек.'
+     end
+end
+
+if magik >= 1 and mainQW = 0 and StoryLine=0:
+cla
+*clr
+set mainQW = 1
+'<center><img src="picQW\main.jpg" ></center>'
+'У подъезда вы видите Карин и Джуго. Карин поправляет очки и озирается по сторонам, Джуго кажется витает в облаках и как не странно, на его лице не видно татуировки.'
+'Карин пристально оглядывает вас "Я почувствовала всплеск энергии. На тебя не нападал маг?"'
+act 'Нет':gt'mainQW'
+exit
+end
+
+if katkey = 1: 'Квартира <a href="exec:gt''katspalnya'',''start''">Кати</a>'
+if hour >= 16 and hour < 22 and dimaQW > 0:'Квартира <a href="exec:GT ''dima'',''start''">Димы</a>.'
+if klofQW >= 2:'Квартира <a href="exec:GT ''klofdomhouse'',''start''">Жоры</a>.'
+if hour >= 5 and hour <= 23:'Станция <a href="exec:GT ''metro'',''start''">Метро</a> расположенна в 15 минутах ходьбы.'
+if hour >= 8 and hour <= 20:'Не далеко от дома находится <a href="exec:GT ''shop'',''start''">Супермаркет</a>'
+if hour >= 8 and hour <= 20:'Бабушки стайками идут к <a href="exec:GT ''poli'',''start''">Поликлиннике</a>'
+if hour >= 6 and hour <= 9 and military = 1 and week = 6:'У поликлиники стоит <a href="exec:set minut+=60 & gt''Military'',''start''">автобус</a>. на военные игры.'
+if hour >= 8 and hour <= 14 and week ! 1:'Около шумного <a href="exec:GT ''rinok'',''start''">рынка</a> очень много идущих за покупками людей.'
+if hour >= 12 and hour <= 22 and week ! 1:'Не подалеку от <a href="exec:GT ''kafe'',''start''">кафе</a> громко матерятся <a href="exec:GT''gopnew'',''start''">гопники</a>.'
+if hour > 22 or hour <= 3:'Во дворе громко матерятся <a href="exec:GT''gopnew'',''start''">гопники</a>.'
+if hour >= 11 and hour < 12 and week > 1 and week < 5 and workKafe = 1:'Вы можете выйти на рабочую смену в <a href="exec:GT ''kafe'',''work''">кафе</a>.'
+if clener >= 1 and hour >= 7 and hour <= 22:'Офисное здание в котором требуются <a href="exec:GT ''clener'',''start''">уборщицы</a>.'
+'Большой <a href="exec:GT ''park'',''start''">парк</a> расположен в 30 минутах ходьбы.'
+'Единственное <a href="exec:GT ''lake'',''start''">озеро</a> в городе находится около окраины города в часе ходьбы.'
+'Круглосуточная <a href="exec:GT ''aptek'',''start''">Аптека</a>.'
+if hour>=8 and lesbiqw>=1 and lesbiqw<3:'Квартирa <a href="exec:GT ''lesbidomhouse'',''start''">Натальи Петровны</a>'
+if lesbiday!day and hour>=8 and (lesbiqw=3 or lesbiqw=4):'Квартирa <a href="exec:GT ''lesbidomhouse'',''start1''">Хозяйки</a>'
+if lesbiday!day and hour>=8 and lesbiqw=5:'Квартирa <a href="exec:GT ''lesbidomhouse'',''ev15''">Хозяйки</a>'
+if lesbiday!day and hour>=8 and lesbiqw=6:'Квартирa <a href="exec:GT ''lesbidomhouse'',''ev22''">долбаной извращенки</a>'
+if lesbiday!day and hour>=8 and lesbiqw=7:'Квартирa <a href="exec:GT ''lesbidomhouse'',''ev25''">Хозяйки</a>'
+if lesbiday!day and hour>=8 and lesbiqw=8:'Квартирa <a href="exec:GT ''lesbidomhouse'',''ev28''">Хозяйки</a>'
+if lesbiday!day and hour>=8 and lesbiqw=9:'Квартирa <a href="exec:GT ''lesbidomhouse'',''ev29''">Хозяйки</a>'
+if lesbiday=day and hour>=8:'Квартира хозяйки, сегодня вы её уже навещали.'
+'Неподалеку от дома где расположена ваша квартира находится <a href="exec:GT ''trashplace''">мусорка</a>'
+if SNarkPriton>0:'Возле одного из подъездов лежат шприцы и на корточках сидят нарики с пустыми глазами, в одной из квартир тут находится <a href="exec:minut+=5&GT ''narkopriton''">наркопритон</a>'
+if IrinaQW >= 1:'Дом в котором расположенна квартира <a href="exec:GT ''IrinaRoom'',''start''">Ирины</a>.'
+if hour >= 8 and hour <= 23 or saunaWorkWhore>0 or workDisk=2:'В 10 минутах ходьбы <a href="exec:minut+=15&GT ''sauna''">"Логово разврата"</a> как говорят бабульки, а так просто <a href="exec:minut+=15&GT ''sauna''">сауна</a>'
+if hour = meethour:
+     if svidanieA = 1:'<B>Около подъезда вас ожидает <a href="exec:GT ''meet'',''start''"><<$boyA>></a>.</B>'
+     if svidanieB = 1:'<B>Около подъезда вас ожидает <a href="exec:GT ''svidan'',''start''"><<$boyB>></a>.</B>'
+     if svidanieC = 1:'<B>Около подъезда вас ожидает <a href="exec:GT ''svidan'',''start''"><<$boyC>></a>.</B>'
+end
+
+set streetrand = RAND (0,100)
+ if streetrand >= 100 and hour <=3:
+ cla
+ *clr
+ '<center><img src="pic\street.jpg" ></center>'
+ 'Внезапно на вас напал какой-то негодяй, он подошел к вам и процедив сквозь зубы "Шалава лучше не дёргайся!" и потащил вас в парковые кусты.'
+	 act 'Сопротивляться бесполезно':
+	 cla
+	 *clr
+	 !set money = money + 500
+	 set $nameV = 'Насильник'
+	 set sex = sex + 1
+	 set guy = guy + 1
+	 set vagina = vagina + 1
+	 '<center><img src="picV\dogging.jpg" ></center>'
+		 if prezik > 0:
+		 set protect = 1
+		 set prezik = prezik - 1
+		 'Вы дали презерватив парню и он молча одел его.'
+		 end
+		 
+	 'Парень отводит вас в кусты и ставит вас раком к дереву, вы чувствуете как его твердый член входит в вашу вагину.'
+	 
+		 if horny >= 90:
+		 set horny = 0
+		 set manna = manna + 15
+		 set willpower = willpower + 15
+		 set orgasm = orgasm + 1
+		 'Постепенно приятное тепло и пульсация нарастают в низу живота, потом ощущения обрушиваются на вас и все ваше тело охватывают горячие волны оргазма, вы невольно кричите от удовольствия извиваясь на елде. '
+		 end
+		 
+		 if protect ! 1:
+		 !не защищенный секс
+		 set finrand = RAND (0,1)
+			 if finrand = 0:
+			 !внутрь
+			 set cumpussy = cumpussy + 1
+			 'Парень застонал и вы почувствовали как струя спермы ударила вам внутрь вашего тела.'
+				 if tabletki <= 0 and mesec <= 0:
+				 gs'preg'
+				 set manna = manna - 15
+				 set willpower = willpower - 15
+				 'Черт, так ведь и залететь можно, подумалось вам с ужасом.'
+				 end 
+			 end
+			 
+			 if finrand = 1:
+			 !наружу
+			 set cumass = cumass + 1
+			 '<<$nameV>> застонал и вынув член из вас, кончил на вашу попу.'
+			 end 
+		 end
+		 
+		 if protect > 0:
+		 set protect = 0
+		 'Парень кончает в презерватив. Вытаскивает член из вас и сняв презерватив швыряет его на землю, после натягивает штаны и уходит.'
+		 end
+	 act 'Уйти':gt'street'
+	 end
+		 
+		 
+	 act 'Драться':
+	 cla
+	 set $nameV = 'Насильник'
+	 !Статы
+	 set strenV = 100
+	 set speedV = 50
+	 set agilV = 40
+	 set reactV = 40
+	 set vitalV = 50
+	 set intelV = 10
+	 set willV = 10
+	 !Навыки
+	 set magikV = 100
+	 set boxingV = 50
+	 set shootV = 100
+	 !Параметры
+	 set healthV = vitalV*10 + strenV*5
+	 set mannaV = intelV*10 + magikV*10
+	 set willpowerV = willV*10
+	 set BonusAtakV = 0
+	 set BonusDefV = 0
+	 !программа действий
+	 set program = 0
+	 set RapistFight = 1
+	 if spellavtoklon = 1:set klon = 3
+	 if spellbefshild = 1:set defence = 500
+	 gt'fight','start'
+	 end
+ exit
+ end
+ 
+
+set streetrand = RAND (0,100)        
+ if streetrand >= 100 and money >= 1000 and daystart>=10 and hour <=3: 
+ cla
+ *clr
+ '<center><img src="pic\street.jpg" ></center>'
+ 'Неожиданно на вас напал грабитель'
+	 act 'Отдам деньги , здоровье важнее':
+	 cla
+	 money=0
+	 clr
+	 gs'stat'
+	 'Вы потеряли все имеющиеся у вас в наличии сбережения.'
+	 act 'Уйти':gt'street'
+	 end
+     
+	 act 'Хрен ему , а не деньги':
+	 cla
+	 'Грабитель с грязными ругательствами набрасывается на вас , теперь просто деньгами вы не отделыетесь.'
+		 act 'Драться':
+		 set $nameV = 'Насильник'
+		 !Статы
+		 set strenV = 100
+		 set speedV = 50
+		 set agilV = 40
+		 set reactV = 40
+		 set vitalV = 50
+		 set intelV = 10
+		 set willV = 10
+		 !Навыки
+		 set magikV = 100
+		 set boxingV = 50
+		 set shootV = 100
+		 !Параметры
+		 set healthV = vitalV*10 + strenV*5
+		 set mannaV = intelV*10 + magikV*10
+		 set willpowerV = willV*10
+		 set BonusAtakV = 0
+		 set BonusDefV = 0
+		 !программа действий
+		 set program = 0
+		 set RapistFight = 1
+		 if spellavtoklon = 1:set klon = 3
+		 if spellbefshild = 1:set defence = 500
+		 gt'fight','start'
+		 end
+	 end
+ exit
+ end
+ 
+
+set streetrand = RAND (0,100)        
+ if streetrand >= 100 and money >= 1000 and daystart>=10 and hour <=3: 
+ cla
+ *clr
+ '<center><img src="pic\street.jpg" ></center>'
+ 'Вы подверглись ограблению , у вас из рук воришка вырвал сумочку с деньгами и быстро рванул в сторону лесопарковой леснухи.'
+	 act 'Не побегу , мне его не догнать':
+	 cla
+	 money=0
+	 clr
+	 gs'stat'
+	 act 'Вот гад':gt'street'
+	 end
+		 
+		 
+	 act 'Догоню этого урода и тогда ему пиздец':
+	     if speed < 55 or agil < 55 or vital < 55: 
+		 cla
+		 money=0
+		 clr
+		 gs'stat'
+		 act 'Не догнала , надо тренироваться':gt'street'
+		 end
+		 
+		 if speed >= 60 and agil >= 60 and vital >= 60:
+		 set $nameV = 'Насильник'
+		 !Статы
+		 set strenV = 100
+		 set speedV = 50
+		 set agilV = 40
+		 set reactV = 40
+		 set vitalV = 50
+		 set intelV = 10
+		 set willV = 10
+		 !Навыки
+		 set magikV = 100
+		 set boxingV = 50
+		 set shootV = 100
+		 !Параметры
+		 set healthV = vitalV*10 + strenV*5
+		 set mannaV = intelV*10 + magikV*10
+		 set willpowerV = willV*10
+		 set BonusAtakV = 0
+		 set BonusDefV = 0
+		 !программа действий
+		 set program = 0
+		 set RapistFight = 1
+		 if spellavtoklon = 1:set klon = 3
+		 if spellbefshild = 1:set defence = 500
+		 gt'fight','start'
+		 end
+     end
+exit
+end
+
+if streetrand >= 10 and bfa < 1:
+set vnerand = RAND (0,300)
+	 if vnerand <= vnesh:
+	 gs'boy'
+	 'К вам подошел <<$boybody>> <<$boybod>> <<$boyface>>. Он <<$boyClo>>'
+	 'Парень представился как <<$boy>> и попросил ваш телефончик.'
+		 act 'Сказать ему телефон':
+		 cla
+		 gs'boyfrend','start'
+		 set stopboy = 0
+		 '<<$boyA>> записал ваш телефон и ушел.'
+		 act 'Завершить прогулку':gt'street'
+		 end
+	 end
+end
+
+
+dynamic $din_street_cum
+--- street ---------------------------------
+

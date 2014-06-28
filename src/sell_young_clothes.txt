@@ -1,0 +1,44 @@
+# sell_young_clothes
+set mag=1
+$metka = $ARGS[0]
+$loc = $CURLOC
+$metkaM = $ARGS[0]
+$locM = $CURLOC
+'<B><center><font size=4>Женская одежда</font></center></B>'
+*nl
+act '<font color=navy>Уйти</font>':
+minut+=1
+gt 'young_shop'
+end
+if odekis[1] = 0:
+	 act '<font color=navy>Просмотреть первый вариант одежды</font>':set numdres=1&payclo=10000&gt'loker','odekis'
+	 end
+if odekis[2] = 0:
+	 act '<font color=navy>Просмотреть второй вариант одежды</font>':set numdres=2&payclo=10000&gt'loker','odekis'
+	 end
+if odekis[3] = 0:
+	 act '<font color=navy>Просмотреть третий вариант одежды</font>':set numdres=3&payclo=10000&gt'loker','odekis'
+	 end
+if odekis[4] = 0:
+	 act '<font color=navy>Просмотреть четвертый вариант одежды</font>':set numdres=4&payclo=10000&gt'loker','odekis'
+	 end
+if odekis[5] = 0:
+	 act '<font color=navy>Просмотреть пятый вариант одежды</font>':set numdres=5&payclo=10000&gt'loker','odekis'
+	 end
+if odekis[6] = 0:
+	 act '<font color=navy>Просмотреть шестой вариант одежды</font>':set numdres=6&payclo=10000&gt'loker','odekis'
+	 end
+if odekis[7] = 0:
+	 act '<font color=navy>Просмотреть седьмой вариант одежды</font>':set numdres=7&payclo=10000&gt'loker','odekis'
+	 end
+if odekis[8] = 0:
+	 act '<font color=navy>Просмотреть восьмой вариант одежды</font>':set numdres=8&payclo=10000&gt'loker','odekis'
+	 end
+if odekis[9] = 0:
+	 act '<font color=navy>Просмотреть девятый вариант одежды</font>':set numdres=9&payclo=10000&gt'loker','odekis'
+	 end
+if odekis[10] = 0:
+	 act '<font color=navy>Просмотреть десятый вариант одежды</font>':set numdres=10&payclo=10000&gt'loker','odekis'
+	 end
+--- sell_young_clothes ---------------------------------
+

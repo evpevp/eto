@@ -1,0 +1,125 @@
+# boy
+!'<<$boy>> <<$boybody>> <<$boybod>> <<$boyface>>.<<$boy>> <<$boyClo>>'
+
+!Рандомные мужские имена
+Set boynamerand = RAND (1,38)
+!Русские имена
+if boynamerand = 1:Set $boy = 'Александр'
+if boynamerand = 2:Set $boy = 'Алексей'
+if boynamerand = 3:Set $boy = 'Альберт'
+if boynamerand = 4:Set $boy = 'Анатолий'
+if boynamerand = 5:Set $boy = 'Антон'
+if boynamerand = 6:Set $boy = 'Аркадий'
+if boynamerand = 7:Set $boy = 'Андрей'
+if boynamerand = 8:Set $boy = 'Борис'
+if boynamerand = 9:Set $boy = 'Вадим'
+if boynamerand = 10:Set $boy = 'Валентин'
+if boynamerand = 11:Set $boy = 'Валерий'
+if boynamerand = 12:Set $boy = 'Василий'
+if boynamerand = 13:Set $boy = 'Виктор'
+if boynamerand = 14:Set $boy = 'Виталий'
+if boynamerand = 15:Set $boy = 'Владимир'
+if boynamerand = 16:Set $boy = 'Вячеслав'
+if boynamerand = 17:Set $boy = 'Геннадий'
+if boynamerand = 18:Set $boy = 'Георгий'
+if boynamerand = 19:Set $boy = 'Григорий'
+if boynamerand = 20:Set $boy = 'Денис'
+if boynamerand = 21:Set $boy = 'Евгений'
+if boynamerand = 22:Set $boy = 'Егор'
+if boynamerand = 23:Set $boy = 'Иван'
+if boynamerand = 24:Set $boy = 'Игорь'
+if boynamerand = 25:Set $boy = 'Кирилл'
+if boynamerand = 26:Set $boy = 'Леонид'
+if boynamerand = 27:Set $boy = 'Максим'
+if boynamerand = 28:Set $boy = 'Михаил'
+if boynamerand = 29:Set $boy = 'Олег'
+if boynamerand = 30:Set $boy = 'Павел'
+if boynamerand = 31:Set $boy = 'Петр'
+if boynamerand = 32:Set $boy = 'Семен'
+if boynamerand = 33:Set $boy = 'Сергей'
+if boynamerand = 34:Set $boy = 'Степан'
+if boynamerand = 35:Set $boy = 'Федор'
+if boynamerand = 36:Set $boy = 'Эдуард'
+if boynamerand = 37:Set $boy = 'Юрий'
+if boynamerand = 38:Set $boy = 'Яков'
+$namev=$boy
+
+!Внешность
+Set boybodyrand = RAND (1,3)
+if boybodyrand = 1:Set $boybody = 'высокий'
+if boybodyrand = 2:Set $boybody = 'среднего роста'
+if boybodyrand = 3:Set $boybody = 'небольшой'
+
+Set boybodrand = RAND (1,4)
+if boybodrand = 1:Set $boybod = 'худощавый'
+if boybodrand = 2:Set $boybod = 'атлетичный'
+if boybodrand = 3:Set $boybod = 'коренастый'
+if boybodrand = 4:Set $boybod = 'полный'
+
+Set boyfacerand = RAND (1,3)
+if boyfacerand = 1:Set $boyface = 'брюнет'
+if boyfacerand = 2:Set $boyface = 'шатен'
+if boyfacerand = 3:Set $boyface = 'блондин'
+!размер елды
+set grdikrand = RAND (0,100)
+if grdikrand < 80:
+set dick = RAND (12,18)
+end
+if grdikrand >= 80 and grdikrand < 90:
+set dick = RAND (8,12)
+end
+if grdikrand >= 90:
+set dick = RAND (18,25)
+end
+! половая сила
+set silaVag = RAND (0,2)
+
+!переменная отвечающая за guy
+set boyonce = 0
+
+set harakBoy = RAND (0,2)
+
+!Переменные отвечающие за то какие черты нравятся
+!Обеспеченность, отвечает за деньги и требования
+set finance = RAND (0,2)
+     if finance = 0:
+     !нищий гопник или работяга
+     !проверка по внешности Первичная
+         if harakBoy = 0:set vneshBoy = RAND (0,2)
+         if harakBoy = 1:set vneshBoy = RAND (0,4)
+         if harakBoy = 2:set vneshBoy = RAND (0,8)
+     set $boyClo = 'одет в мешковатый спортивный костюм.'
+     end 
+     if finance = 1:
+     !середняк
+     !проверка по внешности
+         if harakBoy = 0:set vneshBoy = RAND (0,4)
+         if harakBoy = 1:set vneshBoy = RAND (0,6)
+         if harakBoy = 2:set vneshBoy = RAND (0,8)
+      set $boyClo = 'одет в джинсы и свитер.'
+     end 
+     if finance = 2:
+     !середняк
+     !проверка по внешности
+         if harakBoy = 0:set vneshBoy = RAND (4,8)
+         if harakBoy = 1:set vneshBoy = RAND (6,8)
+         if harakBoy = 2:set vneshBoy = RAND (8,10)
+      set $boyClo = 'одет в дорогой костюм.'
+     end 
+
+!требования по фигуре, размеру груди, цвет волос.
+!0 - зад меньше 80, 1 зад от 80 до 100, 2 зад свыше 100 
+set figurBoy = RAND (0,2)
+!0 - грудь меньше 3, 1 грудь 3-4, 2 грудь больше 4
+set titBoy = RAND (0,2)
+!0 - брюнетка, 1 - шатенка, 2 - рыжая, 3 - блондинка
+set haerBoy = RAND (0,3)
+!характер  0 - мягкий, 1 -норма 2 - агрессор
+
+set randizvrat = RAND (0,100)
+if randizvrat < 80:set izvrat = 0
+if randizvrat >= 80:set izvrat = 1
+
+
+--- boy ---------------------------------
+

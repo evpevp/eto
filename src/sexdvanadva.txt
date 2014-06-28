@@ -1,0 +1,146 @@
+# sexdvanadva
+if $ARGS[0]='start':
+cla
+*clr
+set guy+=2
+set girl+=1
+set gang+=1
+gs 'stat'
+set picrand = RAND (0,1)
+set minut+=30
+set sweat+=1
+xgt'sexdvanadva','var'
+end
+
+if $ARGS[0]='var':
+set sexdvarand = RAND (0,6)
+if pikrand=11:set sexdvarand = RAND (0,5)
+if pikrand=14:set sexdvarand = RAND (0,4)
+if sexdvarand=0:
+	 cla
+	 *clr
+	 set horny+=10
+	 if dvdvsxbj=0:
+		 set bj+=1
+		 set dvdvsxbj=1
+		 end
+	 set minut+=10
+	 set sexvar+=1
+	 '<center><img src="img\sexdvanadva\minet<<picrand>>.jpg"></center>'
+	 'Вы вдвоем сосете их члены.'
+	 if sexvar<3:act 'Ещё':xgt'sexdvanadva','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexdvanadva','end'
+	 end
+if sexdvarand=1:
+	 cla
+	 *clr
+	 set horny+=10
+	 set minut+=10
+	 set sexvar+=1
+	 '<center><img src="img\sexdvanadva\vag<<picrand>>.jpg"></center>'
+	 'Пока она наслаждается членом в своей киске, вы тоже не остаетесь без мужского внимания.'
+	 if sexvar<3:act 'Ещё':xgt'sexdvanadva','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexdvanadva','end'
+	 end
+if sexdvarand=2:
+	 cla
+	 *clr
+	 set horny+=10
+	 if dvdvsxsex=0:
+		 set sex+=1
+		 set dvdvsxsex=1
+		 end
+	 set minut+=10
+	 set sexvar+=1
+	 '<center><img src="img\sexdvanadva\uvag<<picrand>>.jpg"></center>'
+	 'Он входит в вас, его член двигается внутри вашей киски доставляя вам удовольствие, в это время её тоже не одиноко.'
+	 if sexvar<3:act 'Ещё':xgt'sexdvanadva','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexdvanadva','end'
+	 end
+if sexdvarand=3:
+	 cla
+	 *clr
+	 set horny+=10
+	 set minut+=10
+	 set sexvar+=1
+	 '<center><img src="img\sexdvanadva\anal<<picrand>>.jpg"></center>'
+	 'Вам нравиться вид члена в её попке и пока она сладко постанывает пытаясь вобрать в себя его целиком вы тоже заняты интерестным процессом.'
+	 if sexvar<3:act 'Ещё':xgt'sexdvanadva','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexdvanadva','end'
+	 end
+if sexdvarand=4:
+	 cla
+	 *clr
+	 set horny+=10
+	 if dvdvsxanal=0:
+		 set anal+=1
+		 set dvdvsxanal=1
+		 end
+	 set minut+=10
+	 set sexvar+=1
+	 '<center><img src="img\sexdvanadva\uanal<<picrand>>.jpg"></center>'
+	 'Когда он входит вам в анус вам немного больно, но вскоре боль проходит и её место занимают приятные ощущения, пока его фалос двигается в вашей попке она тоже не сидит сложа руки.'
+	 if sexvar<3:act 'Ещё':xgt'sexdvanadva','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexdvanadva','end'
+	 end
+if sexdvarand=5:
+	 cla
+	 *clr
+	 set horny+=10
+	 if dvdvsxsex=0:
+		 set sex+=1
+		 set dvdvsxsex=1
+		 end
+	 if dvdvsxanal=0:
+		 set anal+=1
+		 set dvdvsxanal=1
+		 end
+	 set minut+=10
+	 set sexvar+=1
+	 '<center><img src="img\sexdvanadva\udp<<picrand>>.jpg"></center>'
+	 'Оба мужчины входят в вас и вы стоните от наслаждения чувствуя как оба фалоса двигаются внутри.'
+	 if sexvar<3:act 'Ещё':xgt'sexdvanadva','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexdvanadva','end'
+	 end
+if sexdvarand=6:
+	 cla
+	 *clr
+	 set horny+=10
+	 set minut+=10
+	 set sexvar+=1
+	 '<center><img src="img\sexdvanadva\dp<<picrand>>.jpg"></center>'
+	 'Когда они входят в неё вдвоем вам становиться немного завидно видя как она наслаждается.'
+	 if sexvar<3:act 'Ещё':xgt'sexdvanadva','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexdvanadva','end'
+	 end
+end
+
+if $ARGS[0]='end':
+cla
+*clr
+if horny>=80:
+	 set horny=0
+	 set orgasm+=1
+	 end
+set minut+=10
+set dvdvsxbj=0
+set dvdvsxsex=0
+set dvdvsxanal=0
+set cumlip=1
+set sexvar=0
+'<center><img src="img\sexdvanadva\cum<<picrand>>.jpg"></center>'
+'Когда они кончают выплескивая вам сперму, вы слизываете её друг с друга, обмениваетесь целуясь и наконец глотаете.'
+act 'Уйти':
+	 if kafesexrand=1:
+		 set kafesexrand=0
+		 gt'kafe','workPred'
+		 end
+	 if kazsexdva=1:
+		 set kazsexdva=0
+		 gt'kazinosvid','3'
+		 end
+	 gt'<<$sexloc>>','start'
+	 end
+end
+--- sexdvanadva ---------------------------------
+

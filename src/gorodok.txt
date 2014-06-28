@@ -1,0 +1,66 @@
+# gorodok
+$metka = $ARGS[0]
+$loc = $CURLOC
+litltown=1
+cla
+*clr
+'<center><H4>Городок</H4></center>'
+'<center><img src="pic\gorodok.jpg" ></center>'
+'Тихий провинциальный городишко неотличимый от тысяч ему подобных городков. Отреставрированные купола церквей возвышаются над полуразвалившимися хибарами которые строили еще пленные немцы.'
+if AlbFather>=1:
+if AlbFaterBlackTime=0:AlbFaterBlackTime=totminut+2880
+'На домах видны наклеенные плакаты. "Борис Барловский, НАШ кандидат!"'
+end
+
+if AlbFaterBlackTime>0 and AlbFaterBlackTime<=totminut and hour>=16 and AlbFather=1:
+gt'AlbFatherQW'
+end
+
+if StoryLine>0 and hour<5 and motherWorry=0:
+motherWorry=1
+end
+
+set gorodokwhorerand = rand (1,5)
+if gorodokwhore >=2 and gorodokwhore <6 and gorodokwhorerand =>4:'Вы ловите на себя взгляды людей, некоторые пытаются узнать в вас кого- то, а может, и узнают. Изредка вы слышите смешки людей. Похоже, кто- то узнал о ваших похождениях.'
+if gorodokwhore >=6 and gorodokwhore <10 and gorodokwhorerand =>4:'Люди смотрят на вас с ухмылкой, кто- то делает пошлые жесты в вашу сторону, некоторые намекают на ваши похождения.'
+if gorodokwhore >=10 and gorodokwhorerand =>4:'Все окружающие узнают в вас шлюху. Некоторые, проходя мимо, шлёпают вас по попе. Бабушки на лавочках обзывают вас блядью.'
+set gorodokstreetsexrand = rand (1,20)
+if gorodokwhore > 5 and gorodokstreetsexrand = 20:
+'К вам подошёл парень и предложил отойти в кусты перепихнуться за сотку'
+act 'Согласиться':gt 'gevent','5'
+end
+
+gs'stat'
+gs'time'
+
+if car > 0 and cardrive = 20:
+set cardrive = 20
+'На парковке стоит <a href="exec:GS ''carF'',''start''">ваш <<$car>></a>.'
+end
+
+if StoryLine=1 and ParHomeBlock=0:'В одном из домов находится <a href="exec:minut+=15&GT ''korrPar''">квартира</a> ваших родителей.'
+'<a href="exec:minut+=15&GT ''vokzalG''">Вокзал</a>.'
+'<a href="exec:minut+=15&GT ''gpoli''">Поликлиника</a>.'
+if hour>=8 and hour<=22:'В киоске продают <a href="exec:dynamic $kiosksig">сигареты.</a>'
+'Автомобильная <a href="exec:GT ''zaprF'',''start''">заправка.</a>'
+'Районный <a href="exec:GT ''gdk''">дом культуры.</a>'
+if SchoolBlock=0:'Местная <a href="exec:GT ''gschool''">школа</a>'
+if hour>=7 and hour<=18:'<a href="exec:GT ''etoexhib'',''pos20''">Профессиональный лицей.</a>'
+if hour >= 8 and hour <= 20:'Единственный крупный магазин в городишке <a href="exec:GT ''shop'',''start''">супермаркет</a>'
+'Небольшой городской <a href="exec:GT ''gskver'',''park''">сквер</a>, в котором отдыхают люди'
+
+     act 'Ждать':
+     cla
+     waiting = input ("Сколько минут ждать? (Не больше 120 минут)")
+         if waiting <= 0 or waiting > 120:
+         set minut = minut + 15
+         end
+         if waiting > 0 and waiting <= 120:
+         set minut = minut + waiting
+         end
+     act 'Посмотреть на часы':gt curloc
+     end
+
+
+--- gorodok ---------------------------------
+

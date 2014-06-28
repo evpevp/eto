@@ -1,0 +1,125 @@
+# sexorg
+if $ARGS[0]='start':
+cla
+*clr
+gs 'stat'
+set picrand = RAND (0,1)
+set minut+=30
+set sweat+=1
+gt'sexorg','var'
+end
+
+if $ARGS[0]='var':
+set sexorgrand = RAND (0,6)
+if sexorgrand=0:
+	 cla
+	 *clr
+	 set horny+=10
+	 if orsxbj=0:
+		 set bj+=1
+		 set orsxbj=1
+		 end
+	 set sexvar+=1
+	 '<center><img src="img\sexorg\minet<<picrand>>.jpg"></center>'
+	 'Вы вдвоем сосете его член, то по очереди, то вместе облизываете его фалос, соприкасаясь языками.'
+	 act 'Ещё':gt'sexorg','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexorg','end'
+	 end
+if sexorgrand=1:
+	 cla
+	 *clr
+	 set horny+=10
+	 set sexvar+=1
+	 '<center><img src="img\sexorg\vag<<picrand>>.jpg"></center>'
+	 'Пока она наслаждается членом в своей киске, вы тоже находите себе итересное заняти.'
+	 act 'Ещё':gt'sexorg','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexorg','end'
+	 end
+if sexorgrand=2:
+	 cla
+	 *clr
+	 set horny+=10
+	 if orsxsex=0:
+		 set sex+=1
+		 set orsxsex=1
+		 end
+	 set sexvar+=1
+	 '<center><img src="img\sexorg\uvag<<picrand>>.jpg"></center>'
+	 'Он входит в вас, его член двигается внутри вашей киски доставляя вам удовольствие, в это время она тоже не растерялась  нашла чем заняться.'
+	 act 'Ещё':gt'sexorg','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexorg','end'
+	 end
+if sexorgrand=3:
+	 cla
+	 *clr
+	 set horny+=10
+	 set sexvar+=1
+	 '<center><img src="img\sexorg\anal<<picrand>>.jpg"></center>'
+	 'Вам нравиться вид его члена в её попке и пока она сладко постанывает пытаясь вобрать в себя его целиком вы тоже не растерялись.'
+	 act 'Ещё':gt'sexorg','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexorg','end'
+	 end
+if sexorgrand=4:
+	 cla
+	 *clr
+	 set horny+=10
+	 if orsxanal=0:
+		 set anal+=1
+		 set pdsxanal=1
+		 end
+	 '<center><img src="img\sexorg\uanal<<picrand>>.jpg"></center>'
+	 'Когда он входит вам в анус вам немного больно, но вскоре боль проходит и её место занимают приятные ощущения, пока его фалос двигается в вашей попке она тоже не сидит сложа руки.'
+	 act 'Ещё':gt'sexorg','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexorg','end'
+	 end
+if sexorgrand=5:
+	 cla
+	 *clr
+	 set horny+=10
+	 if orsxbj=0:
+		 set bj+=1
+		 set orsxbj=1
+		 end
+	 if orsxsex=0:
+		 set sex+=1
+		 set orsxsex=1
+		 end
+	 if orsxanal=0:
+		 set anal+=1
+		 set orsxanal=1
+		 end
+	 '<center><img src="img\sexorg\udp<<picrand>>.jpg"></center>'
+	 'Двое мужчин входят в вас и вы стоните от наслаждения чувствуя как оба фалоса двигаются внутри.'
+	 act 'Ещё':gt'sexorg','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexorg','end'
+	 end
+if sexorgrand=6:
+	 cla
+	 *clr
+	 set horny+=10
+	 set sexvar+=1
+	 '<center><img src="img\sexorg\dp<<picrand>>.jpg"></center>'
+	 'Когда они входят в неё вдвоем вам становиться немного завидно видя как она наслаждается.'
+	 act 'Ещё':gt'sexorg','var'
+	 if sexvar>=3:act 'Закончить.':gt'sexorg','end'
+	 end
+end
+
+if $ARGS[0]='end':
+cla
+*clr
+set orsxbj=0
+set orsxsex=0
+set orsxanal=0
+set sexvar=0
+set cumlip=1
+if horny>=80:
+	 set horny=0
+	 set orgasm+=1
+	 end
+'<center><img src="img\sexorg\cum<<picrand>>.jpg"></center>'
+'Они кончил, и вы слизываете друг с друга сперму.'
+act 'Уйти':gt '<<$sexloc>>','start'
+end
+--- sexorg ---------------------------------
+

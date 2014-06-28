@@ -1,0 +1,24 @@
+# brosok
+if boyonceA = 0:
+!скачек требований после секса
+set boyonceA = 1
+set guy = guy + 1
+$bfsex+=''+''+$boyA+' Первый секс '+day+'го '+$mons+'. '+'член '+dickA+' см '+$boybody+' '+$boybod+' '+$boyface+'. Он '+$boyClo
+     if financeA = 0:
+         if harakBoyA = 0:set vneshBoyA = vneshBoyA + 2
+         if harakBoyA = 1:set vneshBoyA = vneshBoyA + 4
+         if harakBoyA = 2:set vneshBoyA = vneshBoyA + 8
+     end
+     if financeA = 1:
+         if harakBoyA = 0:set vneshBoyA = vneshBoyA + 6
+         if harakBoyA = 1:set vneshBoyA = vneshBoyA + 10
+         if harakBoyA = 2:set vneshBoyA = vneshBoyA + 14
+     end
+     if financeA = 2:
+         if harakBoyA = 0:set vneshBoyA = vneshBoyA + 14
+         if harakBoyA = 1:set vneshBoyA = vneshBoyA + 18
+         if harakBoyA = 2:set vneshBoyA = vneshBoyA + 22
+     end
+end
+--- brosok ---------------------------------
+

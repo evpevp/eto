@@ -1,0 +1,332 @@
+# autosalonF
+if $ARGS[0]='start':
+$metka = $ARGS[0]
+$loc = $CURLOC
+cla
+*clr
+gs'stat'
+set minut = minut + 5
+set cartraid = 1
+'<center><B>Автосалон</B></center>'
+'<center><img src="pic\manager.jpg" ></center>'
+'Список автомобилей в продаже'
+'<a href="exec:GS ''carF1'',''car''">ВАЗ 2107</a>. - новый, цена 200тыр'
+'<a href="exec:GS ''carF1'',''car2''">ВАЗ 2115</a>. - новый, цена 310тыр'
+'<a href="exec:GS ''carF1'',''car3''">ВАЗ 2113</a>. - новый, цена 290тыр'
+'<a href="exec:GS ''carF1'',''car4''">ВАЗ 2114</a>. - новый, цена 300тыр'
+'<a href="exec:GS ''carF1'',''car5''">ВАЗ 2110</a>. - новый, цена 350тыр'
+'<a href="exec:GS ''carF1'',''car6''">ВАЗ КАЛИНА</a>. - новый, цена 400тыр'
+'<a href="exec:GS ''carF1'',''car7''">ВАЗ ПРИОРА</a>. - новый, цена 450тыр'
+'<a href="exec:GS ''carF1'',''car8''">НИВА ШЕВРОЛЕ</a>. - новый, цена 500тыр'
+'<a href="exec:GS ''carF1'',''car9''">УАЗ ХАНТЕР</a>. - новый, цена 500тыр'
+'<a href="exec:GS ''carF1'',''car10''">УАЗ ПАТРИОТ</a>. - новый, цена 600тыр'
+'<a href="exec:GS ''carF1'',''car95''">Mitsubishi l200</a>. - новый, цена 1 млн'
+'<a href="exec:GS ''carF1'',''car96''">Audi Q7</a>. - новый, цена 5 млн'
+'<a href="exec:GS ''carF1'',''car97''">Cadillac Escalade</a>. - новый, цена 2 млн'
+'<a href="exec:GS ''carF1'',''car98''">Porsche Cayenne</a>. - новый, цена 5 млн'
+'<a href="exec:GS ''carF1'',''car99''">BMW X6</a>. - новый, цена 4,5млн'
+'<a href="exec:GS ''carF1'',''car100''">Mercedes-Benz S 600</a>. - новый, цена 8млн'
+act 'Поговорить с менеджером':gt'autosalonF','manager1'
+act 'Уйти':gt'Nord'
+end
+
+if $ARGS[0]='manager1':
+$metka = $ARGS[0]
+$loc = $CURLOC
+cla
+*clr
+gs'stat'
+set minut = minut + 5
+'<center><B>Автосалон</B></center>'
+'<center><img src="pic\manager.jpg" ></center>'
+'На счету в банке <<karta>> рублей'
+*nl
+'Менеджер приветливо улыбается и говорит. Для покупки необходимо иметь права и достаточно наличности на счету в банке, мы не работаем по наличному расчету. Так же нельзя иметь две машины, извините, но это новый, антипробковый закон городской мэрии.'
+act 'Уйти':gt'Nord'
+     if prava = 1 and car = 0:
+         if karta >= 200000:
+             act 'Купить ВАЗ 2107 (200 тыр)':
+             cla
+             *clr
+             set karta = karta - 200000
+             set $car = 'ВАЗ 2107'
+             set car = 1
+             set benz = 3
+             set cardrive = 8
+             set teh = 200
+             set tehcar = 200
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         
+         if karta >= 310000:
+             act 'Купить ВАЗ 2115 (310 тыр)':
+             cla
+             *clr
+             set karta = karta - 310000
+             set $car = 'ВАЗ 2115'
+             set car = 2
+             set benz = 3
+             set cardrive = 8
+             set teh = 300
+             set tehcar = 300
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         if karta >= 290000:
+             act 'Купить ВАЗ 2113 (290 тыр)':
+             cla
+             *clr
+             set karta = karta - 290000
+             set $car = 'ВАЗ 2113'
+             set car = 3
+             set benz = 3
+             set cardrive = 8
+             set teh = 290
+             set tehcar = 290
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         if karta >= 300000:
+             act 'Купить ВАЗ 2114 (300 тыр)':
+             cla
+             *clr
+             set karta = karta - 300000
+             set $car = 'ВАЗ 2114'
+             set car = 4
+             set benz = 3
+             set cardrive = 8
+             set teh = 300
+             set tehcar = 300
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         if karta >= 350000:
+             act 'Купить ВАЗ 2110 (350 тыр)':
+             cla
+             *clr
+             set karta = karta - 350000
+             set $car = 'ВАЗ 2110'
+             set car = 5
+             set benz = 3
+             set cardrive = 8
+             set teh = 350
+             set tehcar = 350
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         
+         if karta >= 400000:
+             act 'Купить ВАЗ Калина (400 тыр)':
+             cla
+             *clr
+             set karta = karta - 400000
+             set $car = 'ВАЗ КАЛИНА'
+             set car = 6
+             set benz = 3
+             set cardrive = 8
+             set teh = 400
+             set tehcar = 400
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         
+         if karta >= 450000:
+             act 'Купить ВАЗ Приора (450 тыр)':
+             cla
+             *clr
+             set karta = karta - 450000
+             set $car = 'ВАЗ ПРИОРА'
+             set car = 7
+             set benz = 3
+             set cardrive = 8
+             set teh = 450
+             set tehcar = 450
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         
+         if karta >= 500000:
+             act 'Купить Нива Шевроле (500 тыр)':
+             cla
+             *clr
+             set karta = karta - 500000
+             set $car = 'НИВА ШЕВРОЛЕ'
+             set car = 8
+             set benz = 3
+             set cardrive = 8
+             set teh = 500
+             set tehcar = 500
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         
+         if karta >= 500000:
+             act 'Купить УАЗ Хантер (500 тыр)':
+             cla
+             *clr
+             set karta = karta - 500000
+             set $car = 'УАЗ ХАНТЕР'
+             set car = 9
+             set benz = 3
+             set cardrive = 8
+             set teh = 300
+             set tehcar = 300
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         
+         if karta >= 600000:
+             act 'Купить УАЗ Патриот (600 тыр)':
+             cla
+             *clr
+             set karta = karta - 600000
+             set $car = 'УАЗ ПАТРИОТ'
+             set car = 10
+             set benz = 3
+             set cardrive = 8
+             set teh = 400
+             set tehcar = 400
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         
+         if karta >= 1000000:
+             act 'Купить Mitsubishi l200 (1 млн)':
+             cla
+             *clr
+             set karta = karta - 1000000
+             set $car = 'Mitsubishi l200'
+             set car = 95
+             set benz = 3
+             set cardrive = 8
+             set teh = 2000
+             set tehcar = 2000
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         
+         if karta >= 5000000:
+             act 'Купить Audi Q7 (5 млн)':
+             cla
+             *clr
+             set karta = karta - 5000000
+             set $car = 'Audi Q7'
+             set car = 96
+             set benz = 3
+             set cardrive = 8
+             set teh = 5000
+             set tehcar = 5000
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         
+         if karta >= 2000000:
+             act 'Купить Cadillac Escalade (2 млн)':
+             cla
+             *clr
+             set karta = karta - 2000000
+             set $car = 'Cadillac Escalade'
+             set car = 97
+             set benz = 3
+             set cardrive = 8
+             set teh = 4000
+             set tehcar = 4000
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'autosalonF','manager'
+             end
+         
+         end 
+         
+         if karta >= 5000000:
+             act 'Купить Porsche Cayenne (5 млн)':
+             cla
+             *clr
+             set karta = karta - 5000000
+             set $car = 'Porsche Cayenne'
+             set car = 98
+             set benz = 3
+             set cardrive = 8
+             set teh = 3000
+             set tehcar = 3000
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         
+         end 
+         
+         if karta >= 4500000:
+             act 'Купить BMW X6 (4,5 млн)':
+             cla
+             *clr
+             set karta = karta - 4500000
+             set $car = 'BMW X6'
+             set car = 99
+             set benz = 3
+             set cardrive = 8
+             set teh = 4000
+             set tehcar = 4000
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         end 
+         
+         if karta >= 8000000:
+             act 'Купить Mercedes-Benz S 600 (8 млн)':
+             cla
+             *clr
+             set karta = karta - 8000000
+             set $car = 'Mercedes-Benz S 600'
+             set car = 100
+             set benz = 3
+             set cardrive = 8
+             set teh = 8000
+             set tehcar = 8000
+             set wrek = 0
+             'Вы перечислили деньги и менеджер вам выдала ключи. Она уточнила, что ваша машина уже стоит на улице. Бензина мало и она рекомендует вам заправится.'
+             act 'Уйти':gt'Nord'
+             end
+         end 
+     end
+end
+--- autosalonF ---------------------------------
+

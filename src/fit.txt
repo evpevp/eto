@@ -1,0 +1,505 @@
+# fit
+if $ARGS[0]='start':
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Фитнес центр</font></B></center>'
+'<center><img src="pic\fit.jpg" ></center>'
+'Абонемент на 30 занятий стоит 3000 рублей
+На занятия обязательно приходить в спортивной одежде.'
+if abonement > 0:'Абонемент действителен на <<abonement>> занятий'
+clr
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+
+     act 'ВЫЙТИ':
+     cla
+     set minut = minut + 5
+     gt'down'
+     end
+     
+     if money >= 3000:
+         act 'Купить абонемент (3 тыр)':
+         cla
+         set money = money - 3000
+         set abonement = abonement + 30
+         'Вы купили абонемент на 30 занятий'
+         act 'Отойти от кассы':gt'fit','start'
+         end
+     end
+     
+     if abonement > 0 and fitday ! day:
+         act 'Идти в раздевалку':
+         cla
+         frost=0
+         set abonement = abonement - 1
+         set fitday = day
+         set razdtumbler = 1
+         gt'fit','razd'
+         end
+     end
+end
+
+if $ARGS[0]='razd':
+clr
+gs'stat'
+$metkaM = $ARGS[0]
+$locM = $CURLOC
+set minut = minut + 5
+'<center><B><font color=maroon>Раздевалка</font></B></center>'
+'<center><img src="pic\razd.jpg" ></center>'
+
+'Объявления'
+'Производится набор девушек в секцию бега, призеры соревнований получают денежные призы.'
+'Внимание, посещать спортивные секции разрешаеться только со спортивном костюмом.'
+
+     if razdrand=0 and tanznak=0 and tanday!day:
+     tanday=day
+	 'В раздевалке вы замечаете <a href="exec:gt ''fitgirl''">симпатичную девушку</a>.'
+	 end
+	 
+     if tanznak=2:
+	 cls
+	 '<center><img src="img\centr\razd4.jpg" ></center>'
+	 '"Тебя хоть как зовут, маньячка, а то изнасиловала чесную девушку и даже не представилась" спросила девушка отдышавшись.
+	 "Я Света, и я тебе не насиловала ты сама была не против" ответили вы пытаясь глазами найти свои трусики.
+	 "Не это ищешь?" спросила девушка вертя на пальце ваши трусики "А я Таня, и все таки ты меня совратила, у меня девушек раньше не было, и как выяснилось очень даже зря, я живу тут рядом с родителями, если хочешь приходи в гости."
+	 "Ладно как нибудь забегу, трусы то верни" сказали вы протягивая руку.
+	 "Не-а не верну, должно же у меня что-то остаться на память о первой девушке." с этими словами Таня сунула ваши трусики в карман и вышла.'
+	 set tanznak=3
+	 set tanga=0
+	 set nude=1
+	 set tanya+=5
+	 act 'Дальше':gt'fit','razd'
+	 exit
+	 end
+
+
+if begsec = 0: act 'Записаться в секцию бега': gt'fit','1'
+
+if begsec > 0 and razdtumbler = 1 and sport > 0: act 'Идти в секцию': gt'beg','start'
+if begsec > 0 and razdtumbler = 1 and sport > 0 and beg>=20 and week=6: act '<B>Соревнования по бегу</B>': gt'beg1','start'
+
+     act 'Принять душ 15 мин':
+     cla
+     *clr
+     set minut = minut + 15
+     set sweat = -3
+     set horny = horny + 1
+     set hapri = 0
+     set mop = 1
+     dynamic $showerdin
+     '<center><img src="pics\dush.jpg" ></center>'
+     'Вы залезли в ванную и включили душ. Намылили тело и смыли под душем.'
+     act 'Выйти из душевой':gt'fit','razd'
+     end
+     
+     act 'Зеркало':
+     cla
+     set fitMir = 1
+     gt'mirror','start'
+     end
+     
+     act 'Шкафчик':
+     cla
+     set fitLoker = 1
+     gt'loker','start'
+     end
+     
+     if razdtumbler = 1 and sport > 0:
+         act 'Идти в спорт зал':
+		 cla
+		 gt'fit','raz'
+		 end
+		 
+		 act 'Идти в танцевальную студию.':
+		 cla
+		 gt'danceclass'
+		 end
+     end
+     
+     if razdtumbler = 0 or sport = 0:
+         act 'Выйти из раздевалки':
+		 cla
+		 gt'fit','start'
+		 end
+     end
+end
+
+if $ARGS[0]='raz':
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Фитнес центр</font></B></center>'
+'<center><img src="pic\fit.jpg" ></center>'
+'В фитнесс центре представлено множество различных программ для физического развития организма.'
+clr
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+
+set razdtumbler = 0
+set sportzalrand=rand(0,20)
+
+     act 'Аэробика (сгон жира)':
+     cla
+     *clr
+     set minut = minut + 120
+     set fat = fat - 10
+     set reakt = reakt + RAND (1,3)
+     set manna = manna - 5
+     set sweat = sweat + 3
+     if sportzalrand=0:gt'zal','0'
+	 if sportzalrand=1:gt'zal','1'
+	 if sportzalrand=2:gt'zal','2'
+	 if sportzalrand=3:gt'zal','3'
+     '<center><img src="pic\fit1.jpg" ></center>'
+     'Вы очень энергично выполняли упражнения под музыку для сгона жира.'
+     act 'Уйти':gt'fit','razd'
+     end
+     
+     act 'Тренажорка (на силу)':
+     cla
+     *clr
+     set minut = minut + 120
+     set stren = stren + RAND (1,3)
+     set fat = fat - 1
+     set manna = manna - 5
+     set sweat = sweat + 3
+     if sportzalrand=0:gt'zal','0'
+	 if sportzalrand=1:gt'zal','1'
+	 if sportzalrand=2:gt'zal','2'
+	 if sportzalrand=3:gt'zal','3'
+     '<center><img src="pic\fit2.jpg" ></center>'
+     'Вы занимались с железом для развития силы.'
+     act 'Уйти':gt'fit','razd'
+     end
+     
+     act 'Тренажорка (на выносливость)':
+     cla
+     *clr
+     set minut = minut + 120
+     set vital = vital + RAND (1,3)
+     set manna = manna - 5
+     set fat = fat - 2
+     set sweat = sweat + 3
+     if sportzalrand=0:gt'zal','0'
+	 if sportzalrand=1:gt'zal','1'
+	 if sportzalrand=2:gt'zal','2'
+	 if sportzalrand=3:gt'zal','3'
+     '<center><img src="pic\fit3.jpg" ></center>'
+     'Вы занимались на тренажорах для развития выносливости.'
+     act 'Уйти':gt'fit','razd'
+     end
+     
+     act 'Тенис отработка защиты(на ловкость)':
+     cla
+     *clr
+     set minut = minut + 120
+     set agil = agil + RAND (1,3)
+     set fat = fat - 5
+     set manna = manna - 5
+     set sweat = sweat + 3
+     set TenisDef = TenisDef + 1
+     if sportzalrand=0:gt'zal','0'
+	 if sportzalrand=1:gt'zal','1'
+	 if sportzalrand=2:gt'zal','2'
+	 if sportzalrand=3:gt'zal','3'
+     '<center><img src="pic\fit4.jpg" ></center>'
+     'Вы занимались тенисом отрабатывая защитные действия.'
+     act 'Уйти':gt'fit','razd'
+     end
+     
+     act 'Тенис отработка атак (на скорость)':
+     cla
+     *clr
+     set minut = minut + 120
+     set speed = speed + RAND (1,3)
+     set manna = manna - 5
+     set fat = fat - 5
+     set sweat = sweat + 3
+     set TenisAt = TenisAt + 1
+     if sportzalrand=0:gt'zal','0'
+	 if sportzalrand=1:gt'zal','1'
+	 if sportzalrand=2:gt'zal','2'
+	 if sportzalrand=3:gt'zal','3'
+     '<center><img src="pic\fit4.jpg" ></center>'
+     'Вы занимались тенисом отрабатывая атакующие действия.'
+     act 'Уйти':gt'fit','razd'
+     end
+
+     act 'Секция кикбоксинга':gt'fit','kik'
+
+end
+
+
+
+if $ARGS[0]='kik':
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Секция кикбоксинга</font></B></center>'
+'<center><img src="pic\kik.jpg" ></center>'
+''
+clr
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+gs'razrKik'
+     act 'Отработка джебов на груше':
+     cla
+     *clr
+     set minut = minut + 120
+     set speed = speed + RAND (1,3)
+     set manna = manna - 5
+     set fat = fat - 4
+     set sweat = sweat + 3
+     set Jab = Jab + RAND (1,3)
+     '<center><img src="pic\kik1.jpg" ></center>'
+     'Вы отрабатывали на груше джебы, длинные прямые удары с шагом вперед. Эти удары не так мощны как силовые, но они быстрее.'
+     act 'Уйти':gt'fit','razd'
+     end
+     
+     act 'Отработка силовых ударов на груше':
+     cla
+     *clr
+     set minut = minut + 120
+     set stren = stren + RAND (1,3)
+     set manna = manna - 5
+     set fat = fat - 4
+     set sweat = sweat + 3
+     set Punch = Punch + RAND (1,3)
+     '<center><img src="pic\kik1.jpg" ></center>'
+     'Вы отрабатывали на груше мощные силовые удары способные потрясти соперника. Эти удары мощны, но ими трудно попасть.'
+     act 'Уйти':gt'fit','razd'
+     end
+     
+     act 'Отработка ударов ног':
+     cla
+     *clr
+     set minut = minut + 120
+     set stren = stren + RAND (1,3)
+     set manna = manna - 5
+     set fat = fat - 4
+     set sweat = sweat + 3
+     set Kik = Kik + RAND (1,3)
+     '<center><img src="pic\kik1.jpg" ></center>'
+     'Вы отрабатывали на груше мощные удары ногами способные вырубить соперника. Эти удары мощны, но ими очень трудно попасть.'
+     act 'Уйти':gt'fit','razd'
+     end
+     
+     act 'Отработка защиты':
+     cla
+     *clr
+     set minut = minut + 120
+     set agil = agil + RAND (1,3)
+     set manna = manna - 5
+     set fat = fat - 4
+     set sweat = sweat + 3
+     set KikDef = KikDef + RAND (1,3)
+     '<center><img src="pic\kik1.jpg" ></center>'
+     'Вы отрабатывали защитные движения.'
+     act 'Уйти':gt'fit','razd'
+     end
+     
+     act 'Спаринг (тренировочный бой в ринге)':
+     cla
+     *clr
+     set round = 0
+     'Вам нужно выбрать себе соперника для спарринга'
+         act 'Соперница':
+		 set minut = minut + 120
+		 set manna = manna - 5
+		 set fat = fat - 4
+		 set sweat = sweat + 3
+		 set strenV = RAND (10,20)
+		 set speedV = RAND (10,20)
+		 set agilV = RAND (10,20)
+		 set reactV = RAND (10,20)
+		 set vitalV = RAND (10,20)
+		 set intelV = 10
+		 set willV = 10
+		 !Навыки
+		 set JabV = RAND (5,20)
+		 set PunchV = RAND (5,20)
+		 set KikV = RAND (5,20)
+		 set KikDefV = RAND (5,20)
+		 !Параметры
+		 set healthV = vitalV*10 + strenV*5
+		 set $nameV = 'Спаринг партнерша'
+		 set formula = 3
+		 set sparing = 1
+         gt'kikbox','start'
+		 end
+     
+     end
+     
+     if week >= 5:
+     'Вы можете провести любительский бой.'
+         act 'Любительский бой':
+         set round = 0
+		 set minut = minut + 120
+		 set manna = manna - 5
+		 set fat = fat - 4
+		 set sweat = sweat + 3
+		 set razrand = RAND (0,1)
+		     if razradKik + razrand = 0:
+			 set strenV = RAND (10,20)
+			 set speedV = RAND (10,20)
+			 set agilV = RAND (10,20)
+			 set reactV = RAND (10,20)
+			 set vitalV = RAND (10,20)
+			 set intelV = 10
+			 set willV = 10
+			 !Навыки
+			 set JabV = RAND (10,30)
+			 set PunchV = RAND (10,30)
+			 set KikV = RAND (10,30)
+			 set KikDefV = RAND (10,30)
+			 !Параметры
+			 set healthV = vitalV*10 + strenV*5
+			 set $nameV = 'Соперница без разряда'
+			 set formula = 3
+			 set amature = 1
+			 end
+			 
+			 if razradKik + razrand = 1:
+			 set strenV = RAND (15,25)
+			 set speedV = RAND (15,25)
+			 set agilV = RAND (15,25)
+			 set reactV = RAND (15,25)
+			 set vitalV = RAND (15,25)
+			 set intelV = 10
+			 set willV = 10
+			 !Навыки
+			 set JabV = RAND (15,35)
+			 set PunchV = RAND (15,35)
+			 set KikV = RAND (15,35)
+			 set KikDefV = RAND (15,35)
+			 !Параметры
+			 set healthV = vitalV*10 + strenV*5
+			 set $nameV = 'Соперница c третьим разрядом'
+			 set formula = 3
+			 set amature = 1
+			 end
+			 
+			 if razradKik + razrand = 2:
+			 set strenV = RAND (20,30)
+			 set speedV = RAND (20,30)
+			 set agilV = RAND (20,30)
+			 set reactV = RAND (20,30)
+			 set vitalV = RAND (20,30)
+			 set intelV = 10
+			 set willV = 10
+			 !Навыки
+			 set JabV = RAND (30,50)
+			 set PunchV = RAND (30,50)
+			 set KikV = RAND (30,50)
+			 set KikDefV = RAND (30,50)
+			 !Параметры
+			 set healthV = vitalV*10 + strenV*5
+			 set $nameV = 'Соперница cо вторым разрядом'
+			 set formula = 3
+			 set amature = 1
+			 end
+			 
+			 if razradKik + razrand = 3:
+			 set strenV = RAND (30,40)
+			 set speedV = RAND (30,40)
+			 set agilV = RAND (30,40)
+			 set reactV = RAND (30,40)
+			 set vitalV = RAND (30,40)
+			 set intelV = 10
+			 set willV = 10
+			 !Навыки
+			 set JabV = RAND (40,60)
+			 set PunchV = RAND (40,60)
+			 set KikV = RAND (40,60)
+			 set KikDefV = RAND (40,60)
+			 !Параметры
+			 set healthV = vitalV*10 + strenV*5
+			 set $nameV = 'Соперница c первым разрядом'
+			 set formula = 3
+			 set amature = 1
+			 end
+			 
+			 if razradKik + razrand = 4:
+			 set strenV = RAND (40,60)
+			 set speedV = RAND (40,60)
+			 set agilV = RAND (40,60)
+			 set reactV = RAND (40,60)
+			 set vitalV = RAND (40,60)
+			 set intelV = 10
+			 set willV = 10
+			 !Навыки
+			 set JabV = RAND (60,80)
+			 set PunchV = RAND (60,80)
+			 set KikV = RAND (60,80)
+			 set KikDefV = RAND (60,80)
+			 !Параметры
+			 set healthV = vitalV*10 + strenV*5
+			 set $nameV = 'Соперница КМС'
+			 set formula = 3
+			 set amature = 1
+			 end
+			 
+			 if razradKik + razrand >= 5:
+			 set strenV = RAND (60,100)
+			 set speedV = RAND (60,100)
+			 set agilV = RAND (60,100)
+			 set reactV = RAND (60,100)
+			 set vitalV = RAND (60,100)
+			 set intelV = 10
+			 set willV = 10
+			 !Навыки
+			 set JabV = RAND (80,110)
+			 set PunchV = RAND (80,110)
+			 set KikV = RAND (80,110)
+			 set KikDefV = RAND (80,110)
+			 !Параметры
+			 set healthV = vitalV*10 + strenV*5
+			 set $nameV = 'Соперница МС'
+			 set formula = 3
+			 set amature = 1
+			 end
+         gt'kikbox','start'
+		 end
+     end
+
+end
+
+if $ARGS[0]='1':
+cla
+*clr
+set minut = minut + 5
+Set begsec = 1
+'Вы записались на секцию бега'
+act 'Уйти':gt'fit','razd'
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--- fit ---------------------------------
+

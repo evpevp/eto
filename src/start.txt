@@ -1,0 +1,89 @@
+# start
+KILLALL
+CLOSE ALL
+!ADDQST 'car.qsp'
+
+USEHTML=1
+SHOWSTAT 0
+SHOWOBJS 0
+$ONGLOAD='loadg'
+$ONGSAVE='saveg'
+$ONNEWLOC  = 'LOCA'
+$onobjsel = 'onobjsel'
+showinput 0
+$counter = 'counter'
+$USERCOM='ОбработкаВвода'
+debug=1
+DISABLESCROLL = 1
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+FSIZE = 12
+$FNAME = 'Tahoma'
+
+
+!$backimage = 'content/pic/achtung.jpg'
+'<center>http://albedo.fludilka.su/ и DeGross</center>'
+*nl
+'<hr align="left" color="red" size="3" width="1200">'
+'<center><h2>ЭТО</h2></center>'
+'<hr align="left" color="red" size="3" width="1200">'
+*nl
+'<center>Версия 0.9.9.1</center>'
+*nl
+!'<center><img src="studiа\car.gif" ></center>'
+*nl
+*nl
+!'<center><img src="pic\start.jpg" ></center>'
+*nl
+*nl
+
+StoryLine=0
+MagikDostup=0
+
+
+'Симулятор жизни с элементами рпг, стратегии, порнухи. Детям до 18 лет строго воспрещается играть в ЭТО.'
+set $name = 'Михаил'
+set $surname = 'Кузнецов'
+set age = 35
+set vidage = 35
+set year = 2010
+set month = 5
+set week = 1
+set hour = 7
+set day = 25
+!тело
+set rost = 186
+set fat = 130
+set dick = 0
+set energy = 15
+set water = 15
+set son = 16
+!Статы
+set stren = 160
+set speed = 50
+set agil = 50
+set vital = 160
+set intel = 50
+set will = 100
+set react = 50
+set health = vital*10
+set willpower = intel*5 + will*5
+set manna = (intel*magik) + vital*5 
+set BDSMfilm=0
+set pornstudio=0
+set pfilmSTOP=0
+
+set money = 1500
+!act 'Начать':gt'begin'
+set opPRE = 1
+tanga=1
+clrbelo=1
+act '<center><b>Начать</b></center>':
+cla
+gt'begin'
+end
+
+
+--- start ---------------------------------
+

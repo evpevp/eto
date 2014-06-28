@@ -1,0 +1,78 @@
+# zoomagazine
+if $ARGS[0]='start':
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Зоомагазин "Питомец"</font></B></center>'
+'<center><img src="zoo\1277894267_dsc_0544.jpg" width=650 height=450 ></center>'
+clr
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+''
+'Собака 3000'
+'Кролик 2000'
+'Попугай 3000'
+
+     if money >= 3000 and sobaka = 0:
+     	 act 'Купить собаку 3000 руб':
+		 cla
+		 *clr
+		 '<center><img src="zoo\1277894267_dsc_0544.jpg" width=650 height=450 ></center>'
+			 act 'Здравствуйте, я бы хотела приобрести собаку':
+			 cla
+			 *clr
+			 '<center><img src="zoo\1277894267_dsc_0544.jpg" width=650 height=450 ></center>'
+			 '<center><b>Извините, но у нас остались собаки только мужского пола.</center></b>'
+				 act 'Купить кобеля':
+				 cla
+				 *clr
+				 set minut = minut + 10
+				 set sobaka = sobaka + 1
+				 set money = money - 3000
+				 '<center><img src="zoo\846660628.jpg" width=600 height=500 ></center>'
+				 '<center><b>Вы купили собаку-далматинца.</center></b>'
+				 $namesob = input ("Я назову собаку...")
+				 act 'Отойти от прилавка':gt'zoomagazine','start'
+				 end
+				 
+				 act 'Уйти':gt'zoomagazine','start'
+			 end
+			 
+			 
+		 end
+     end
+
+     
+     if money >= 2000 and krolik = 0:
+		 act 'Купить кролика 2000 руб':
+		 cla
+		 *clr
+		 '<center><img src="zoo\x_2b1d398b.jpg"></center>'
+		 '<center><b>Вы купили кролика.</center></b>'
+		 $namekrol = input ("Я назову кролика...")
+		 set minut = minut + 10
+		 set krolik = krolik + 1
+		 set money = money - 2000
+		 act 'Отойти от прилавка':gt'zoomagazine','start'
+		 end
+     end
+     
+     if money >= 3000 and popugai = 0:
+		 act 'Купить попугая 3000 руб':
+		 cla
+		 *clr
+		 '<center><img src="zoo\131998525345003210.png"></center>'
+		 '<center><b>Вы купили попугая.</center></b>'
+		 $namepopu = input ("Я назову попугая...")
+		 set minut = minut + 10
+		 set popugai = popugai + 1
+		 set money = money - 3000
+		 act 'Отойти от прилавка':gt'zoomagazine','start'
+		 end
+     end
+act 'Уйти':gt'torgcentr'
+end
+--- zoomagazine ---------------------------------
+

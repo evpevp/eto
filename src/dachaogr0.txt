@@ -1,0 +1,46 @@
+# dachaogr0
+clr
+gs'stat'
+gs'time'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+
+'<center><B><font color=maroon>Огород</font></B></center>'
+'<center><img src="etogame\burjan.jpg" ></center>'
+if etoexhib<11:'Огород весь порос сорняком и бурьяном. Какой либо урожай здесь выростить невозможно. Похоже бывшие хозяева совершенно не заботились о нем. Надо придумать как перекопать огород.'
+if etoexhib=11:'Рабочие лениво и с перекурами копаются в земле, вырывают сорняки.'
+if etoexhib=>12 and etoexhib<14:'Рабочие копают землю. Убирают пни.'
+if etoexhib=14 and temp!day:
+	cls
+	gs'stat'
+	'<center><B><font color=maroon>Огород</font></B></center>'
+	'<center><img src="etogame\vspah.jpg" ></center>'
+	'Ваш огородик вспахан. Грядки аккуратно разчерчены. Посажены яблони.'
+	'Довольные пьяные рабочие отдыхают в тени. Понятно, на деньги они взяли выпивку. И, видимо под допингом, быстрее закончили работу.'
+	act 'Расплатиться': gt'etoexhib', 'pos14'
+	end
+
+if etoexhib=15 and temp!day:
+	cls
+	gs'stat'
+	'<center><B><font color=maroon>Огород</font></B></center>'
+	'<center><img src="etogame\vspah.jpg" ></center>'
+	'Ваш огородик вспахан. Грядки аккуратно разчерчены. Посажены яблони.'
+	'Усталые рабочие отдыхают в тени.'
+	act 'Расплатиться деньгами':
+		cla
+		*clr
+		'Вы заплатили рабочим 3000 рублей.'
+		money-=3000
+		etoexhib=16
+		gs'stat'
+		act 'К домику':minut+=15&gt'dachamy'
+		end
+	if etoexhib=15 and horny>30:
+		act 'Расплатиться телом':gt 'etoexhib','pos13'
+		end
+	end	
+act 'К домику':minut+=15&gt'dachamy'
+--- dachaogr0 ---------------------------------
+

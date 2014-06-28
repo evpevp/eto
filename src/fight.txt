@@ -1,0 +1,320 @@
+# fight
+if $ARGS[0]='start':
+cla
+inFight=1
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+
+gs'defence'
+
+gs'statBat'
+
+
+if SasoriBody > 2 and healthV <= 0 or SasoriBody > 2 and mannaV <= 0 or SasoriBody > 2 and willpowerV <= 0:
+set SasoriBody = SasoriBody - 1
+gs'priziv','sasori'
+'<B><font color=red>Кукла рассыпалось на запчасти и тут же в бой вступила другая кукла Сасори.</font></B>'
+'<B><font color=red>Вы услышали звонкий голос Сасори "У меня много кукол, ты не победишь."</font></B>'
+end
+if SasoriBody = 2 and healthV <= 0 or SasoriBody = 2 and mannaV <= 0 or SasoriBody = 2 and willpowerV <= 0:
+set SasoriBody = SasoriBody - 1
+gs'priziv','sasori1'
+'<B><font color=red>Последняя кукла рассыпалась на части и в бой вступил сам Сасори.</font></B>'
+end
+if stunV > 0 and SasoriBody > 1:
+set stunV = 0
+'<B><font color=red>Кукла начала двигаться снова.</font></B>'
+end
+if stunV > 0 and SasoriBody = 1:
+set stunV = 0
+'<B><font color=red>Сасори двигается снова.</font></B>'
+end
+
+if GedoMazo = 1 and healthV <= 0 or GedoMazo = 1 and mannaV <= 0 or GedoMazo = 1 and willpowerV <= 0:
+set GedoMazo = 2
+set barierV = 0
+'<B><font color=green><<$nameV>> рухнул на землю превращаясь в прах</font></B>'
+gs'priziv','tobi'
+'<B><font color=green><<$nameV>> атаковал вас</font></B>'
+end 
+
+if health <= 0 and heart = 0 and izanagi = 0:
+'<B><font color=red>Вы проиграли</font></B>'
+xgt'ender','loss'
+exit
+end 
+
+if healthV <= 0 and heartV = 0 and izanagiV = 0:
+'<B><font color=green><<$nameV>> проиграл</font></B>'
+xgt'ender','win'
+exit
+end 
+if manna <= 0 and heart = 0 and izanagi = 0:
+'<B><font color=red>Вы проиграли</font></B>'
+xgt'ender','loss'
+exit
+end 
+if mannaV <= 0 and heartV = 0 and izanagiV = 0:
+'<B><font color=green><<$nameV>> проиграл</font></B>'
+xgt'ender','win'
+exit
+end 
+if willpower <= 0 and heart = 0 and izanagi = 0:
+'<B><font color=red>Вы проиграли</font></B>'
+xgt'ender','loss'
+exit
+end 
+if willpowerV <= 0 and heartV = 0 and izanagiV = 0:
+'<B><font color=green><<$nameV>> проиграл</font></B>'
+xgt'ender','win'
+exit
+end
+if izanagiV > 0 and healthV <= 0 or izanagiV > 0 and mannaV <= 0 or izanagiV > 0 and willpowerV <= 0:
+set izanagiV = izanagiV - 1
+'<B><font color=red><<$nameV>> просто исчез</font></B>'
+set healthV = vitalV*10 + strenV*5
+set mannaV = intelV*magikV + magikV*100 + vitalV*10
+set willpowerV = willV*10
+set stunV = 0
+     if program = 6 and izanagiOnce = 0:set izanagiOnce = 1&set unmaterialV = 40&set tobizanagi = 0
+'<B><font color=red><<$nameV>> оказался перед вами полностью здоровый. Он сложил магический знак руками и сказал Изанаги - совершенная иллюзия.</font></B>'
+'<B><font color=red>Один его глаз закрылся навсегда, заплатив за это заклинание.</font></B>'
+end
+if heartV > 0 and healthV <= 0 or heartV > 0 and mannaV <= 0 or heartV > 0 and willpowerV <= 0:
+set heartV = heartV - 1
+'<B><font color=red><<$nameV>> пошатнулся и его сердце лопнуло</font></B>'
+set healthV = vitalV*10 + strenV*5
+set mannaV = intelV*magikV + magikV*100 + vitalV*10
+set willpowerV = willV*10
+set stunV = 0
+'<B><font color=red><<$nameV>> выпрямился и ринулся в бой. У него запустилось другое сердце.</font></B>'
+end
+if izanagi > 0 and health <= 0 or izanagi > 0 and manna <= 0 or izanagi > 0 and willpower <= 0:
+set izanagi = izanagi - 1
+'<B><font color=green>Вы исчезли</font></B>'
+set health = vital*10 + stren*5
+set willpower = intel*5 + will*5
+set manna = (intel*magik) + magik*100 + vital*10 + rikudo
+set stun = 0
+set zerkaloV = 0
+set poisonV = 0
+set bloodV = 0
+'<B><font color=green>И тут же появились перед противником полностью здоровым.</font></B>'
+end
+if heart > 0 and health <= 0 or heart > 0 and manna <= 0 or heart > 0 and willpower <= 0:
+set heart = heart - 1
+set zerkaloV = 0
+set poisonV = 0
+set bloodV = 0
+'<B><font color=green>Ваше сердце не выдержало и лопнуло.</font></B>'
+set health = vital*10 + stren*5
+set willpower = intel*5 + will*5
+set manna = (intel*magik) + magik*100 + vital*10 + rikudo
+set stun = 0
+'<B><font color=green>Вы не умерли, у вас запустилось другое сердце.</font></B>'
+end
+
+gs'before'
+'<B>==========================================================</B>'
+'<B>========================(РАУНД <<round>>)===========================</B>'
+'<B>==========================================================</B>'
+'<B><<$nameV>></B> жизнь <B><font color=red><<healthV>></font></B>, манна <B><font color=blue><<mannaV>></font></B>, сила воли <B><font color=green><<willpowerV>></font></B>'
+if defenceV > 0:'<B><font color=red>Защита <<defenceV>> единиц</font></B>'
+if defenceMV > 0:'<B><font color=red>Защита манны <<defenceMV>> единиц</font></B>'
+if defenceWV > 0:'<B><font color=red>Защита воли <<defenceWV>> единиц</font></B>'
+'Ваша жизнь <B><font color=red><<health>></font></B>, манна <B><font color=blue><<manna>></font></B>, сила воли <B><font color=green><<willpower>></font></B>'
+if defence > 0:'<B><font color=green>Защита <<defence>> единиц</font></B>'
+if defenceM > 0:'<B><font color=green>Защита от воздействий на манну <<defenceM>> единиц</font></B>'
+if defenceW > 0:'<B><font color=green>Защита от воздействий на волю <<defenceW>> единиц</font></B>'
+if defenceAct > 0:'<B><font color=green><<defenceAct>> ходов регенерации защиты</font></B>'
+if defenceActM > 0:'<B><font color=green><<defenceActM>> ходов регенерации защиты от воздействий на манну</font></B>'
+if unmaterial > 0:'<B><font color=green>Осталось <<unmaterial>> ходов не материальности.</font></B>'
+'<B>==========================================================</B>'
+gs'init'
+
+     if hod = 0:
+     !игрок атакует
+     '<font color=green>Вы можете атаковать</font>'
+     if gun>0:
+         !огнестрел
+		 if bulletIn>0:
+		 '<<bulletIn>> заряженных патронов в пистолете'
+			 act 'Выстрелить из пистолета':
+			 cla
+			 bulletIn-=1
+			 gunpower=150
+			 buu=1
+			 gunpricel=1
+			 Gcrime+=1
+			 gt'strelba'
+			 end
+			 
+         end
+         if bulletIn<=0:
+         
+             if bullet=0:
+             'Патроны для пистолета кончились.'
+             end
+             if bullet>0:
+             '<<bullet>> патронов для пистолета'
+                 act 'Зарядить':
+                 cla
+                     if bullet<7:
+                     bulletIn=bullet
+                     bullet=0
+                     'Вы зарядили все оставшиеся патроны в пистолет.'
+                     end
+                     if bullet>=7:
+                     bullet-=7
+                     bulletIn=7
+                     'Вы зарядили 7мь патронов в пистолет.'
+                     end
+                     act 'Далее': gt'fight','sta'
+			     end
+             end
+         end
+         
+     end
+     if Mgun>0:
+              !огнестрел
+		 if mbulletIn>0:
+		 '<<mbulletIn>> заряженных патронов в автомате'
+			 act 'Одиночный из автомата':
+			 cla
+			 mbulletIn-=1
+			 buu=1
+			 gunpower=300
+			 gunpricel=2
+			 Gcrime+=1
+			 gt'strelba'
+			 end
+			 
+			 if mbulletIn>=3:
+				 act 'Короткая очередь из автомата':
+				 cla
+				 mbulletIn-=3
+				 buu=3
+				 gunpower=300
+				 gunpricel=1
+				 Gcrime+=buu
+				 gt'strelba'
+				 end
+			 end
+			 
+			 if mbulletIn>=3:
+				 act 'Длинная очередь из автомата':
+				 cla
+				 buu=mbulletIn
+				 mbulletIn=0
+				 gunpower=300
+				 gunpricel=0
+				 Gcrime+=buu
+				 gt'strelba'
+				 end
+			 end
+         end
+         if mbulletIn<=0:
+         
+             if mbullet=0:
+             'Патроны для автомата кончились.'
+             end
+             if mbullet>0:
+             '<<mbullet>> патронов для автомата'
+                 act 'Зарядить':
+                 cla
+                     if mbullet<7:
+                     mbulletIn=mbullet
+                     mbullet=0
+                     'Вы зарядили все оставшиеся патроны в автомат.'
+                     end
+                     if mbullet>=30:
+                     mbullet-=30
+                     mbulletIn=30
+                     'Вы зарядили 30 патронов в автомат.'
+                     end
+                     act 'Далее': gt'fight','sta'
+			     end
+             end
+         end
+     end
+     if tragun>0:
+         !травматик
+         if tbulletIn>0:
+		 'Травматик заряжен'
+			 act 'Выстрелить из пистолета':
+			 cla
+			 tbulletIn-=1
+			 gunpower=50
+			 buu=1
+			 gunpricel=0
+			 gt'strelba'
+			 end
+			 
+         end
+         if tbulletIn<=0:
+         
+             if tbullet=0:
+             'Патроны для травматика кончились.'
+             end
+             if tbullet>0:
+             '<<tbullet>> патронов для травматика'
+                 act 'Зарядить':
+                 cla
+                     if tbullet>=1:
+                     tbullet-=1
+                     tbulletIn=1
+                     'Вы зарядили патрон в травматик.'
+                     end
+                     act 'Далее': gt'fight','sta'
+			     end
+             end
+         end
+     end
+     act 'Физическая атака':xgt'boxing'
+         if magik > 0:
+         act 'Магическая атака':gt'magik'
+         end
+         
+     end
+     if hod = 1:
+     !противник атакует
+     '<font color=red><<$nameV>> атакует</font>'
+     act 'Дальше':xgt'enemy','start'
+     end
+end
+
+
+if $ARGS[0]='sta':
+cla
+set damTip = 0
+set damTipM = 0
+set damTipV = 0
+set damTipMV = 0
+set magweapbonus = 0
+set magweapbonusV = 0
+set bonusSh = 0
+set bonusShV = 0
+set eleSh = 0
+set eleShV = 0
+set poisonAV = 0
+set hidanAtk = 0
+'<B>==========================================================</B>'
+'<B><<$nameV>></B> жизнь <B><font color=red><<healthV>></font></B>, манна <B><font color=blue><<mannaV>></font></B>, сила воли <B><font color=green><<willpowerV>></font></B>'
+if defenceV > 0:'<B><font color=red>Защита <<defenceV>> единиц</font></B>'
+if defenceMV > 0:'<B><font color=red>Защита манны <<defenceMV>> единиц</font></B>'
+if defenceWV > 0:'<B><font color=red>Защита воли <<defenceWV>> единиц</font></B>'
+'Ваша жизнь <B><font color=red><<health>></font></B>, манна <B><font color=blue><<manna>></font></B>, сила воли <B><font color=green><<willpower>></font></B>'
+if defence > 0:'<B><font color=green>Защита <<defence>> единиц</font></B>'
+if defenceM > 0:'<B><font color=green>Защита от воздействий на манну <<defenceM>> единиц</font></B>'
+if defenceW > 0:'<B><font color=green>Защита от воздействий на волю <<defenceW>> единиц</font></B>'
+if defenceAct > 0:'<B><font color=green><<defenceAct>> ходов регенерации защиты</font></B>'
+if defenceActM > 0:'<B><font color=green><<defenceActM>> ходов регенерации защиты от воздействий на манну</font></B>'
+'<B>==========================================================</B>'
+act 'Дальше':gt'fight','start'
+end
+
+
+
+--- fight ---------------------------------
+

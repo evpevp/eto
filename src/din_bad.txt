@@ -1,0 +1,34 @@
+# din_bad
+$d_salf={
+clr
+salfetka-=1
+pl'<a href="exec:gs''stat''"><B>Выкинуть салфетку</B></a>'
+if cumface>0:pl'<a href="exec:cumface=0&gs''stat''"><B>Вытереть лицо</B></a>'
+if cumfrot>0:pl'<a href="exec:cumfrot=0&gs''stat''"><B>Вытереть одежду</B></a>'
+if mop!1:pl'<a href="exec:mop=1&gs''stat''"><B>Стереть косметику</B></a>'
+}
+$d_kosmetitka={
+clr
+pl'<a href="exec:gs''stat''"><B>Закрыть косметичку</B></a>'
+if kosmetitka>=1:pl'<a href="exec:mop=2&kosmetitka-=1&gs''stat''"><B>Легкий макияж</B></a>'
+if kosmetitka>=2:pl'<a href="exec:mop=3&kosmetitka-=2&gs''stat''"><B>Нормальный макияж</B></a>'
+if kosmetitka>=3:pl'<a href="exec:mop=4&kosmetitka-=3&gs''stat''"><B>Густой макияж</B></a>'
+}
+
+
+$d_bag={
+clr
+pl'<a href="exec:gs''stat''"><B>Закрыть сумочку</B></a>'
+
+if salfetka>0:pl'У вас есть влажные салфетки, <<salfetka>> штук. <a href="exec:dynamic $d_salf"><B>Взять салфетку</B></a>'
+if kosmetitka>0 and mop=1:pl'У вас есть перносная косметичка. Косметики хватит на <<kosmetitka>> раз. <a href="exec:dynamic $d_kosmetitka"><B>Накраситься</B></a>'
+if kosmetitka>0 and mop!1:pl'У вас есть перносная косметичка. Косметики хватит на <<kosmetitka>> раз.'
+if greben>0 and hapri=0:pl'У вас есть расческа. <a href="exec:hapri=1&gs''stat''"><B>Причесаться</B></a>'
+if greben>0 and hapri=1:pl'У вас есть расческа.'
+if prezik>0:pl'У вас <<prezik>> презервативов.'
+if tabletki>0:pl'У вас <<tabletki>> противозачаточных таблеток.'
+if bottle>0:pl'У вас есть бутылочка воды. <a href="exec:bottle=0&water = 20&cumlip=0&gs''stat''"><B>Выпить</B></a>'
+if buterbrod>0:pl'У вас есть бутерброт. <a href="exec:buterbrod=0&energy+= 20&cumlip=0&salo+=1&gs''stat''"><B>Съесть</B></a>'
+}
+--- din_bad ---------------------------------
+

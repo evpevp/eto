@@ -1,0 +1,84 @@
+# cikl
+!циклы
+if curly > 0:set curly = curly - 1
+set sweat = sweat + 1
+if tan > 0:set tan = tan - 1
+if tabletki > 0:set tabletki = tabletki - 1
+set leghair = leghair + 1
+set lobok = lobok + 1
+if suhbelo > 0:set suhbelo2 = suhbelo&set suhbelo = 0
+set manna = manna - 10
+
+!'if salo>fat:
+salo-=1
+fat+=1
+end
+if salo<fat:
+salo+=1
+fat-=1
+end
+if strenbuf>stren:set strenbuf-=1
+if strenbuf<stren:set strenbuf+=1
+if vitalbuf>vital:set vitalbuf-=1
+if vitalbuf<vital:set vitalbuf+=1
+if agilbuf>agil:set agilbuf-=1
+if agilbuf<agil:set agilbuf+=1'
+
+if anus > 1 and anusK<0:set anusK = 0
+if anus > 1 and anusK<3:set anusK += 1
+if anus > 1 and anusK>=3:set anus = anus - 1 & set anusK=0
+if vagina > 10 and vaginaK < 0:set vaginaK = 0
+if vagina > 10 and vaginaK < 6:set vaginaK = vaginaK + 1
+if vagina > 10 and vaginaK >= 6:set vaginaK = 0 & set vagina = vagina - 1
+
+set lipkoef = lipkoef - 1
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!Работы
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!ВЫБРОС ПРОКЛАДКИ
+if isprok = 1:Set isprok = 0&'Вы выкинули использованный тампон.'
+
+!ЦИКЛ 28 дней 4 дней ментсруация
+if preg = 0:
+if mesec > 0:Set mesec = mesec - 1
+if mesec = 0:Set cikl = cikl + 1
+if cikl >= 23 and preg ! 1:Set mesec = 4&Set cikl = 0 
+end
+if preg = 1 and pregtime < 280:
+set pregtime = pregtime + 1
+end
+
+if preg = 1 and pregtime = 280 and hourpreg!hour:
+hourpreg=hour
+'<center><B>Резко толкнуло в живот и что то потекло по ногам. Черт, у вас отошли воды! Надо срочно в поликлинику!</B></center>'
+end
+
+if preg = 1 and pregtime > 280:
+cla
+*clr
+set over = 4
+'<center><B>Страшная боль пронзила вас внизу живота</B></center>'
+xgt'gameover'
+exit
+end
+
+if horny < 100:set horny = horny + vagina
+if horny < 0:set horny = 0
+
+if musle >= salo and stren >= 10 and vital >= 10 and dounspell = 0:
+!Падение мускулистости
+     if downmusl>=5:
+     downmusl=0
+	 set stren = stren - 1
+	 set vital = vital - 1
+	 set fat = fat + 4
+	 salo+=4
+	 else
+	 downmusl+=1
+	 end
+end
+
+gs'starenie'
+--- cikl ---------------------------------
+

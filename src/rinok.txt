@@ -1,0 +1,227 @@
+# rinok
+if $ARGS[0]='start':
+cla
+*clr
+set minut = minut + 5
+
+$rinbuy1={
+cla
+*clr
+portion = input ("Сколько вы хотите купить?")
+if portion<=0:portion=1
+if portion*50 > money:'У вас не хватает денег.'
+if portion*50 <= money:
+	 set fairy += portion
+	 set money = money - portion*50
+	 '<center><img src="pic\kassa2.jpg" ></center>'
+	 'Вы заплатили в кассу и купили средство для мытья посуды.'
+	 end
+act 'Отойти от прилавка':gt'rinok','start'
+}
+$rinbuy2={
+cla
+*clr
+portion = input ("Сколько вы хотите купить?")
+if portion<=0:portion=1
+if portion*150 > money:'У вас не хватает денег.'
+if portion*150 <= money:
+	 set poroshok += portion
+	 set money = money - portion*150
+	 '<center><img src="pic\kassa2.jpg" ></center>'
+	 'Вы заплатили в кассу и купили стиральный порошок.'
+	 end
+act 'Отойти от прилавка':gt'rinok','start'
+}
+$rinbuy3={
+cla
+*clr
+portion = input ("Сколько вы хотите купить?")
+if portion<=0:portion=1
+if portion*150 > money:'У вас не хватает денег.'
+if portion*150 <= money:
+	 set cltarelka += portion*3
+	 set money = money - portion*150
+	 '<center><img src="pic\kassa2.jpg" ></center>'
+	 'Вы заплатили в кассу и купили тарелки.'
+	 end
+act 'Отойти от прилавка':gt'rinok','start'
+}
+$rinbuy4={
+cla
+*clr
+portion = input ("Сколько вы хотите купить?")
+if portion<=0:portion=1
+if portion*500 > money:'У вас не хватает денег.'
+if portion*500 <= money:
+	 set kosmetica += portion*25
+	 set money = money - portion*500
+	 '<center><img src="pic\kassa2.jpg" ></center>'
+	 'Вы заплатили в кассу и купили косметику.'
+	 end
+act 'Отойти от прилавка':gt'rinok','start'
+}
+$rinbuy5={
+cla
+*clr
+portion = input ("Сколько вы хотите купить?")
+if portion<=0:portion=1
+if portion*200 > money:'У вас не хватает денег.'
+if portion*200 <= money:
+	 set stanok += portion*10
+	 set money = money - portion*200
+	 '<center><img src="pic\kassa2.jpg" ></center>'
+	 'Вы заплатили в кассу и купили бритвы.'
+	 end
+act 'Отойти от прилавка':gt'rinok','start'
+}
+$rinbuy6={
+cla
+*clr
+portion = input ("Сколько вы хотите купить?")
+if portion<=0:portion=1
+if portion*150 > money:'У вас не хватает денег.'
+if portion*150 <= money:
+	 set tampon += portion*20
+	 set money = money - portion*150
+	 '<center><img src="pic\kassa2.jpg" ></center>'
+	 'Вы заплатили в кассу и купили тампоны.'
+	 end
+act 'Отойти от прилавка':gt'rinok','start'
+}
+$rinbuy7={
+cla
+*clr
+portion = input ("Сколько вы хотите купить?")
+if portion<=0:portion=1
+if portion*200 > money:'У вас не хватает денег.'
+if portion*200 <= money:
+	 set clrbelo += portion
+	 set money = money - portion*200
+	 '<center><img src="pic\kassa2.jpg" ></center>'
+	 'Вы заплатили в кассу и купили белье.'
+	 end
+act 'Отойти от прилавка':gt'rinok','start'
+}
+$rinbuy8={
+if money >= 1000 and bikini < 1:
+ cla
+ *clr
+ set money = money - 1000
+ set bikini = 1
+ '<center><img src="pic\kassa2.jpg" ></center>'
+ 'Вы заплатили в кассу и купили купальник.'
+ act 'Отойти от прилавка':gt'rinok','start'
+else
+'У вас не хватает денег.'
+end
+}
+$rinbuy9={
+if money >= 1000 and umbrella < 1:
+cla
+*clr
+set money = money - 1000
+set umbrella = 1
+'<center><img src="pic\kassa2.jpg" ></center>'
+'Вы заплатили в кассу и купили зонтик.'
+act 'Отойти от прилавка':gt'rinok','start'
+else
+'У вас не хватает денег.'
+end
+}
+
+$metka = $ARGS[0]
+$loc = $CURLOC
+$metkaM = $ARGS[0]
+$locM = $CURLOC
+mag=1
+
+'<center><B><font color=maroon>Рынок</font></B></center>'
+'<center><img src="pic\rinok.jpg" ></center>'
+'<a href="exec: dynamic $rinbuy1 ">средство для мытья посуды - 50 р</a>  <a href="exec: dynamic $rinbuy2 ">стиральный порошок - 150 р</a>  <a href="exec: dynamic $rinbuy3 ">набор из 3х тарелок - 150 р</a>   <a href="exec: dynamic $rinbuy4 ">косметика - 500 р</a>   <a href="exec: dynamic $rinbuy5 ">бритвенный станок - 200 р</a>  <a href="exec: dynamic $rinbuy6 ">тампоны - 100 р</a>  <a href="exec: dynamic $rinbuy7 ">белье - 200 р</a>'
+if bikini < 1:'<a href="exec: dynamic $rinbuy8 ">купальник - 1000р</a>'
+if umbrella < 1:'<a href="exec: dynamic $rinbuy9 ">зонтик - 1000р</a>'
+'На одной из палаток висит объявление <a href="exec:GT ''loker2'',''start''">"Принимаем вещи на реализацию"</a>'
+
+if analplugIN = 1 and tanga = 0 and ski = 1 or analplugIN = 1 and tanga = 0 and glamur = 1:
+	 set nurand = RAND (0,100)
+		 if nurand >= 80:
+		 set manna = manna - 5
+		 set SUB = SUB + 1
+		 set horny = horny + SUB
+		 set nudity = nudity+1
+		 'Вы чувствуете что кто-то мягко коснулся <a href="exec:GT ''etoexhib'',''pos15''">вашей попы рукой!</a>'
+		 *nl
+		 end
+	 end
+
+'<a href="exec:numdres=1&payclo=1500 & GT ''loker'',''jeans''">Осмотреть джинсы №1</a>  <a href="exec:numdres=2&payclo=1500 & GT ''loker'',''jeans''">Осмотреть джинсы. №2</a>  <a href="exec:numdres=3&payclo=1500 & GT ''loker'',''jeans''">Осмотреть джинсы. №3</a>  <a href="exec:numdres=4&payclo=1500 & GT ''loker'',''jeans''">Осмотреть джинсы. №4</a>  <a href="exec:numdres=5&payclo=1500 & GT ''loker'',''jeans''">Осмотреть джинсы. №5</a>'
+clr
+gs'stat'
+gs'time'
+act 'ВЫЙТИ':
+	 cla
+	 set minut = minut + 5
+	 gt'street'
+	 end
+if workrin=1:
+	 if week=2 or week=4 or week=6:
+		 if hour<9:
+			 'Артур с товаром уже ждет вас.'
+			 act '<B>Принимать товар.</B>':
+				 cla
+				 *clr
+				 hour=9
+				 minut=0
+				 prodpayum=1200
+				 'Артур выгрузил барахло из своей ушатанной шохи к лотку и отдал вам. Вы начали развешивать одежду по палатке.'
+				 'Перед тем как уйти Артур дает вам инструкции. "Продавай как хочешь, но что бы вечером мне отдала с каждой проданной вещи по 1000. И чтоб наторговала не меньше чем <<arturplan>> рублей."'
+				 act 'Работать.':gt'rinwork','start'
+				 end
+			 end
+		 end
+	 end
+if workrin=1:
+	 act 'Уволится с работы':
+		 cla
+		 work=0
+		 workrin=0
+		 'Вы уволились с работы и забрали трудовую.'
+		 act 'ВЫЙТИ':gt'rinok','start'
+		 end
+	 end
+if work=0:
+	 nl
+	 'На одной из палаток висит объявление "Нужен женшин продавщиц. Зарплат большой."'
+	 act 'Подойти к хозяину палатки с объявлением':
+		 cla
+		 *clr
+		 'Привет, меня зовут Артур. Я хозяин палатки, мне нужна продавщица. Сам не справляюсь. Ну как? Пойдешь?'
+		 'Плачу процент от заработанного. Работать будешь по вторникам, четвергам и субботам. С 8ми до 14.'
+		 'Работа по трудовой.'
+		 act 'ВЫЙТИ':gt'rinok','start'
+		 act 'Устроится на работу':
+			 cla
+			 work=1
+			 workrin=1
+			 arturplan=5000
+			 'Вы устроились работать к Артуру и отдали ему трудовую.'
+			 act 'ВЫЙТИ':gt'rinok','start'
+			 end
+		 end
+	 end
+if palto<1:
+	 'На рынке продают пуховики для зимы. 5000 руб'
+	 if money>=5000:
+		 act 'Купить пуховик':
+			 cla
+			 money-=5000
+			 palto=1
+			 $palto='китайский пуховик'
+			 'Вы купили пуховик.'
+			 act 'ВЫЙТИ':gt'rinok','start'
+			 end
+		 end
+	 end
+end
+--- rinok ---------------------------------
+

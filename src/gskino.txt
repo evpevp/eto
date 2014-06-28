@@ -1,0 +1,25 @@
+# gskino
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+gs 'stat'
+'<center><img src="gevent\kinoteatr.jpg" ></center>'
+'Небольшой кинотеатр, в котором есть всего один небольшой зал. Билет в кино стоит 100 рублей.'
+
+if money >= 100:
+
+	 act 'Сходить в кино':
+	 cla
+	 *clr
+	 set money = money - 100
+	 set minut = minut + 120
+	 set manna=manna+ RAND(60,90)
+		'Вы спокойно посмотрели фильм, после чего вышли из кинозала.'
+		act 'Выйти из зала':gt 'gskver'
+	end
+end
+
+act 'Выйти из кинотеатра':set minut = minut+5&gt 'gskver'
+
+--- gskino ---------------------------------
+

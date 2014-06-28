@@ -1,0 +1,57 @@
+# youry
+$roomyour={
+ set $nameV = 'Юрий'
+ $boy=$nameV
+ set dick = 18
+ set silavag = 2
+ harakBoy=1
+ NoGuy=1
+ GoToGuy=1
+ finance=1
+ act 'На кровать':gt'BDsex','start'
+}
+
+set minut = minut + 5
+'<center><B><font color=maroon>Квартира Юрия</font></B></center>'
+'<center><img src="peter\peterdoor.jpg" ></center>'
+clr
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+
+     act 'ВЫЙТИ':
+     cla
+     set minut = minut + 5
+     gt'nord'
+     end
+     
+     act 'Позвонить в дверь':
+     cla
+		 if hour>16:
+		 'Вы позвонили в дверь. Дверь очень быстро открылась, на пороге стоял Юрий. Он пригласил вас войти.'
+		     act 'Войти к Юрию':
+		     cls
+		     minut+=15
+		     gs'stat'
+		     'Вы вошли в квартиру к Юрию, он проводил вас в зал и усадил на кресло. Сходил на кухню и приенс бутылку шампанского с виноградом.'
+		         act 'Выпивать с Юрием':
+				 cls
+				 minut+=15
+				 gs'stat'
+				 'Вы слушая как Юрий нахваливает ваши секс умения выпили шампанское. Юрий предложил пойти в кровать.'
+				 dynamic $roomyour
+				 end
+		     end
+		 exit
+		 else
+		 'Вы позвонили в дверь, но вам никто не открыл.'
+		 end
+     act 'Отойти от двери':gt $curloc
+     end
+
+
+
+
+--- youry ---------------------------------
+

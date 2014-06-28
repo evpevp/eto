@@ -1,0 +1,70 @@
+# gkafe
+$metka = $ARGS[0]
+$loc = $CURLOC
+gs'stat'
+gs'time'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+'<center><B><font color=maroon>Кафешка</font></B></center>'
+if hour>=8 and hour<=20:
+'<center><img src="qwest\alter\gkafe2.jpg" ></center>'
+'Маленькое задрипанное, привокзальное кафе. Так как тут работает ваша мама, то вас кормят бесплатно.'
+     if week<6:
+         if hour>=6 and hour<16 and StoryLine>0:
+         'В кафе за стойкой стоит ваша <a href="exec:GT ''mother''">мама</a>.'
+         end
+     end
+    
+if hour >=18 and dyadyamishaevent=1 and dmishaday ! day:'За одним из столиков сидит <a href="exec:GT ''gevent'',''1-1''">дядя Миша</a>'
+act 'Поесть':
+	
+	cla
+	*clr
+	
+	frost=0
+	'<center><img src="pics\food.jpg" ></center>'
+	set razvrand=rand(1,10)
+	set minut = minut + 30
+	set health = health + 10
+	set manna = manna + 5
+	set willpower = willpower + 5
+	if energy >= 30:
+		  set fat = fat + 5
+		 'Вы больше не можете есть.'
+		 end
+	if energy >= 20 and energy < 30:
+		set fat = fat + 3
+		set energy = energy + 10
+		'Вы через силу затолкали в себя еду.'
+		end
+	if energy < 20:
+		set energy = energy +20
+		set fat = fat + 1
+		'Вы с удовольствием съели еду.'
+		end
+	if water >= 20:
+		'Чай в вас больше не лезет.'
+		end
+	if water < 20:
+		'Вы с удовольствием выпили кружку чая.'
+		set water = water +20
+		end
+	if razvrand>7 and hour > 16 and hour < 20 and age <18 and dyadyamishaevent=0 and gorodokwhore >=2:
+		'К вашему столику подошёл взрослый мужчина и сказал:'
+		'-Девочка, не хочешь конфетку? У меня дома упаковка конфет есть'
+		act 'Cогласиться':gt 'gevent','1'
+		end
+	 act 'Встать из за стола':gt'gkafe'
+
+end
+
+else
+'<center><img src="qwest\alter\gkafe.jpg" ></center>'
+'Маленькое задрипанное, привокзальное кафе.'
+'Кафе не работает.'
+end
+
+act 'Выйти':gt'vokzalG'
+--- gkafe ---------------------------------
+

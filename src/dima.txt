@@ -1,0 +1,22 @@
+# dima
+if $ARGS[0]='start':
+cla
+*clr
+set minut = minut + 5
+'<center><B><font color=maroon>Подъезд где живет Дима</font></B></center>'
+'<center><img src="pic\podezdhr.jpg" ></center>'
+clr
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+
+     act 'ВЫЙТИ':
+     cla
+     set minut = minut + 5
+     gt'street'
+     end
+
+end
+--- dima ---------------------------------
+

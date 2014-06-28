@@ -1,0 +1,1243 @@
+# dorm
+if $ARGS[0]='start':
+cla
+*clr
+
+set minut = minut + 5
+'<center><B><font color=maroon>Общежитие</font></B></center>'
+'<center><img src="pic\dorm.jpg" ></center>'
+gs'stat'
+fcolor=rgb(0,0,0)
+bcolor=rgb(255,255,255)
+LCOLOR = rgb(106,90,205)
+	 if student>0:
+		 act 'Зайти':
+		 cla
+		 set minut = minut + 5
+		 set reccoldorm=1
+		 gt'dorm','korr'
+		 end
+	 end
+     if reccoldorm<1 and student=0:
+		 act 'Попробовать зайти':
+		 cla
+		 set minut = minut + 5
+		 gt'dorm','in'
+		 end
+     end
+     
+     act 'ВЫЙТИ':
+     cla
+     set minut = minut + 5
+     reccoldorm=0
+     gt'down'
+     end
+end
+
+if $ARGS[0]='in':
+cla
+*clr
+gs'stat'
+	 if student =0:
+     'У вас нет студенческого и вахтерша отказывается вас пропускать.'
+		 act 'Уйти':gt 'down'
+		 
+		 if afra>0:
+		 	 act 'Я к Демаркусу':
+			 cla
+			 'Вы сказали что вы к Демаркусу. Вахтерша хмыкнула, "Шлюха, подстилка для черномазых, иди прыгай на их черных болтах"'
+			 set reccoldorm=1
+		     act 'Войти':gt'dorm','korr'
+			 end
+		 end
+		 
+		 if gosh > 0:
+		 	 act 'Я к Гоше':
+			 cla
+			 'Вы сказали что вы к Гоше. Вахтерша хмыкнула, "Очередная Гошина подстилка? Да этот мозгляк уже всю общагу перетрахал, теперь шалавы сами к нему ходят. Хе, иди к своему ебарю, подстилка."'
+			 set reccoldorm=1
+		     act 'Войти':gt'dorm','korr'
+			 end
+		 end
+	 end
+end
+
+if $args[0]='korr':
+clr
+gs'stat'
+cla
+*clr
+$metkaM = $ARGS[0]
+$locM = $CURLOC
+'<center><img src="img\centr\obkorr.jpg" ></center>'
+'Перед вами обычный общажный коридор с обшарпанными стенами, одинаковыми дверями, из некоторых комнат доносится музыка или пьяные вопли студентов.'
+     act 'Уйти':
+     cla
+     set minut = minut + 5
+     set reccoldorm=0
+     gt'down'
+     end
+     
+     if student>0:
+	 act 'Ваша комната':gt'obroom','start'
+	     act 'На общую кухню':
+		 set minut+=5
+		 gt'obkitchen'
+		 end
+		 
+	     act 'В общую ванную':
+		 set minut+=5
+		 set obdysh=1
+		 gt'vann','start'
+		 end
+	 end
+	 
+     if student>0 and week=5 and hour>18 and hour<23:
+	 'В коридоре грохочет музыка, похоже пятничная вечеринка в разгаре.'
+	 act 'На вечеринку':gt'vecher','start'
+	 end
+     
+	 if afra > 0 and hour<22 and hour>=7:
+		 act 'Комната Демаркуса':
+		 cla
+		 Set afrand = RAND (1,2)
+			 if afrand = 1:
+			 'Вы постучались в комнату Демаркуса, но его нет у себя'
+			 set minut = minut + 5
+			 gs'stat'
+				 act 'Уйти':gt 'dorm','korr'
+			 end
+			 
+			 if afrand = 2:
+			 *clr
+			 'Вы постучались в комнату Демаркуса. Через пару секнд вам открыл здоровенный накаченный африканец. Он заулыбался белоснежной улыбкой увидев вас и пригласил в свою комнату. Там он быстренько накрыл довольно роскошный стол для студента и пригласил вас к столу.'
+				 act 'Выпить с Демаркусом':
+				 cls
+				 minut+=120
+				 gs'stat'
+				 'Вы выпили вина с Демаркусом и он начал вас лапать за грудь. Потом поднял вашу майку и стал сосать ваши соски и играть с грудями, вам стало очень хорошо.'
+				 Set afrand = RAND (1,afra)
+					 if afrand = 1:
+					 if demarkus = 0:Set guy = guy + 1&Set demarkus = 1
+					 Set sex = sex + 1
+					 Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 vagina+=1
+					 'Демаркус раздел вас и положил на кровать, он достал свой огромный черный член и раздвинув ваши ноги вошел в вас.'
+					 '<center><img src="pics2\afra.jpg" ></center>'
+					 'Пока Демаркус буравил вас своим огромным инструментов вы успели несколько раз кончить и только тогда он разрядился на ваш живот.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 2:
+					 !Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 !Set oral = oral + 1
+					 
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 !Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 vagina+=1
+					 'Демаркус раздел вас и положил спиной на пол, он достал свой огромный черный член и раздвинув ваши ноги вошел в вас.'
+					 '<center><img src="pics2\afra1.jpg" ></center>'
+					 'Пока Демаркус буравил вас своим огромным инструментов вы успели несколько раз кончить и только тогда он разрядился на ваш живот.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 3:
+					 !Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 !Set oral = oral + 1
+					 
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 !Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 vagina+=1
+					 'Демаркус раздел вас и поставил раком на кровати, он достал свой огромный черный член и раздвинув ваши булки вошел в вас.'
+					 '<center><img src="pics2\afra2.jpg" ></center>'
+					 'Пока Демаркус буравил вас своим огромным инструментов вы успели несколько раз кончить и только тогда он разрядился на вашу попу.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 4:
+					 !Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 !Set oral = oral + 1
+					 !
+					 Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 !Set cumface = cumface + 1
+					 Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 anus+=1
+					 'Демаркус раздел вас и поставил раком на кровати, он достал свой огромный черный член и раздвинув ваши булки вошел в ваш анус.'
+					 '<center><img src="pics2\afra4.jpg" ></center>'
+					 'Пока Демаркус буравил вас своим огромным инструментов вы успели несколько раз кончить и только тогда он разрядился в вашу попу.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 5:
+					 !Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 !Set oral = oral + 1
+					 
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 !Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 vagina+=1
+					 'Демаркус раздел вас и поставил раком на кровати, он достал свой огромный черный член и вошел в вашу киску растягивая ее до предела.'
+					 '<center><img src="pics2\afra24.jpg" ></center>'
+					 'Пока Демаркус буравил вас своим огромным инструментов вы успели несколько раз кончить и только тогда он разрядился на вашу попу.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 6:
+					 !Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 !Set oral = oral + 1
+					 !
+					 Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 !Set cumface = cumface + 1
+					 Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 anus+=1
+					 'Демаркус раздел вас и поставил на кровать, он достал свой огромный черный член и раздвинув ваши ноги вошел в ваш анус.'
+					 '<center><img src="pics2\afra16.jpg" ></center>'
+					 'Пока Демаркус буравил вас своим огромным инструментов вы успели несколько раз кончить и только тогда он разрядился.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 7:
+					 !Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 !Set oral = oral + 1
+					 !
+					 Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 !Set cumface = cumface + 1
+					 Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 anus+=1
+					 'Демаркус раздел вас и лег на кровать, он легко поднял вас и усадил анусом на свой огромный член.'
+					 '<center><img src="pics2\afra13.jpg" ></center>'
+					 'Пока Демаркус буравил вас своим огромным инструментов вы успели несколько раз кончить и только тогда он разрядился.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 8:
+					 !Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 !Set oral = oral + 1
+					 !
+					 Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 !Set cumface = cumface + 1
+					 Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 anus+=1
+					 'Демаркус раздел вас и лег на кровать, он легко поднял вас и усадил анусом на свой огромный член.'
+					 '<center><img src="pics2\afra20.jpg" ></center>'
+					 'Пока Демаркус буравил вас своим огромным инструментов вы успели несколько раз кончить и только тогда он разрядился.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 9:
+					 !Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 !Set oral = oral + 1
+					 
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 !Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 vagina+=1
+					 'Демаркус раздел вас и лег на кровать, он легко поднял вас и усадил на свой огромный член вашей киской.'
+					 '<center><img src="pics2\afra11.jpg" ></center>'
+					 'Пока Демаркус буравил вас своим огромным инструментов вы успели несколько раз кончить и только тогда он разрядился.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 10:
+					 Set throat= throat + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 Set cumface = cumface + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra3.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 11:
+					 Set throat= throat + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 Set cumface = cumface + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra10.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 12:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 Set cumface = cumface + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra14.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 13:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra18.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 14:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra23.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 15:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra31.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 16:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra32.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 17:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra33.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 18:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra34.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 19:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra35.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 20:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra36.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 21:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra37.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 22:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra38.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 23:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra39.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 24:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra40.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand = 25:
+					 Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 Set oral = oral + 1
+					 !
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 !Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 VAF+=1
+					 'Демаркус поставил вас на колени и засунул вам в рот свой огромный черный член'
+					 '<center><img src="pics2\afra41.jpg" ></center>'
+					 'Пока Демаркус долбил вас в рот своим черным членом, а вы старательно его отсасывали и ласкали письку, когда Демаркус вынул член и стал кончать вам на лицо, вас охватил оргазм.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+					 
+					 if afrand >= 26:
+					 !Set throat= throat + 1
+					 !Set guy = guy + 1
+					 Set sex = sex + 1
+					 !Set oral = oral + 1
+					 
+					 !Set anal = anal + 1
+					 !Set cumlip = cumlip + 1
+					 !Set cumface = cumface + 1
+					 !Set cumbutt = cumbutt + 1
+					 Set cumass = cumass + 1
+					 Set horny = 0
+					 Set afra = afra + 1
+					 orgasm+=1
+					 vagina+=1
+					 'Демаркус положил вас на кровать и раздвинул ноги, достав свой огромный черный член он вошел в вашу киску.'
+					 '<center><img src="pics2\afra42.jpg" ></center>'
+					 'Пока Демаркус долбил вас своим членом вы успели несколько раз кончить на его хую, потом он достал свой член и кончил вам на натруженное влагалище.'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+				 end
+			 
+			 end
+		 end
+	 end
+
+	 if afra > 10 and hour>=8 and hour<22:
+		 act 'Комната африканских студентов':
+		 cls
+		 minut+=5
+		 gs'stat'
+		 Set afrand = RAND (1,2)
+			 if afrand = 1:
+			 'Вы постучались в комнату африканцев, но там никого нет'
+			 act 'Уйти':set minut=minut+5&gt 'dorm','korr'
+			 end
+			 
+			 if afrand = 2:
+			 minut+=120
+			 gs'stat'
+			 'Вы постучались в комнату африканцев, вам открыл чернокожий исполин, он схватил вас за руку и затащил в комнату в которой вы увидели еще пять африканцев. Африканцы окружили вас и стали хватать вас за груди и зад. Самыми понятными словами были Cumdump, whore, white trash, bimbo slut.'
+			 if afragang = 0:Set afragang = 1&Set guy = guy + 6
+			 set hour=hour+2
+			 Set afrand = RAND (1,afra)
+				 if afrand = 1:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 Set afra = afra + 1
+				 vagina+=1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra5.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+				 
+				 if afrand = 2:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 Set afra = afra + 1
+				 vagina+=1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra6.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+				 
+				 if afrand = 3:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 Set afra = afra + 1
+				 vagina+=1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra7.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+				 
+				 if afrand = 4:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 vagina+=1
+				 Set afra = afra + 1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra8.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+				 
+				 if afrand = 5:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 vagina+=1
+				 Set afra = afra + 1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra9.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+				 
+				 if afrand = 6:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 vagina+=1
+				 Set afra = afra + 1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra12.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+				 
+				 if afrand = 7:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 vagina+=1
+				 Set afra = afra + 1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra17.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+				 
+				 if afrand = 8:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 vagina+=1
+				 Set afra = afra + 1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra19.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+				 
+				 if afrand = 9:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 vagina+=1
+				 Set afra = afra + 1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra21.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+				 
+				 if afrand = 10:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 vagina+=1
+				 Set afra = afra + 1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra22.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+				 
+				 if afrand = 11:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 vagina+=1
+				 Set afra = afra + 1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra25.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+				 
+				 if afrand = 12:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 vagina+=1
+				 Set afra = afra + 1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra26.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+				 
+				 if afrand >= 13:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 set gang=gang+1
+				 Set anal = anal + 1
+				 Set cumlip = cumlip + 2
+				 Set cumface = cumface + 2
+				 Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 vagina+=1
+				 Set afra = afra + 1
+				 orgasm+=1
+				 'Африканцы раздели вас и начали играть с вашим телом как с игрушкой, придавая вам всякие позы и трахать в шестером во все дыры.'
+				 '<center><img src="pics2\afra27.jpg" ></center>'
+				 'Пока вас трахали во все дыры вы кончили несколько раз и африканцы обструхали вам почти все тело.'
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+			 end
+		 end
+	 end
+
+	 if afra > 20 and afragang = 1 and hour>=8 and hour<22:
+		 act 'Комната Кендры':
+		 cls
+		 minut+=15
+		 gs'stat'
+			 if kendra = 5:
+			 'Из комнаты вышла Кендра и пригласила к себе, она не долго думая разделась и подставила вам свою киску для обслуживания.'
+				 act 'Раздется':
+				 cla
+				 Set sex = sex + 1
+				 Set lesb = lesb + 1
+				 Set horny = 0
+				 orgasm+=1
+				 gs'stat'
+				 'Кендра одевает страпон и жестко трахает вас'
+				 Set picrand = RAND (1,5)
+				 if picrand = 1:'<center><img src="pics2\kendraStrap.jpg" ></center>'
+				 if picrand = 2:'<center><img src="pics2\kendraStrap2.jpg" ></center>'
+				 if picrand = 3:'<center><img src="pics2\kendraStrap3.jpg" ></center>'
+				 if picrand = 4:'<center><img src="pics2\kendraStrap4.jpg" ></center>'
+				 if picrand = 5:'<center><img src="pics2\kendraStrap.jpg" ></center>'
+				 vagina+=1
+				 act 'Уйти':gt 'dorm','korr'
+				 end
+			 end
+			 
+			 if kendra =4:
+			 'Из комнаты вышла симпатичная африканка Кендра, она предложила вам сделать еще одну татуировку, после которой она разрешит вам вылизать у нее.'
+			 act 'Уйти':gt 'dorm','korr'
+				 act 'Сделать татуировку':
+				 cla
+				 minut+=60
+				 gs'stat'
+				 set tatrand=rand(1,2)
+				 Set kendra = 5
+				 Set tat = 5
+				 Set vnesh = vnesh + 20
+				     if tatlip=0:'Кендра набивает вам на губе клеймо хуесоски'
+				 
+					 if tatrand=1:
+					 '<center><img src="picBody\tatlip1.jpg" ></center>'
+					 tatlip=1
+					 end
+				 
+					 if tatrand=2:
+					 '<center><img src="picBody\tatlip3.jpg" ></center>'
+					 tatlip=3
+					 end
+				 
+					 if tatlip=1 or tatlip=3:
+					 '"Агаа. Так у тебя уже есть такое? Молодец, хорошая сучка. А теперь за работу!"'
+					 end
+				 
+					 if tatlip>1 and tatlip<>3:
+					 'Кендра видит, что у вас уже есть татуировка на губе. "Ничего, эо мы быстренько исправим" - говорит она и набивает вам в на губе клеймо хуесоски. Так мастерски, что старой тату и не заметно.'
+					 end
+				 
+					 act 'Вылизать у Кендры':
+					 cla
+					 Set sex = sex + 1
+					 Set lesb = lesb + 1
+					 Set horny = 0
+					 orgasm+=1
+					 vagina+=1
+					 'Кендра раздевается и ставит вас раком, она одевает страпон и вставляет вам его в киску.'
+					 '<center><img src="pics2\kendraStrap.jpg" ></center>'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+				 end
+			 end
+			 !
+			 if kendra =3:
+			 'Из комнаты вышла симпатичная африканка Кендра, она предложила вам сделать еще одну татуировку, после которой она разрешит вам вылизать у нее.'
+			 act 'Уйти':gt 'dorm','korr'
+				 act 'Сделать татуировку':
+				 cla
+				 minut+=60
+				 gs'stat'
+				 Set kendra = 4
+				 Set tat = 4
+				 Set vnesh = vnesh + 20
+					 if tatvag=3:
+					 'Кендра замечает, что у вас уже есть такое клеймо, хищно улыбается и отвещшиваем вам смачный шлепок по влагалищу'
+					 end
+				 
+					 if tatvag=0:
+					 'Кендра набивает вам в паху клеймо шлюхи для негров'
+					 '<center><img src="picBody\tatvag3.jpg" ></center>'
+					 end
+				 
+					 if tatvag>0 and tatvag<>3:
+					 'Кендра видит, что у вас уже есть татуировка в паху. "Ничего, это мы быстро исправим" - говорит она и набивает вам в паху клеймо шлюхи для негров поверх старой татуировки. Так мастерски, что старой тату и не заметно.'
+					 '<center><img src="picBody\tatvag3.jpg" ></center>'
+					 end
+				 
+				 set tatvag=3
+				 
+					 act 'Вылизать у Кендры':
+					 cla
+					 *clr
+					 Set lesb = lesb + 1
+					 Set horny+=20
+					 'Кендра раздевается и подставляет вам свою киску для вылизывания, вы умело работаете язычком в ее сочной киске и кендра бурно кончает'
+					 '<center><img src="pics2\kendra3.jpg" ></center>'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+				 end
+			 end
+			 
+			 if kendra = 2:
+			 'Из комнаты вышла симпатичная африканка Кендра, она предложила вам сделать еще одну татуировку, после которой она разрешит вам вылизать у нее.'
+			 act 'Уйти':gt 'dorm','korr'
+				 act 'Сделать татуировку':
+				 cla
+				 minut+=60
+				 gs'stat'
+				 Set kendra = 3
+				 Set tat = 3
+				 Set vnesh = vnesh + 20
+					 if tatplech=4:
+					 'Кендра видит у вас на плече татуировку шлюхи для негров, ухмыляется и идёт к кровати'
+					 end
+					 
+					 if tatplech=0:
+					 'Кендра набивает вам на плече клеймо шлюхи для негров'
+					 '<center><img src="picBody\tatplech4.jpg" ></center>'
+					 set tatplech=4
+					 end
+					 
+					 if tatplech>0 and tatplech<>4:
+					 set tatplech=4
+					 'Кендра видит, что у вас уже есть татуировка на плече. "Ничего, это мы быстро исправим" - говорит она и набивает вам на плече клеймо шлюхи для негров поверх старой татуировки. Так мастерски, что старой тату и не заметно.'
+					 '<center><img src="picBody\tatplech4.jpg" ></center>'
+					 end
+					 
+					 act 'Вылизать у Кендры':
+					 cla
+					 *clr
+					 Set lesb = lesb + 1
+					 Set horny+=20
+					 'Кендра раздевается и подставляет вам свою киску для вылизывания, вы умело работаете язычком в ее сочной киске и кендра бурно кончает'
+					 '<center><img src="pics2\kendra2.jpg" ></center>'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+				 end
+			 end
+			 
+			 if kendra = 1:
+			 'Из комнаты вышла симпатичная африканка Кендра, она предложила вам сделать еще одну татуировку, после которой она разрешит вам вылизать у нее.'
+			 act 'Уйти':gt 'dorm','korr'
+				 act 'Сделать татуировку':
+				 cla
+				 *clr
+				 minut+=60
+				 gs'stat'
+				 Set kendra = 2
+				 Set tat = 2
+				 Set vnesh = vnesh + 20
+				 
+					 if tatleg=1 or tatleg=2:
+					 'Ой, какая самостоятельная девочка, уже сама сделала. Теперь можешь сделать то, за чем пришла.'
+					 end
+					 
+					 if tatleg=0:
+					 'Кендра набивает вам на ноге клеймо шлюхи для негров'
+					 '<center><img src="picBody\tatleg2.jpg" ></center>'
+					 set tatleg=2
+					 end
+					 
+					 if  tatleg>2:
+					 'Кендра видит, что у вас уже есть татуировка в паху. "Ничего, это мы быстро исправим" - говорит она и набивает вам на ноге клеймо шлюхи для негров поверх старой татуировки. Так мастерски, что старой тату и не заметно.'
+					 '<center><img src="picBody\tatleg2.jpg" ></center>'
+					 set tatleg=2            
+					 end
+					 
+					 act 'Вылизать у Кендры':
+					 cla
+					 *clr
+					 Set repa = 9
+					 Set lesb = lesb + 1
+					 if kendrasex=0:kendrasex=1&girl = girl + 1
+					 Set horny+=20
+					 'Кендра раздевается и подставляет вам свою киску для вылизывания, вы умело работаете язычком в ее сочной киске и кендра бурно кончает'
+					 '<center><img src="pics2\kendra.jpg" ></center>'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+				 end
+			 end
+			 
+			 if kendra = 0:
+			 'Из комнаты вышла симпатичная африканка, она представилась как Кендара и сказала что знает о том что вы подстилка для африканцев. Она предложила вам сделать соответствующую татуировку, после которой она разрешит вам вылизать у нее.'
+			 act 'Уйти':gt 'dorm','korr'
+				 act 'Сделать татуировку':
+				 cla
+				 minut+=60
+				 gs'stat'
+				 Set kendra = 1
+				 Set tat = 1
+				 Set vnesh = vnesh + 20
+				 
+					 if tatupb=4:
+					 'О, так у тебя уже есть клеймо шлюхи? И что мы тут время тратим! Давай, делай своё мокрое дело, шлюха.'
+					 end
+				 
+					 if tatupb=0:
+					 'Кендра набивает вам на пояснице клеймо шлюхи'
+					 '<center><img src="picBody\tatupb4.jpg" ></center>'
+					 set tatupb=4
+					 end
+				 
+					 if tatupb>0 and tatupb<>4:
+					 'Кендра видит, что у вас уже есть татуировка на пояснице. "Ничего, это мы быстро исправим" - говорит она и набивает вам на клеймо шлюхи поверх старой татуировки. Так мастерски, что старой тату и не заметно.'
+					 '<center><img src="picBody\tatupb4.jpg" ></center>'
+					 set tatupb=4
+					 end
+				 
+					 act 'Вылизать у Кендры':
+					 cla
+					 *clr
+					 if kendrasex=0:kendrasex=1&girl+=1
+					 Set lesb = lesb + 1
+					 Set horny+=20
+					 'Кендра раздевается и подставляет вам свою киску для вылизывания, вы умело работаете язычком в ее сочной киске и кендра бурно кончает'
+					 '<center><img src="pics2\afra30.jpg" ></center>'
+					 act 'Уйти':gt 'dorm','korr'
+					 end
+				 end
+			 end
+		 end
+	 end
+
+	 if gosh > 0 and hour>=8 and hour<22:
+		 act 'Комната Гоши':
+		 cla
+		 minut+=15
+		 gs'stat'
+		 'Вам открывает дверь Гоша и приглашает войти'
+			 act 'Идти в комнату Гоши':
+			 cla
+			 minut+=60
+			 gs'stat'
+			 if goshsex = 0:Set goshsex = 1&Set guy = guy + 1
+			 'Гоша начинает клеитbся к вам, ласкать вашу грудь и медленно раздевать вас'
+			 set srand = RAND (1,3)
+				 if srand = 1:
+				 !Set throat= throat + 1
+				 Set sex = sex + 1
+				 !Set oral = oral + 1
+				 
+				 !Set anal = anal + 1
+				 !Set cumlip = cumlip + 2
+				 !Set cumface = cumface + 2
+				 !Set cumbutt = cumbutt + 1
+				 Set cumass = cumass + 1
+				 Set horny = 0
+				 orgasm+=1
+				 vagina+=1
+				 'Гоша входит своим членом в вашу киску, пока он вас трахал вы кончили и тогда он кончил на вас.'
+				 Set picrand = RAND (1,5)
+				 if picrand = 1:'<center><img src="pics2\gosh2.jpg" ></center>'
+				 if picrand = 2:'<center><img src="pics2\gosh11.jpg" ></center>'
+				 if picrand = 3:'<center><img src="pics2\gosh13.jpg" ></center>'
+				 if picrand = 4:'<center><img src="pics2\gosh14.jpg" ></center>'
+				 if picrand = 5:'<center><img src="pics2\gosh15.jpg" ></center>'
+				 act 'Уйти':gt 'dorm','korr'
+				 end 
+				 
+				 if srand = 2:
+				 Set throat= throat + 1
+				 Set sex = sex + 1
+				 Set oral = oral + 1
+				 Set cumlip=cumlip+1
+				 Set cumface = cumface + 2
+				 'Гоша ставит вас на колени и трахает вас в рот, Потом он достает член и кончает вам на лицо.'
+				 Set picrand = RAND (1,5)
+				 if picrand = 1:'<center><img src="pics2\gosh.jpg" ></center>'
+				 if picrand = 2:'<center><img src="pics2\gosh3.jpg" ></center>'
+				 if picrand = 3:'<center><img src="pics2\gosh4.jpg" ></center>'
+				 if picrand = 4:'<center><img src="pics2\gosh5.jpg" ></center>'
+				 if picrand = 5:'<center><img src="pics2\gosh7.jpg" ></center>'
+				 gs'oral','0'
+				 act 'Уйти':gt 'dorm','korr'
+				 end 
+				 
+				 if srand = 3:
+				 Set sex = sex + 1
+				 Set anal = anal + 1
+				 Set cumbutt = cumbutt + 1
+				 orgasm+=1
+				 anus+=1
+				 'Гоша смазывает вам анус и разминает его пальцами, потом он вставляет вам член в попу.'
+				 Set picrand = RAND (1,5)
+				 if picrand = 1:'<center><img src="pics2\gosh6.jpg" ></center>'
+				 if picrand = 2:'<center><img src="pics2\gosh8.jpg" ></center>'
+				 if picrand = 3:'<center><img src="pics2\gosh9.jpg" ></center>'
+				 if picrand = 4:'<center><img src="pics2\gosh10.jpg" ></center>'
+				 if picrand = 5:'<center><img src="pics2\gosh12.jpg" ></center>'
+				 act 'Уйти':gt 'dorm','korr'
+				 end 
+			 end
+			 
+			 act 'Пойти погулять с Гошей':
+			 cla
+			 Set gosh = gosh + 1
+			 minut+=120
+			 gs'stat'
+			 'Вы гуляете с Гошей, он очень интересный собеседник и галантный кавалер.'
+			 act 'Уйти':gt 'dorm','korr'
+			 end
+		 end
+	 end
+end
+
+
+--- dorm ---------------------------------
+
