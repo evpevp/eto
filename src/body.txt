@@ -50,8 +50,8 @@ end
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if hapri = 0:set $hapri = '<B>спутавшиеся</B>'
-if hapri = 1:set $hapri = 'аккуратно уложенные'
+if hapri = 0:set $hapri = '<font color=red><B>спутавшиеся</B></font>'
+if hapri = 1:set $hapri = '<font color=green>аккуратно уложенные</font>'
 if hcol = 0 and curly <= 0:set $hair = 'У вас <<$hapri>> прямые, черные волосы.'
 if hcol = 1 and curly <= 0:set $hair = 'У вас <<$hapri>> прямые, русые волосы.'
 if hcol = 2 and curly <= 0:set $hair = 'У вас <<$hapri>> прямые, рыжие волосы.'
@@ -102,7 +102,7 @@ if glacol = 2:set $glacol = 'зеленые'
 if glacol = 3:set $glacol = 'голубые'
 if resnic > 2:set resnic = 2
 if resnic = 0:set $resnic = 'с короткими ресницами'
-if resnic = 1:set $resnic = 'с нормальной длинны ресницами'
+if resnic = 1:set $resnic = 'с нормальной длины ресницами'
 if resnic = 2:set $resnic = 'с длинными ресницами'
 if glaraz > 3:set glaraz = 3
 if glaraz = 0:set $glaza = 'У вас маленькие <<$glacol>> глаза, <<$resnic>>.'
@@ -110,7 +110,7 @@ if glaraz = 1:set $glaza = 'У вас среднего размера <<$glacol>
 if glaraz = 2:set $glaza = 'У вас большие <<$glacol>> глаза, <<$resnic>>.'
 if glaraz = 3:set $glaza = 'У вас огромные <<$glacol>> глаза, <<$resnic>>.'
 
-if mop = 0:set $mop = '<B><font color=red>У вас потек макияж.</font></B>'
+if mop = 0:set $mop = '<B><font color=red>У вас потек макияж</font></B>'
 if mop = 1:set $mop = 'У вас нет макияжа'
 if mop = 2:set $mop = 'У вас легкий макияж'
 if mop = 3:set $mop = 'У вас нормальный макияж'

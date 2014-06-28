@@ -17,7 +17,7 @@ if pfilm=5:pfcash=7000&$filmtext=' в котором вы снималились
 if pfilm=6:pfcash=9000&$filmtext=' в котором вы снималились как вас долбят во все дыры двое мужиков и даже с двойным проникновением.'
 
 
-$pfilmhistory+=' '+'Ваш '+film+'й порнофильм'+' был снят '+day+''+$mons+$filmtext
+$pfilmhistory+=' '+'Ваш '+film+'-й порнофильм'+' был снят '+day+' '+$mons+$filmtext
 if pfilmNOPAY=0:
 money+=pfcash
 'Петр отсчитал вам <<pfcash>> рублей за съемку в фильме и пожелал удачи'

@@ -109,7 +109,7 @@ if begsec > 0 and razdtumbler = 1 and sport > 0 and beg>=20 and week=6: act '<B>
      end
      
      if razdtumbler = 1 and sport > 0:
-         act 'Идти в спорт зал':
+         act 'Идти в спортзал':
 		 cla
 		 gt'fit','raz'
 		 end
@@ -161,7 +161,7 @@ set sportzalrand=rand(0,20)
      act 'Уйти':gt'fit','razd'
      end
      
-     act 'Тренажорка (на силу)':
+     act 'Тренажеры (на силу)':
      cla
      *clr
      set minut = minut + 120
@@ -178,7 +178,7 @@ set sportzalrand=rand(0,20)
      act 'Уйти':gt'fit','razd'
      end
      
-     act 'Тренажорка (на выносливость)':
+     act 'Тренажеры (на выносливость)':
      cla
      *clr
      set minut = minut + 120

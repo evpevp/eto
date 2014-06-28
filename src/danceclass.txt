@@ -27,7 +27,7 @@ set razdtumbler = 0
      act 'Уйти':gt'fit','razd'
      end
 
-     act 'Стритиз':
+     act 'Стриптиз':
      cla
      *clr
      set minut = minut + 120

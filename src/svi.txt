@@ -141,7 +141,7 @@ set minut = minut + 20
 	     gt'street'
 	     end
 	     
-	     act 'Согласится на секс':
+	     act 'Cогласиться на секс':
 	     cla
 	     *clr
 	     set minut = minut + 20
@@ -312,7 +312,7 @@ set minut = minut + 20
 	     gt'street'
 	     end
 	     
-	     act 'Согласится на секс':
+	     act 'Cогласиться на секс':
 	     cla
 	     *clr
 	     set minut = minut + 20
@@ -495,7 +495,7 @@ set minut = minut + 20
 	     gt'street'
 	     end
 	     
-	     act 'Согласится на секс':
+	     act 'Cогласиться на секс':
 	     cla
 	     *clr
 	     set minut = minut + 20

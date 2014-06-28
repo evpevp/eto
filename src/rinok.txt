@@ -162,7 +162,7 @@ act 'ВЫЙТИ':
 	 cla
 	 set minut = minut + 5
 	 gt'street'
-	 end
+end
 if workrin=1:
 	 if week=2 or week=4 or week=6:
 		 if hour<9:

@@ -18,7 +18,7 @@ set stimer = 24 - timer
      end
      
      if son < 10:
-		 act 'Раздется и лечь спать':gt'bed2'
+		 act 'Раздеться и лечь спать':gt'bed2'
      end
      
      if dildo > 0 and horny >= 50 and sex > 0:

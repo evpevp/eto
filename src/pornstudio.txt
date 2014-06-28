@@ -14,7 +14,7 @@ act 'Уйти':gt'down'
 	 'Кабинет менеджера открыт.'
      
 	 act 'Зайти к менеджеру':gt'pornstudio','man'
-     act 'Зайти к помошнику менеджера':gt'pornstudio','pomman'
+     act 'Зайти к помощнику менеджера':gt'pornstudio','pomman'
      
      if bomzQW=1 and week=4 and workDisk=0:act 'Зайти на счет работы':dynamic $workbomzdi
      
@@ -219,10 +219,10 @@ if film=0 and firstkasting=0:
      set minut = minut + 5
      gs'stat'
      'Вы подтвердили свое желание снятся в порнофильме. Босс кивнул. Хорошо. Для начала надо провести кастинг.'
-     'Раздентесь, я осмотрю ваше тело.'
+     'Разденьтесь, я осмотрю ваше тело.'
      act 'Я передумала':gt'pornstudio','start'
      
-         act 'Раздется':
+         act 'Раздеться':
          cla
          minut+=5
          gs'stat'
@@ -271,7 +271,7 @@ if film=0 and firstkasting=0:
      end
 elseif film=0 and firstkasting=1 and pfilm=0:
 'Так, ты девушка новая, а у нас как раз есть заказ на новенькую девушка. В жанре хандджоб. Ты должна будешь подрочить парню, а он кончит тебе на груди. Все это за 3 тысячи.'
-     act 'Согласится':
+     act 'Cогласиться':
      cla
      pfilm=1
      pfilmday=daystart
@@ -298,7 +298,7 @@ elseif film>0:
          gt'pornstudio','start'
          end
          
-         act 'Согласится':
+         act 'Cогласиться':
 		 cla
 		 pfilm=frand
 		 pfilmday=daystart

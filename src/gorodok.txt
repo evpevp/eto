@@ -26,7 +26,7 @@ if gorodokwhore >=6 and gorodokwhore <10 and gorodokwhorerand =>4:'Люди см
 if gorodokwhore >=10 and gorodokwhorerand =>4:'Все окружающие узнают в вас шлюху. Некоторые, проходя мимо, шлёпают вас по попе. Бабушки на лавочках обзывают вас блядью.'
 set gorodokstreetsexrand = rand (1,20)
 if gorodokwhore > 5 and gorodokstreetsexrand = 20:
-'К вам подошёл парень и предложил отойти в кусты перепихнуться за сотку'
+'К вам подошёл парень и предложил отойти в кусты перепихнуться за сотку.'
 act 'Согласиться':gt 'gevent','5'
 end
 
@@ -39,15 +39,11 @@ set cardrive = 20
 end
 
 if StoryLine=1 and ParHomeBlock=0:'В одном из домов находится <a href="exec:minut+=15&GT ''korrPar''">квартира</a> ваших родителей.'
-'<a href="exec:minut+=15&GT ''vokzalG''">Вокзал</a>.'
-'<a href="exec:minut+=15&GT ''gpoli''">Поликлиника</a>.'
+'<a href="exec:minut+=15&GT ''vokzalG''">Вокзал</a>. <a href="exec:minut+=15&GT ''gpoli''">Поликлиника</a>. Районный <a href="exec:GT ''gdk''">Дом культуры. </a>Автомобильная <a href="exec:GT ''zaprF'',''start''">заправка. </a>Небольшой городской <a href="exec:GT ''gskver'',''park''">сквер</a>, в котором отдыхают люди'
 if hour>=8 and hour<=22:'В киоске продают <a href="exec:dynamic $kiosksig">сигареты.</a>'
-'Автомобильная <a href="exec:GT ''zaprF'',''start''">заправка.</a>'
-'Районный <a href="exec:GT ''gdk''">дом культуры.</a>'
 if SchoolBlock=0:'Местная <a href="exec:GT ''gschool''">школа</a>'
 if hour>=7 and hour<=18:'<a href="exec:GT ''etoexhib'',''pos20''">Профессиональный лицей.</a>'
 if hour >= 8 and hour <= 20:'Единственный крупный магазин в городишке <a href="exec:GT ''shop'',''start''">супермаркет</a>'
-'Небольшой городской <a href="exec:GT ''gskver'',''park''">сквер</a>, в котором отдыхают люди'
 
      act 'Ждать':
      cla

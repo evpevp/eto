@@ -26,7 +26,7 @@ if vnpr>=0:
 				 end
 				 if torgklirand=1:
 				 'Клиент усмехается и предлагает вам <<KlientMON*100>> рублей за работу.'
-					 act 'Согласится':
+					 act 'Cогласиться':
 					 cla
 					 clientPRyes=1
 					 ProsMoney=KlientMON

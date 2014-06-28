@@ -1,5 +1,5 @@
 # bedr
-ACT 'В корридор':
+ACT 'В коридор':
 	!if nude = 0:
 	gt'korr'
 	!end

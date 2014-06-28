@@ -760,7 +760,7 @@ if health < (vital*10 + stren*5)*50/100 and health >= (vital*10 + stren*5)*25/10
 if health < (vital*10 + stren*5)*25/100:set $health = '<font color=red>Вы на пороге смерти.'
 
 if willpower < intel*5 + will*5 and willpower >= (intel*5 + will*5)*75/100:set $willpower = '<font color=blue>Вы большей частью пребываете в задумчивости.</font>'
-if willpower < (intel*5 + will*5)*75/100 and willpower >= (intel*5 + will*5)*50/100:set $willpower = '<font color=brown>Вы подавленны.</font>'
+if willpower < (intel*5 + will*5)*75/100 and willpower >= (intel*5 + will*5)*50/100:set $willpower = '<font color=brown>Вы подавлены.</font>'
 if willpower < (intel*5 + will*5)*50/100 and willpower >= (intel*5 + will*5)*25/100:set $willpower = '<font color=red>Вы в депресии.</font>'
 if willpower < (intel*5 + will*5)*25/100:set $willpower = '<font color=red>Вы на грани сумашествия.</font>'
 
@@ -809,10 +809,10 @@ $din_shame={
 
 set $holyday = ''
 kanikuli=0
-if (month = 10 and day >= 27) or (month = 11 and day <= 4): set $holyday = '<b>Осенние каникулы.</b>'&kanikuli=1
-if (month = 12 and day >= 29) or (month = 1 and day <= 13): set $holyday = '<b>Зимние каникулы.</b>'&kanikuli=2
-if (month = 3 and day >= 25): set $holyday = '<b>Весенние каникулы.</b>'&kanikuli=3
-if (month = 5 and day >= 25) or month = 6 or month = 7 or month = 8:set $holyday = '<b>Летние каникулы.</b>'&kanikuli=4
+if (month = 10 and day >= 27) or (month = 11 and day <= 4): set $holyday = '<b>осенние каникулы.</b>'&kanikuli=1
+if (month = 12 and day >= 29) or (month = 1 and day <= 13): set $holyday = '<b>зимние каникулы.</b>'&kanikuli=2
+if (month = 3 and day >= 25): set $holyday = '<b>весенние каникулы.</b>'&kanikuli=3
+if (month = 5 and day >= 25) or month = 6 or month = 7 or month = 8:set $holyday = '<b>летние каникулы.</b>'&kanikuli=4
 if month = 1 and day = 1: set $holyday = '<b>Новый год!</b>'&kanikuli=5
 
 
@@ -822,6 +822,53 @@ schoolprogul+=1
 schoolProgulDay=day
 end
 
+$attention_txt = ''
+if isprok = 0 and mesec > 0 and preg = 0: $attention_txt += '<B><font color=red> У вас течет кровь между ног, срочно нужна прокладка.</font></B>'
+if isprok = 1 and mesec > 0 and preg = 0:$attention_txt += ' У вас месячные, но прокладка вас защищает.'
+if cumbelly > 0 and swallow<10:$attention_txt += '<B><font color=red> Ваш <a href="exec:view''picb/cumbelly.jpg''">живот</a> перемазан в сперме.</font></B>'
+if cumbelly > 0 and swallow>=10:$attention_txt += '<a href="exec:view''picb/cumbelly.jpg''"><B><font color=red> Ваш живот</font></B></a> <a href="exec:dynamic $cumeater"><B><font color=red>перемазан в сперме.</font></B></a>'
+
+if cumpussy > 0 and swallow<10:$attention_txt += '<B><font color=red> Из вашей <a href="exec:view''picb/cumpussy.jpg''">киски</a> медленно вытекает сперма.</font></B>'
+if cumpussy > 0 and swallow>=10:$attention_txt += '<a href="exec:view''picb/cumpussy.jpg''"><B><font color=red> Из вашей киски</font></B></a> <a href="exec:dynamic $cumeater2"><B><font color=red>медленно вытекает сперма.</font></B></a>'
+
+if cumass > 0 and swallow<10:$attention_txt += '<B><font color=red> Ваша <a href="exec:view''picb/cumass.jpg''">попа</a> перемазанна в сперме.</font></B>'
+if cumass > 0 and swallow>=10:$attention_txt += '<a href="exec:view''picb/cumass.jpg''"><B><font color=red> Ваша попа</font></B></a> <a href="exec:dynamic $cumeater3"><B><font color=red>перемазанна в сперме.</font></B></a>'
+
+if cumlip > 0:$attention_txt += '<B><font color=red> Из вашего рта пахнет спермой.</font></B>'
+if cumface > 0 and swallow<10:$attention_txt += '<B><font color=red> Ваше <a href="exec:view''picb/cumface.jpg''">лицо</a> и волосы измазанны в сперме.</font></B>'
+if cumface > 0 and swallow>=10:$attention_txt += '<a href="exec:view''picb/cumface.jpg''"><B><font color=red>Ваше лицо</font></B></a> <a href="exec:dynamic $cumeater4"><B><font color=red>и волосы измазанны в сперме.</font></B></a>'
+if cumfrot > 0 and swallow<10:$attention_txt += '<B><font color=red> У вас на <a href="exec:view''picb/cumfrot.jpg''">одежде</a> пятно спермы.</font></B>'
+if cumfrot > 0 and swallow>=10:$attention_txt += '<a href="exec:view''picb/cumfrot.jpg''"><B><font color=red> У вас на одежде</font></B></a> <a href="exec:dynamic $cumeater5"><B><font color=red>пятно спермы.</font></B></a>'
+if cumanus > 0 and swallow<10:$attention_txt += '<B><font color=red> Из вашей <a href="exec:view''picb/cumanal.jpg''">попки</a> медленно вытекает сперма.</font></B>'
+if cumanus > 0 and swallow>=10:$attention_txt += '<a href="exec:view''picb/cumanal.jpg''"><B><font color=red> Из вашей попки</font></B></a> <a href="exec:dynamic $cumeater6"><B><font color=red>медленно вытекает сперма.</font></B></a>'
+if vgape=3:$attention_txt += '<B><font color=red> У вас сильно болит влагалище, вы даже с трудом ходите, при этом стараясь по шире расставить ноги.</font></B>'
+if vgape=2:$attention_txt += '<B><font color=red> У вас болит влагалище и вы с трудом можете свести ноги вместе.</font></B>'
+if vgape=1:$attention_txt += '<B><font color=red> У вас немного болит влагалище.</font></B>'
+if agape=3:$attention_txt += '<B><font color=red> У вас сильно болит анус и из него идет кровь.</font></B>'
+if agape=2:$attention_txt += '<B><font color=red> У вас болит анус.</font></B>'
+if agape=1:$attention_txt += '<B><font color=red> У вас немного болит и чешется анус.</font></B>'
+
+if Gerpes >= 3:$attention_txt += '<B><font color=red> На ваших губах язвочки. Все признаки генитального герпеса.</font></B>'
+if Gerpes < 10 and Gerpes >= 5:$attention_txt += '<B><font color=red> Ваша киска покраснела и сильно зудит. Это генитальный герпес.</font></B>'
+if Gerpes >= 10:$attention_txt += '<B><font color=red> На вашей киске появились язвочки. Это генитальный герпес.</font></B>'
+if Gerpes >= 20:$attention_txt += '<B><font color=red> Вашу попку покрывают язвочки генитального герпеса.</font></B>'
+if Sifilis>=21 and Sifilis<50:$attention_txt += '<B><font color=red> У вас вскочила большая, твердая болячка на губе.</font></B>'
+if Sifilis>=50:$attention_txt += '<B><font color=red> Сифилитическая сыпь покрывает все ваше тело.</font></B>'
+if Triper>2:$attention_txt += '<B><font color=red> Из влагалища выходят белые выделения и сильная резь при мочеиспускании. Так же из влагалища сильно и противно пахнет.</font></B>'
+if Kandidoz>30:$attention_txt += '<B><font color=red> У вас молочница.</font></B>'
+if SLomka>0:$attention_txt += '<B><font color=red> Вам очень плохо и болят все кости. У вас ломка</font></B>'
+if narkday ! day and narkoman = 1:$attention_txt += '<B><font color=red> Вам очень плохо и болят все кости. Срочно нужна бледная леди!</font></B>'
+if fingal>0:$attention_txt += '<B><font color=red> У вас фингал на лице.</font></B>'
+if tanga = 0 and ski = 1 or tanga = 0 and glamur = 1:
+$attention_txt += '<B><font color=red> Румянец стыда заливает ваше лицо, вы не одели трусики и теперь из под вашей короткой юбки иногда сверкает голая задница.</font></B>'
+end
+if tanga = 0 and ski = 0 and glamur = 0 and opPRE = 0 and nude = 0:
+$attention_txt += '<B><font color=red> Вы не одели трусики.</font></B>'
+end
+if mosol>=30 and mosol<50:$attention_txt += '<B><font color=red> Пися покраснела и зудит, кажется вы ее натерли об одежду.</font></B>'
+if mosol>=50:$attention_txt += '<B><font color=red> Пися болит и каждый шаг дается через боль, она пунцовая и видны потертости от хождения без нижнего белья.</font></B>'
+if analplugIN = 1:$attention_txt += '<B><font color=red> У вас в попу вставлена анальная пробка.</font></B>'
+if vibratorin=1:$attention_txt += '<B><font color=red> У вас во влагалище  работает вибратор.</font></B>'
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!НАЧАЛО ОПИСАНИЯ
@@ -829,67 +876,24 @@ end
 !pl'Время <B><<hour>></B> часов <B><<$nilmin>><<minut>></B> минут'
 !pl 'Сейчас <<day>> <<$month>> <<year>>года, <<$week>>.' 
 if hour < 10 :
-     if minut > 9 : pl' <B> 0<<hour>> : <<minut>> </B> <<$week>> : <<day>> <<$mons>> <<year>> года, '
-     if minut < 10 : pl' <B> 0<<hour>> : 0<<minut>> </B> <<$week>> : <<day>> <<$mons>> <<year>> года, '
+     if minut > 9 : p' <B> 0<<hour>> : <<minut>> </B> <<$week>> : <<day>> <<$mons>> <<year>> года, '
+     if minut < 10 : p' <B> 0<<hour>> : 0<<minut>> </B> <<$week>> : <<day>> <<$mons>> <<year>> года, '
 end
 if hour > 9 :
-     if minut > 9 : pl' <B> <<hour>> : <<minut>> </B> <<$week>> : <<day>> <<$mons>> <<year>> года, '
-     if minut < 10 : pl' <B> <<hour>> : 0<<minut>> </B> <<$week>> : <<day>> <<$mons>> <<year>> года, '
+     if minut > 9 : p' <B> <<hour>> : <<minut>> </B> <<$week>> : <<day>> <<$mons>> <<year>> года, '
+     if minut < 10 : p' <B> <<hour>> : 0<<minut>> </B> <<$week>> : <<day>> <<$mons>> <<year>> года, '
 end
 
-pl'  <b><<money>></b> рублей в кошельке'
-if StoryLine>0 and SchoolAtestat=0:pl'<<$holyday>>'
-if birthday=day and birthmonth=month:pl'<b>Сегодня ваше день рождение.</b>'
+if StoryLine>0 and SchoolAtestat=0 and $holyday ! '':p'<<$holyday>> '
+p'<b><<money>></b> рублей в кошельке. '
+
+gs'din_bad'
+if bag>0:
+p'<a href="exec:dynamic $d_bag"><B>Сумочка</B></a>'
+end
+if birthday=day and birthmonth=month:nl'<b>Сегодня ваш день рождения.</b>'
 !if shame>0:pl'<<$shame>>'
-pl'<B><<$manna>></B>'
-if horny >= 90:pl'<font color=#FF1493>Вы чувствуете, что между ног все промокло от ваших соков.</font>'
-if horny >= 50 and horny < 90:pl'<font color=#DB7093>Вы немного возбужденны, ощущение как будто между ног что то приятно зудит.</font>'
-if ETOmenu=1:
-pl'<B><<$health>></B>'
-pl'<B><<$willpower>></B>'
-pl'<B><<$energy>></B>'
-pl'<B><<$water>></B>'
-pl'<B><<$son>></B>'
-end
-if ETOmenu=0:
-set a = horny
-!set a1=horny
-gs 'indik','2'
-pl '<<$ind>> возбуждение'
-
-healthmax=(vital*10 + stren*5)
-set a = ( health*100 /healthmax )
-set a1 = health
-gs 'indik','1'
-pl '<<$ind>> здоровье '
-
-willpowermax =(intel*5 + will*5)
-set a = ( willpower*100 / willpowermax )
-set a1 = willpower
-gs 'indik','1'
-pl '<<$ind>> чистота разума'
-
-set a = ( manna *100 / mannamax )
-set a1 = manna
-gs 'indik','1'
-pl '<<$ind>> мана '
-
-set a = energy*4
-set a1=energy
-gs 'indik','1'
-pl '<<$ind>> сытость'
-
-set a = water*5
-set a1=water
-gs 'indik','1'
-pl '<<$ind>> жажда '
-
-set a = son*4
-set a1=son
-gs 'indik','1'
-pl '<<$ind>> бодрость '
-end
-
+nl'<B><<$manna>></B> '
 $smoker={
 siga-=1
 smoker+=1
@@ -902,36 +906,37 @@ wipo+=100
 if energy<20:energy+=3
 gs'stat'
 }
-if $mud!'':pl'<font color=green><b><<$mud>></b></font>'
-if siga<=0 and smoker>=20:pl'<font color=red><b>У вас кончились сигареты.</b></font>'
+if $mud!'':p'<font color=green><b><<$mud>></b></font>'
+if siga<=0 and smoker>=20:p'<font color=red><b>У вас кончились сигареты.</b></font>'
 if smokeNeed>0 and siga>0 and smoker>=20:
-pl'<a href="exec:dynamic $smoker"><font color=red><b>Вам хочется курить. У вас есть еще <<siga>> сигарет</b></font></a>'
+p'<a href="exec:dynamic $smoker"><font color=red><b>Вам хочется курить. У вас есть еще <<siga>> сигарет</b></font></a>'
 elseif siga>0 and smoker>=20:
-pl'<a href="exec:dynamic $smoker"><font color=blue><b>У вас есть еще <<siga>> сигарет</b></font></a>'
+p'<a href="exec:dynamic $smoker"><font color=blue><b>У вас есть еще <<siga>> сигарет</b></font></a>'
 end
 if siga>0 and smoker<20:
      if smokeHour=hour and smokeday=day and smokeminut>=minut:
      else
-     pl'<a href="exec:dynamic $smoker"><font color=blue><b>У вас есть еще <<siga>> сигарет</b></font></a>'
+     p'<a href="exec:dynamic $smoker"><font color=blue><b>У вас есть еще <<siga>> сигарет</b></font></a>'
      end
 end
-if smokeHour=hour and smokeday=day and smokeminut>=minut:pl'<font color=green>Вы курите сигарету</font>'
-
-if opPRE = 0:pl'<<$mop>> и <<$hapri>> волосы.'
+if smokeHour=hour and smokeday=day and smokeminut>=minut:p'<font color=green>Вы курите сигарету</font>'
+if horny >= 90:nl'<font color=#FF1493>Вы чувствуете, что между ног все промокло от ваших соков. </font>'
+if horny >= 50 and horny < 90:nl'<font color=#DB7093>Вы немного возбуждены, ощущение как будто между ног что то приятно зудит. </font>'
+if opPRE = 0:nl'<<$mop>> и <<$hapri>> волосы.'
 !!!!!!!!!!!!!!!!!!!
-if sweat = 1:pl'<font color=brown>Вы вспотели.</font>'
-if sweat = 2:pl'<font color=red>От вас немного пахнет.</font>'
-if sweat = 3:pl'<font color=red>От вас разит потом.</font>'
-if sweat > 3:pl'<B><font color=red>От вас разит как от бомжихи.</font></B>'
-if isprok = 0 and mesec > 0 and preg = 0:pl'<B><font color=red>У вас течет кровь между ног, срочно нужна прокладка.</font></B>'
-if isprok = 1 and mesec > 0 and preg = 0:pl'У вас месячные, но прокладка вас защищает.'
-if preg = 1 and pregtime = 280:pl'<B><font color=red>У ВАС НАЧАЛИСЬ СХВАТКИ ВАМ СРОЧНО НАДО В РОДДОМ</font></B>'
-if preg = 1:Set rodtime = 280 - pregtime
-if preg = 1 and pregtime < 280 and pregtime > 6:pl'<B><font color=blue>Вы беременны <<pregtime>> дней, до родов осталось <<rodtime>> дней</font></B>'
-if hour >= 11 and hour < 12 and week > 1 and week < 5 and workKafe = 1:pl'<B><font color=red>ВЫ МОЖЕТЕ ВЫЙТИ НА РАБОЧУЮ СМЕНУ ОФИЦИАНТКОЙ В КАФЕ</font></B>'
-if hour >= 8 and hour < 9 and week < 5 and workSec >= 1:pl'<B><font color=red>ВАМ НУЖНО НА РАБОТУ СЕКРЕТАРЕМ</font></B>'
-if PersSecWork=1 and week<6 and hour<10 and hour>=5:pl'<B><font color=red>ВАМ НУЖНО НА РАБОТУ СЕКРЕТАРШЕЙ В БЫСТРОЕЖКУ, НЕ ПОЗДНЕЕ 9ти ЧАСОВ</font></B>'
+if sweat = 1:p'<font color=brown> Вы вспотели.</font>'
+if sweat = 2:p'<font color=red> От вас немного пахнет.</font>'
+if sweat = 3:p'<font color=red> От вас разит потом.</font>'
+if sweat > 3:p'<B><font color=red> От вас разит как от бомжихи.</font></B>'
 
+if preg = 1 and pregtime = 280:nl'<B><font color=red>У ВАС НАЧАЛИСЬ СХВАТКИ ВАМ СРОЧНО НАДО В РОДДОМ</font></B>'
+if preg = 1:Set rodtime = 280 - pregtime
+if preg = 1 and pregtime < 280 and pregtime > 6:nl'<B><font color=blue>Вы беременны <<pregtime>> дней, до родов осталось <<rodtime>> дней</font></B>'
+if hour >= 11 and hour < 12 and week > 1 and week < 5 and workKafe = 1:nl'<B><font color=red>ВЫ МОЖЕТЕ ВЫЙТИ НА РАБОЧУЮ СМЕНУ ОФИЦИАНТКОЙ В КАФЕ</font></B>'
+if hour >= 8 and hour < 9 and week < 5 and workSec >= 1:nl'<B><font color=red>ВАМ НУЖНО НА РАБОТУ СЕКРЕТАРЕМ</font></B>'
+if PersSecWork=1 and week<6 and hour<10 and hour>=5:nl'<B><font color=red>ВАМ НУЖНО НА РАБОТУ СЕКРЕТАРШЕЙ В БЫСТРОЕЖКУ, НЕ ПОЗДНЕЕ 9ти ЧАСОВ</font></B>'
+
+if $attention_txt ! '': nl $attention_txt
 
 $cumeater={
 cumlip+=1
@@ -981,85 +986,86 @@ gs'stat'
 !'<a href="exec:view''picb/cumass.jpg''"><B><font color=red>Ваша попа</font></B></a>'
 
 
-if cumbelly > 0 and swallow<10:pl'<B><font color=red>Ваш <a href="exec:view''picb/cumbelly.jpg''">живот</a> перемазан в сперме.</font></B>'
-if cumbelly > 0 and swallow>=10:pl'<a href="exec:view''picb/cumbelly.jpg''"><B><font color=red>Ваш живот</font></B></a> <a href="exec:dynamic $cumeater"><B><font color=red>перемазан в сперме.</font></B></a>'
 
-if cumpussy > 0 and swallow<10:pl'<B><font color=red>Из вашей <a href="exec:view''picb/cumpussy.jpg''">киски</a> медленно вытекает сперма.</font></B>'
-if cumpussy > 0 and swallow>=10:pl'<a href="exec:view''picb/cumpussy.jpg''"><B><font color=red>Из вашей киски</font></B></a> <a href="exec:dynamic $cumeater2"><B><font color=red>медленно вытекает сперма.</font></B></a>'
-
-if cumass > 0 and swallow<10:pl'<B><font color=red>Ваша <a href="exec:view''picb/cumass.jpg''">попа</a> перемазанна в сперме.</font></B>'
-if cumass > 0 and swallow>=10:pl'<a href="exec:view''picb/cumass.jpg''"><B><font color=red>Ваша попа</font></B></a> <a href="exec:dynamic $cumeater3"><B><font color=red>перемазанна в сперме.</font></B></a>'
-
-if cumlip > 0:pl'<B><font color=red>Из вашего рта пахнет спермой.</font></B>'
-if cumface > 0 and swallow<10:pl'<B><font color=red>Ваше <a href="exec:view''picb/cumface.jpg''">лицо</a> и волосы измазанны в сперме.</font></B>'
-if cumface > 0 and swallow>=10:pl'<a href="exec:view''picb/cumface.jpg''"><B><font color=red>Ваше лицо</font></B></a> <a href="exec:dynamic $cumeater4"><B><font color=red>и волосы измазанны в сперме.</font></B></a>'
-if cumfrot > 0 and swallow<10:pl'<B><font color=red>У вас на <a href="exec:view''picb/cumfrot.jpg''">одежде</a> пятно спермы.</font></B>'
-if cumfrot > 0 and swallow>=10:pl'<a href="exec:view''picb/cumfrot.jpg''"><B><font color=red>У вас на одежде</font></B></a> <a href="exec:dynamic $cumeater5"><B><font color=red>пятно спермы.</font></B></a>'
-if cumanus > 0 and swallow<10:pl'<B><font color=red>Из вашей <a href="exec:view''picb/cumanal.jpg''">попки</a> медленно вытекает сперма.</font></B>'
-if cumanus > 0 and swallow>=10:pl'<a href="exec:view''picb/cumanal.jpg''"><B><font color=red>Из вашей попки</font></B></a> <a href="exec:dynamic $cumeater6"><B><font color=red>медленно вытекает сперма.</font></B></a>'
-if vgape=3:pl'<B><font color=red>У вас сильно болит влагалище, вы даже с трудом ходите, при этом стараясь по шире расставить ноги.</font></B>'
-if vgape=2:pl'<B><font color=red>У вас болит влагалище и вы с трудом можете свести ноги вместе.</font></B>'
-if vgape=1:pl'<B><font color=red>У вас немного болит влагалище.</font></B>'
-if agape=3:pl'<B><font color=red>У вас сильно болит анус и из него идет кровь.</font></B>'
-if agape=2:pl'<B><font color=red>У вас болит анус.</font></B>'
-if agape=1:pl'<B><font color=red>У вас немного болит и чешется анус.</font></B>'
-
-if Gerpes >= 3:pl'<B><font color=red>На ваших губах язвочки. Все признаки генитального герпеса.</font></B>'
-if Gerpes < 10 and Gerpes >= 5:pl'<B><font color=red>Ваша киска покраснела и сильно зудит. Это генитальный герпес.</font></B>'
-if Gerpes >= 10:pl'<B><font color=red>На вашей киске появились язвочки. Это генитальный герпес.</font></B>'
-if Gerpes >= 20:pl'<B><font color=red>Вашу жопу покрывают язвочки генитального герпеса.</font></B>'
-if Sifilis>=21 and Sifilis<50:pl'<B><font color=red>У вас вскочила большая, твердая болячка на губе.</font></B>'
-if Sifilis>=50:pl'<B><font color=red>Сифилитическая сыпь покрывает все ваше тело.</font></B>'
-if Triper>2:pl'<B><font color=red>Из влагалища выходят белые выделения и сильная резь при мочеиспускании. Так же из влагалища сильно и противно пахнет.</font></B>'
-if Kandidoz>30:pl'<B><font color=red>У вас молочница.</font></B>'
-if SLomka>0:pl'<B><font color=red>Вам очень плохо и болят все кости. У вас ломка</font></B>'
-if narkday ! day and narkoman = 1:pl'<B><font color=red>Вам очень плохо и болят все кости. Срочно нужна бледная леди!</font></B>'
-if fingal>0:pl'<B><font color=red>У вас фингал на лице.</font></B>'
-if tanga = 0 and ski = 1 or tanga = 0 and glamur = 1:
-pl'<B><font color=red>Румянец стыда заливает ваше лицо, вы не одели трусики и теперь из под вашей короткой юбки иногда сверкает голая задница.</font></B>'
-end
-if tanga = 0 and ski = 0 and glamur = 0 and opPRE = 0 and nude = 0:
-pl'<B><font color=red>Вы не одели трусики.</font></B>'
-end
-if mosol>=30 and mosol<50:pl'<B><font color=red>Пися покраснела и зудит, кажется вы ее натерли об одежду.</font></B>'
-if mosol>=50:pl'<B><font color=red>Пися болит и каждый шаг дается через боль, она пунцовая и видны потертости от хождения без нижнего белья.</font></B>'
-if analplugIN = 1:pl'<B><font color=red>У вас в попу вставлена анальная пробка.</font></B>'
-if vibratorin=1:pl'<B><font color=red>У вас во влагалище  работает вибратор.</font></B>'
-if young_shop_work = 1 and hour=14 and week<6:pl'<B><font color=red>В 15 часов вам надо быть на работе в магазине Кис Киска.</font></B>'
-if young_shop_work = 1 and hour=16 and week<6 and inWorkYoungShop=0:young_shop_miss+=1&pl'<B><font color=red>Вы прогуляли работу.</font></B>'
+if young_shop_work = 1 and hour=14 and week<6:nl'<B><font color=red>В 15 часов вам надо быть на работе в магазине Кис Киска.</font></B>'
+if young_shop_work = 1 and hour=16 and week<6 and inWorkYoungShop=0:young_shop_miss+=1&nl'<B><font color=red>Вы прогуляли работу.</font></B>'
 if workrin=1:
 	 if week=2 or week=4 or week=6:
-		 if hour=7:pl'<B><font color=red>В 8м часов вам на работу на рынок.</font></B>'
-		 if hour=8:pl'<B><font color=red>Вам надо на работу на рынок.</font></B>'
+		 if hour=7:nl'<B><font color=red>В 8м часов вам на работу на рынок.</font></B>'
+		 if hour=8:nl'<B><font color=red>Вам надо на работу на рынок.</font></B>'
 	 end
  end
-if frost>0 and frost<=5:pl'<B><font>Вам немного холодно.</font></B>'
-if frost>5 and frost<11:pl'<B><font color=red>Вы замерзли.</font></B>'  
-if frost>=11:pl'<B><font color=red>Вы очень замерзли.</font></B>'
-if sick = 1:pl'<B><font color=red>Вам что то не хорошо, першит в горле и немного течет из носа.</font></B>' 
-if sick > 1 and sick < 24:pl'<B><font color=red>Вас знобит. У вас течет из носа и саднит горло, вы покашливаете и чихаете - похоже, вы простыли.</font></B>'
-if sick >= 24 and sick < 48:pl'<B><font color=red>У вас поднялась температура. У вас забит нос, вам больно глотать - горло побаливает. Вы постоянно кашляете и чихаете - похоже, вы просудились.</font></B>'
-if sick >= 48 and sick < 72:pl'<B><font color=red>У вас сильный жар. У вас заложен нос, болят голова и горло, вы сильно кашляете - похоже, вы сильно простудились. Может быть, это грипп.</font></B>'
-if sick >= 72:pl'<B><font color=red>Вы мечетесь в жару. У вас заложен нос, болит голова и ломит все кости. Ваше горло воспалено и очень болит. Вы тяжело с надрывом кашляете - похоже, вы серьезно больны. Может быть, это ангина.</font></B>'
+if frost>0 and frost<=5:nl'<B><font>Вам немного холодно.</font></B>'
+if frost>5 and frost<11:nl'<B><font color=red>Вы замерзли.</font></B>'  
+if frost>=11:nl'<B><font color=red>Вы очень замерзли.</font></B>'
+if sick = 1:nl'<B><font color=red>Вам что то не хорошо, першит в горле и немного течет из носа.</font></B>' 
+if sick > 1 and sick < 24:nl'<B><font color=red>Вас знобит. У вас течет из носа и саднит горло, вы покашливаете и чихаете - похоже, вы простыли.</font></B>'
+if sick >= 24 and sick < 48:nl'<B><font color=red>У вас поднялась температура. У вас забит нос, вам больно глотать - горло побаливает. Вы постоянно кашляете и чихаете - похоже, вы просудились.</font></B>'
+if sick >= 48 and sick < 72:nl'<B><font color=red>У вас сильный жар. У вас заложен нос, болят голова и горло, вы сильно кашляете - похоже, вы сильно простудились. Может быть, это грипп.</font></B>'
+if sick >= 72:nl'<B><font color=red>Вы мечетесь в жару. У вас заложен нос, болит голова и ломит все кости. Ваше горло воспалено и очень болит. Вы тяжело с надрывом кашляете - похоже, вы серьезно больны. Может быть, это ангина.</font></B>'
 
 
-if hour < meethour and svidanieA = 1:pl'<<$boyA>> будет вас ждать около вашего дома в <<meethour>> часов'
-if hour = meethour and svidanieA = 1:pl'<B><font color=red><<$boyA>> уже ждет вас около дома.</font></B>'
+if hour < meethour and svidanieA = 1:nl'<<$boyA>> будет вас ждать около вашего дома в <<meethour>> часов'
+if hour = meethour and svidanieA = 1:nl'<B><font color=red><<$boyA>> уже ждет вас около дома.</font></B>'
 
 if meetday<daystart and svidanieA = 1:bfA-=10&svidanieA = 0
-if StrongNarkota>20:pl'<B><font color=red>Вы под кайфом.</font></B>'
+if StrongNarkota>20:nl'<B><font color=red>Вы под кайфом.</font></B>'
+
+if ETOmenu=1:
+nl'<B><<$health>></B>'
+nl'<B><<$willpower>></B>'
+nl'<B><<$energy>></B>'
+nl'<B><<$water>></B>'
+nl'<B><<$son>></B>'
+end
+if ETOmenu=0:
+set a = horny
+!set a1=horny
+gs 'indik','2'
+nl '<<$ind>> возбуждение'
+
+healthmax=(vital*10 + stren*5)
+set a = ( health*100 /healthmax )
+set a1 = health
+gs 'indik','1'
+nl '<<$ind>> здоровье '
+
+willpowermax =(intel*5 + will*5)
+set a = ( willpower*100 / willpowermax )
+set a1 = willpower
+gs 'indik','1'
+nl '<<$ind>> чистота разума'
+
+set a = ( manna *100 / mannamax )
+set a1 = manna
+gs 'indik','1'
+nl '<<$ind>> мана '
+
+set a = energy*4
+set a1=energy
+gs 'indik','1'
+nl '<<$ind>> сытость'
+
+set a = water*5
+set a1=water
+gs 'indik','1'
+nl '<<$ind>> жажда '
+
+set a = son*4
+set a1=son
+gs 'indik','1'
+nl '<<$ind>> бодрость '
+nl
+end
+
+
 
 if alko>0:
-     if alko<3:pl'<B><font color=red>Вы немного выпивши.</font></B>'
-     if alko>=3 and alko<6:pl'<B><font color=red>Вы пьяны.</font></B>'
-     if alko>=6:pl'<B><font color=red>Вы в стельку пьяны.</font></B>'
+     if alko<3:nl'<B><font color=red>Вы немного выпивши.</font></B>'
+     if alko>=3 and alko<6:nl'<B><font color=red>Вы пьяны.</font></B>'
+     if alko>=6:nl'<B><font color=red>Вы в стельку пьяны.</font></B>'
 end
 
-gs'din_bad'
-
-if bag>0:
-pl'<a href="exec:dynamic $d_bag"><B>Сумочка</B></a>'
-end
 
 !обнуление проверок на замужество
 set proverka1=0

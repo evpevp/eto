@@ -29,7 +29,7 @@ if picrand=12:'<center><img src="qwest\alexey\bj12.jpg" ></center>'
 if picrand=13:'<center><img src="qwest\alexey\bj13.jpg" ></center>'
 'Вы встали на колени перед ним и обхватив член своими <<$liptalk>> начали сосать. Алексей расслабленно лежал и ловил кайф, наконец он отстранил вас от члена и повлек на кровать.'
 gs'oral','0'
-	 act 'Раздется':
+	 act 'Раздеться':
 	 cls
 	 minut+=10
 	 set $nameV = 'Алексей'

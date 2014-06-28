@@ -106,7 +106,7 @@ if workDiskAtkPlayer=1:
 '<center><img src="sauna\car.jpg" ></center>'
 workDisk=1
 workDiskAtkPlayer=0
-'Вас хватают и забрасывают на заднее сиденье машины. Справа и слева от вас сидят два амбала.  На переднем сидении - менеджер порно студии. 
+'Вас хватают и забрасывают на заднее сиденье машины. Справа и слева от вас сидят два амбала.  На переднем сидении - менеджер порностудии. 
 -Где конверт – спросил он.'
      if konvert=0:
      workDolg=200000
@@ -217,7 +217,7 @@ end
 if katkey = 1: 'Квартира <a href="exec:gt''katspalnya'',''start''">Кати</a>'
 if hour >= 16 and hour < 22 and dimaQW > 0:'Квартира <a href="exec:GT ''dima'',''start''">Димы</a>.'
 if klofQW >= 2:'Квартира <a href="exec:GT ''klofdomhouse'',''start''">Жоры</a>.'
-if hour >= 5 and hour <= 23:'Станция <a href="exec:GT ''metro'',''start''">Метро</a> расположенна в 15 минутах ходьбы.'
+if hour >= 5 and hour <= 23:'Станция <a href="exec:GT ''metro'',''start''">Метро</a> расположена в 15 минутах ходьбы.'
 if hour >= 8 and hour <= 20:'Не далеко от дома находится <a href="exec:GT ''shop'',''start''">Супермаркет</a>'
 if hour >= 8 and hour <= 20:'Бабушки стайками идут к <a href="exec:GT ''poli'',''start''">Поликлиннике</a>'
 if hour >= 6 and hour <= 9 and military = 1 and week = 6:'У поликлиники стоит <a href="exec:set minut+=60 & gt''Military'',''start''">автобус</a>. на военные игры.'
@@ -239,7 +239,7 @@ if lesbiday!day and hour>=8 and lesbiqw=9:'Квартирa <a href="exec:GT ''le
 if lesbiday=day and hour>=8:'Квартира хозяйки, сегодня вы её уже навещали.'
 'Неподалеку от дома где расположена ваша квартира находится <a href="exec:GT ''trashplace''">мусорка</a>'
 if SNarkPriton>0:'Возле одного из подъездов лежат шприцы и на корточках сидят нарики с пустыми глазами, в одной из квартир тут находится <a href="exec:minut+=5&GT ''narkopriton''">наркопритон</a>'
-if IrinaQW >= 1:'Дом в котором расположенна квартира <a href="exec:GT ''IrinaRoom'',''start''">Ирины</a>.'
+if IrinaQW >= 1:'Дом в котором расположена квартира <a href="exec:GT ''IrinaRoom'',''start''">Ирины</a>.'
 if hour >= 8 and hour <= 23 or saunaWorkWhore>0 or workDisk=2:'В 10 минутах ходьбы <a href="exec:minut+=15&GT ''sauna''">"Логово разврата"</a> как говорят бабульки, а так просто <a href="exec:minut+=15&GT ''sauna''">сауна</a>'
 if hour = meethour:
      if svidanieA = 1:'<B>Около подъезда вас ожидает <a href="exec:GT ''meet'',''start''"><<$boyA>></a>.</B>'

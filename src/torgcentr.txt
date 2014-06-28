@@ -10,7 +10,7 @@ if hour >= 8 and hour <= 20:
 '<a href="exec:GT ''zoomagazine'',''start''">Зоомагазин</a>.'
 '<a href="exec:GT ''shopdacha''">Магазин все для дома</a>.'
 '<a href="exec:gt''bouling''">Боулинг</a>, <a href="exec:gt''billiard''">биллиард</a> и <a href="exec:gt''kino''">кинотеатр</a>.'
-'На первом этаже расположился <a href="exec:GT ''shop'',''start''">сетевой супермаркет</a> такойже как в спальном районе.'
+'На первом этаже расположился <a href="exec:GT ''shop'',''start''">сетевой супермаркет</a> такой же как в спальном районе.'
 end
 act 'Уйти':gt'down'
 --- torgcentr ---------------------------------

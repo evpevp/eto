@@ -190,8 +190,6 @@ if spank > 0:pl'Вам напороли задницу <<spank>> раз'
 nl
 if slutty>0 and bordelslutty=0:pl'Продавали свою любовь  <<slutty>> раз.'
 if slutty>0 and bordelslutty>0:pl'Продавали свою любовь  <<slutty>> раз, из них в борделе <<bordelslutty>> раз.'
-if pfilmSTOP = 1:pl'<<$pfilmstory_new>>'
-if film>0:pl'В порно индустрии вас знают под именем <<$pfname>>. Вы снимались в порнухе <<film>> раз. <<$pfilmhistory>>'
 if orgasm > 0:pl'Испытали оргазм <<orgasm>> раз'
 if analorgasm > 0 : pl 'Из них <<analorgasm>> анальных оргазмов'
 if swallow > 0:pl'Спермы проглочено <<swallow>> раз'
@@ -204,6 +202,9 @@ nl
 if girl > 0:pl'У вас было <<girl>> девушек.'
 if lesbian > 0:pl'Вы занимались леcбийским сексом <<lesbian>> раз.'
 if sexfuta>0:pl'Вы <<sexfuta>> раз занимались сексом с членодевкой.'
+nl
+if pfilmSTOP = 1:pl'<<$pfilmstory_new>>'
+if film>0:pl'В порно индустрии вас знают под именем <<$pfname>>. Вы снимались в порнухе <<film>> раз. <<$pfilmhistory>>'
 }
 $din_cheat_hapri={
 if cheatHapri=0:

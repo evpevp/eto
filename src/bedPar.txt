@@ -8,7 +8,7 @@ if nude = 1:'<center><img src="pics\son.jpg" ></center>'
      act 'Завести будильник':gt'budilnik','start'
      
      !if son < 10:
-		 act 'Раздется и лечь спать':
+		 act 'Раздеться и лечь спать':
 		 SAVEGAME 'altavtosave.sav'
 		 cls
 		 '<center><img src="pics\son.jpg" ></center>'
@@ -28,7 +28,7 @@ if nude = 1:'<center><img src="pics\son.jpg" ></center>'
 			 if hour = timer and minut = timerM:
 			 'Звенит будильник'
 			 set manna = manna - 10
-				 act 'Встать с кровати и одется (15 минут)':
+				 act 'Встать с кровати и одеться (15 минут)':
 				 cla
 				 !set numdress=odedosna
 				 set InSleep=0
@@ -41,7 +41,7 @@ if nude = 1:'<center><img src="pics\son.jpg" ></center>'
 			 end
 			 if son > 23 and dosip = 0:
 			 'Вы проснулись от того, что выспались'
-			 	 act 'Встать с кровати и одется (15 минут)':
+			 	 act 'Встать с кровати и одеться (15 минут)':
 				 cla
 				 !set numdress=odedosna
 				 set InSleep=0

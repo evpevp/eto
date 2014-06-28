@@ -28,7 +28,7 @@ if greben>0 and hapri=1:pl'У вас есть расческа.'
 if prezik>0:pl'У вас <<prezik>> презервативов.'
 if tabletki>0:pl'У вас <<tabletki>> противозачаточных таблеток.'
 if bottle>0:pl'У вас есть бутылочка воды. <a href="exec:bottle=0&water = 20&cumlip=0&gs''stat''"><B>Выпить</B></a>'
-if buterbrod>0:pl'У вас есть бутерброт. <a href="exec:buterbrod=0&energy+= 20&cumlip=0&salo+=1&gs''stat''"><B>Съесть</B></a>'
+if buterbrod>0:pl'У вас есть бутерброд. <a href="exec:buterbrod=0&energy+= 20&cumlip=0&salo+=1&gs''stat''"><B>Съесть</B></a>'
 }
 --- din_bad ---------------------------------
 
